@@ -7,9 +7,9 @@
 
 import Foundation
 
-// SEMANA -> DIA -> breakfast -> Food -> ALIMENTOS -> NOMBRE Y TIPO
-//                                     -> BEBIDA
-// Semana es un array de dias q contienen las Foods del dia
+// Week -> Day -> Breakfast -> Meal -> Food -> Name & Type
+//                                  -> Drink
+// week es un array de dias q contienen las Foods del dia
 
 
 var week: [Day] = []
