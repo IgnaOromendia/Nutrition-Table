@@ -16,6 +16,18 @@
 		70044EE72678D0E000226544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70044EE52678D0E000226544 /* LaunchScreen.storyboard */; };
 		70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044EF12678D0E000226544 /* Nutrition_TableTests.swift */; };
 		70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044EFC2678D0E000226544 /* Nutrition_TableUITests.swift */; };
+		70044F0F2678D3BF00226544 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F0E2678D3BF00226544 /* Food.swift */; };
+		70044F102678D3BF00226544 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F0E2678D3BF00226544 /* Food.swift */; };
+		70044F112678D3BF00226544 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F0E2678D3BF00226544 /* Food.swift */; };
+		70044F132678D3FC00226544 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F122678D3FC00226544 /* Day.swift */; };
+		70044F142678D3FC00226544 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F122678D3FC00226544 /* Day.swift */; };
+		70044F152678D3FC00226544 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F122678D3FC00226544 /* Day.swift */; };
+		70044F1B2678D48A00226544 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1A2678D48A00226544 /* Global.swift */; };
+		70044F1C2678D48A00226544 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1A2678D48A00226544 /* Global.swift */; };
+		70044F1D2678D48A00226544 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1A2678D48A00226544 /* Global.swift */; };
+		70044F1F2678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
+		70044F202678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
+		70044F212678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +63,10 @@
 		70044EF82678D0E000226544 /* Nutrition TableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nutrition TableUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70044EFC2678D0E000226544 /* Nutrition_TableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition_TableUITests.swift; sourceTree = "<group>"; };
 		70044EFE2678D0E000226544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70044F0E2678D3BF00226544 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		70044F122678D3FC00226544 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		70044F1A2678D48A00226544 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		70044F1E2678D49600226544 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				70044F0A2678D15B00226544 /* Delegates */,
-				70044F0D2678D17400226544 /* Models */,
 				70044F0C2678D16C00226544 /* Utilitys */,
+				70044F0D2678D17400226544 /* Models */,
 				70044F0B2678D16700226544 /* Controllers */,
 				70044EDD2678D0DD00226544 /* Main.storyboard */,
 				70044EE32678D0E000226544 /* Assets.xcassets */,
@@ -152,6 +168,8 @@
 		70044F0C2678D16C00226544 /* Utilitys */ = {
 			isa = PBXGroup;
 			children = (
+				70044F1A2678D48A00226544 /* Global.swift */,
+				70044F1E2678D49600226544 /* Constants.swift */,
 			);
 			path = Utilitys;
 			sourceTree = "<group>";
@@ -159,6 +177,8 @@
 		70044F0D2678D17400226544 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				70044F0E2678D3BF00226544 /* Food.swift */,
+				70044F122678D3FC00226544 /* Day.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,8 +315,12 @@
 			files = (
 				70044EDC2678D0DD00226544 /* ViewController.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
+				70044F132678D3FC00226544 /* Day.swift in Sources */,
 				70044EDA2678D0DD00226544 /* SceneDelegate.swift in Sources */,
 				70044EE22678D0DD00226544 /* Nutrition_Table.xcdatamodeld in Sources */,
+				70044F0F2678D3BF00226544 /* Food.swift in Sources */,
+				70044F1B2678D48A00226544 /* Global.swift in Sources */,
+				70044F1F2678D49600226544 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70044F202678D49600226544 /* Constants.swift in Sources */,
+				70044F1C2678D48A00226544 /* Global.swift in Sources */,
+				70044F102678D3BF00226544 /* Food.swift in Sources */,
 				70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */,
+				70044F142678D3FC00226544 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70044F212678D49600226544 /* Constants.swift in Sources */,
+				70044F1D2678D48A00226544 /* Global.swift in Sources */,
+				70044F112678D3BF00226544 /* Food.swift in Sources */,
 				70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */,
+				70044F152678D3FC00226544 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
