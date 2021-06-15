@@ -13,3 +13,5 @@ import Foundation
 
 
 var week: [Day] = []
+
+// La conn
