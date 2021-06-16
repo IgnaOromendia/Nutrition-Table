@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum FoodType {
     case protein
@@ -23,3 +24,10 @@ enum TipoFoodDelDia {
 }
 
 typealias Snaks = (s1:Food, s2: Food)
+
+var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
+                          UIImage(named: "chips.png"),
+                          UIImage(named: "salad.png"),
+                          UIImage(named: "choco.png"),
+                          UIImage(named: "croissant.png"),
+                          UIImage(named: "meat")]
