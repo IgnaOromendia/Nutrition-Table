@@ -42,16 +42,16 @@
             </objects>
             <point key="canvasLocation" x="-1538" y="72"/>
         </scene>
-        <!--Menu Controller-->
+        <!--Add Food Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MenuController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddFoodController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cmz-l5-or1">
-                                <rect key="frame" x="38" y="133" width="314" height="51"/>
+                                <rect key="frame" x="38" y="182" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4t1-Ik-6SP">
@@ -76,7 +76,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Yn-z0-Dzs">
-                                <rect key="frame" x="38" y="198" width="314" height="51"/>
+                                <rect key="frame" x="38" y="268" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6y-dI-9a6">
@@ -94,7 +94,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JV5-Zv-2Uz">
-                                <rect key="frame" x="38" y="263" width="314" height="51"/>
+                                <rect key="frame" x="38" y="354" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a9R-M9-Pgl">
@@ -112,7 +112,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXz-h0-6cx">
-                                <rect key="frame" x="38" y="328" width="314" height="51"/>
+                                <rect key="frame" x="38" y="440" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDi-If-rSl">
@@ -130,7 +130,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-gD-zpR">
-                                <rect key="frame" x="38" y="393" width="314" height="51"/>
+                                <rect key="frame" x="38" y="526" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BN3-7a-o8i">
@@ -148,7 +148,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awg-GA-46I">
-                                <rect key="frame" x="38" y="458" width="314" height="51"/>
+                                <rect key="frame" x="38" y="612" width="314" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fao-Kp-U42">
@@ -165,56 +165,70 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lzN-b9-Ljl">
-                                <rect key="frame" x="38" y="556" width="314" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Lunch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwa-15-Kfg">
-                                        <rect key="frame" x="115" y="38" width="170" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDM-xQ-h2J">
-                                        <rect key="frame" x="22" y="27" width="85" height="85"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzh-cN-DfR">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="138"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="add_TimeFood:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Owk-9L-yac"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="vjw-j2-8Qo"/>
                     <connections>
-                        <outlet property="btn_add" destination="Mzh-cN-DfR" id="oni-Lg-rJp"/>
-                        <outlet property="im_addFood" destination="EDM-xQ-h2J" id="yI9-Cq-9hM"/>
+                        <outlet property="btn_backFromPop" destination="Jci-GH-jOf" id="hWz-R0-fUg"/>
                         <outlet property="im_afternoon" destination="BN3-7a-o8i" id="di1-i5-MQ6"/>
                         <outlet property="im_breakfast" destination="4t1-Ik-6SP" id="uO9-JM-rJ2"/>
                         <outlet property="im_dinner" destination="fao-Kp-U42" id="Mbv-Xx-fs2"/>
                         <outlet property="im_lunch" destination="a9R-M9-Pgl" id="B6A-3N-hBr"/>
                         <outlet property="im_snack1" destination="O6y-dI-9a6" id="Iou-lB-pWX"/>
                         <outlet property="im_snak2" destination="xDi-If-rSl" id="h1z-H0-jGO"/>
-                        <outlet property="lbl_addFood" destination="kwa-15-Kfg" id="PST-wL-hKg"/>
                         <outlet property="view_Breakfast" destination="Cmz-l5-or1" id="fhE-3o-9ec"/>
-                        <outlet property="view_addFood" destination="lzN-b9-Ljl" id="z2A-bP-22B"/>
                         <outlet property="view_afternoon" destination="dd5-gD-zpR" id="9jX-Rw-XyE"/>
                         <outlet property="view_dinner" destination="awg-GA-46I" id="j8a-V3-43J"/>
+                        <outlet property="view_effect" destination="XXx-3T-1Xf" id="Vea-K5-8Rp"/>
                         <outlet property="view_lunch" destination="JV5-Zv-2Uz" id="EOQ-dj-ECb"/>
+                        <outlet property="view_pop" destination="zz6-VM-vtu" id="Zt7-8U-Klt"/>
                         <outlet property="view_snack1" destination="1Yn-z0-Dzs" id="erV-bo-oYe"/>
                         <outlet property="view_snak2" destination="CXz-h0-6cx" id="SYp-8o-1Cu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="XXx-3T-1Xf">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hb6-Ih-ZAj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iP7-4j-7H8">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="716"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IHo-PP-S5t">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="716"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="regular"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zz6-VM-vtu">
+                                <rect key="frame" x="75" y="227" width="240" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jci-GH-jOf">
+                                        <rect key="frame" x="47" y="332" width="147" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.14411784815684558" green="0.49530418682867539" blue="0.91481465041035359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backFromPop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lWV-od-uMc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <blurEffect style="systemThinMaterialDark"/>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="61.538461538461533" y="71.800947867298575"/>
         </scene>
