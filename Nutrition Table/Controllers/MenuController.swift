@@ -24,6 +24,7 @@ class MenuController: UIViewController {
     @IBOutlet weak var im_snak2: UIImageView!
     @IBOutlet weak var im_afternoon: UIImageView!
     @IBOutlet weak var im_dinner: UIImageView!
+    @IBOutlet weak var im_addFood: UIImageView!
     
     
     @IBOutlet weak var lbl_addFood: UILabel!
@@ -32,12 +33,23 @@ class MenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         MenuViewModel.setViews([view_Breakfast,view_snack1,view_lunch,view_snak2,view_afternoon,view_dinner])
         MenuViewModel.setImages([im_breakfast,im_snack1,im_lunch,im_snak2,im_afternoon,im_dinner])
-        MenuViewModel.setAddButton(view_addFood, btn_add)
+        MenuViewModel.setAddButton(view_addFood, im_addFood)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        lbl_addFood.text = MenuViewModel.labelAddName()
     }
     
     
-
-
+    @IBAction func btn_breakfast(_ sender: Any) {
+        // Ir a agregar dasayuno
+    }
+    
+    @IBAction func add_TimeFood(_ sender: Any) {
+        // Ir a agregar (Depdne la hora)
+    }
+    
 }
