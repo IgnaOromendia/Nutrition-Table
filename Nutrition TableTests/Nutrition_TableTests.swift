@@ -10,6 +10,7 @@ import XCTest
 
 class Nutrition_TableTests: XCTestCase {
     
+    // MARK: - ADD FOOD TESTS
     func test_valid_case() throws {
         let foodExpected = Food(name: "Carne", type: .protein)
         let foodOut = try AddFoodViewModel.addFood(name: "Carne", type: .protein, [])
@@ -38,5 +39,31 @@ class Nutrition_TableTests: XCTestCase {
         
         XCTAssertEqual(errorExcpected, error)
     }
+    
+    // MARK: - MODEL DAY TESTS
+    
+    func test_getFood_validateCase() {
+        let foodExcpected = Food(name: "Carne", type: .protein)
+        let foodExcpected2 = Food(name: "Pasta", type: .carbohydrates)
+        let mealExcpected = Meal(foods: [foodExcpected], drink: nil)
+        let mealExcpected2 = Meal(foods: [foodExcpected2], drink: nil)
+        let day = Day(breakfast: mealExcpected2, snaks: nil, lunch: mealExcpected, dinner: nil, afternoonSnak: nil, date: Date())
+        let meal = day.getFood(tipo: .lunch)
+        let meals = day.getAllFoods()
+        
+        XCTAssertEqual(mealExcpected, meal)
+        XCTAssertEqual([.lunch:mealExcpected,.breakfast:mealExcpected2], meals!)
+    }
+    
+    func test_getNilFood() {
+        let day = Day()
+        let meal = day.getFood(tipo: .lunch)
+        let meals = day.getAllFoods()
+        
+        XCTAssertNil(meal)
+        XCTAssertNil(meals)
+    }
+    
+    
 }
 

@@ -33,13 +33,17 @@ class Food: CustomStringConvertible, Equatable, Comparable {
     }
 }
 
-class Meal {
+class Meal: Equatable {
     var foods: [Food]
     var drink: String?
     
     init(foods: [Food] = [], drink: String? = nil) {
         self.drink = drink
         self.foods = foods
+    }
+    
+    static func == (lhs: Meal, rhs: Meal) -> Bool {
+        return lhs.foods == rhs.foods
     }
     
     func addFood(_ food:Food){
