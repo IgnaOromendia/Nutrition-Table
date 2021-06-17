@@ -27,15 +27,20 @@
 		70044F1F2678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
 		70044F202678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
 		70044F212678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
-		70044F2B26798ADE00226544 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* AddFoodController.swift */; };
-		70044F2C26798ADE00226544 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* AddFoodController.swift */; };
-		70044F2D26798ADE00226544 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* AddFoodController.swift */; };
+		70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
+		70044F2C26798ADE00226544 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
+		70044F2D26798ADE00226544 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
 		70044F2F26798B5C00226544 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2E26798B5C00226544 /* Extensions.swift */; };
 		70044F3026798B5C00226544 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2E26798B5C00226544 /* Extensions.swift */; };
 		70044F3126798B5C00226544 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2E26798B5C00226544 /* Extensions.swift */; };
-		70044F3426798DEC00226544 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F3326798DEC00226544 /* AddFoodViewModel.swift */; };
-		70044F3526798DEC00226544 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F3326798DEC00226544 /* AddFoodViewModel.swift */; };
-		70044F3626798DEC00226544 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F3326798DEC00226544 /* AddFoodViewModel.swift */; };
+		70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */; };
+		70044F3526798DEC00226544 /* ChooseFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */; };
+		70044F3626798DEC00226544 /* ChooseFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */; };
+		701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
+		701B067A267A9FF8003CACF3 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */; };
+		701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B067C267ACE32003CACF3 /* AddFoodCell.swift */; };
+		701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B067C267ACE32003CACF3 /* AddFoodCell.swift */; };
+		701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B067C267ACE32003CACF3 /* AddFoodCell.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
@@ -77,9 +82,12 @@
 		70044F122678D3FC00226544 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		70044F1A2678D48A00226544 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		70044F1E2678D49600226544 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		70044F2A26798ADE00226544 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
+		70044F2A26798ADE00226544 /* ChooseFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodController.swift; sourceTree = "<group>"; };
 		70044F2E26798B5C00226544 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		70044F3326798DEC00226544 /* AddFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewModel.swift; sourceTree = "<group>"; };
+		70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodViewModel.swift; sourceTree = "<group>"; };
+		701B0677267A6FD5003CACF3 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
+		701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewModel.swift; sourceTree = "<group>"; };
+		701B067C267ACE32003CACF3 /* AddFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +142,7 @@
 				70044F0A2678D15B00226544 /* Delegates */,
 				70044F0C2678D16C00226544 /* Utilitys */,
 				70044F0D2678D17400226544 /* Models */,
+				701B067B267ACDC6003CACF3 /* Views */,
 				70044F3226798DD400226544 /* ViewModels */,
 				70044F0B2678D16700226544 /* Controllers */,
 				70044EDD2678D0DD00226544 /* Main.storyboard */,
@@ -175,7 +184,8 @@
 		70044F0B2678D16700226544 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				70044F2A26798ADE00226544 /* AddFoodController.swift */,
+				70044F2A26798ADE00226544 /* ChooseFoodController.swift */,
+				701B0677267A6FD5003CACF3 /* AddFoodController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,9 +213,18 @@
 		70044F3226798DD400226544 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				70044F3326798DEC00226544 /* AddFoodViewModel.swift */,
+				70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */,
+				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		701B067B267ACDC6003CACF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				701B067C267ACE32003CACF3 /* AddFoodCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,13 +359,16 @@
 			files = (
 				7034540A267A545500322503 /* Animation.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
-				70044F2B26798ADE00226544 /* AddFoodController.swift in Sources */,
+				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
+				701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */,
 				70044F132678D3FC00226544 /* Day.swift in Sources */,
 				70044EDA2678D0DD00226544 /* SceneDelegate.swift in Sources */,
 				70044EE22678D0DD00226544 /* Nutrition_Table.xcdatamodeld in Sources */,
-				70044F3426798DEC00226544 /* AddFoodViewModel.swift in Sources */,
+				701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
+				70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F2F26798B5C00226544 /* Extensions.swift in Sources */,
 				70044F0F2678D3BF00226544 /* Food.swift in Sources */,
+				701B067A267A9FF8003CACF3 /* AddFoodViewModel.swift in Sources */,
 				70044F1B2678D48A00226544 /* Global.swift in Sources */,
 				70044F1F2678D49600226544 /* Constants.swift in Sources */,
 			);
@@ -357,12 +379,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				70044F202678D49600226544 /* Constants.swift in Sources */,
-				70044F2C26798ADE00226544 /* AddFoodController.swift in Sources */,
+				70044F2C26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				70044F1C2678D48A00226544 /* Global.swift in Sources */,
-				70044F3526798DEC00226544 /* AddFoodViewModel.swift in Sources */,
+				70044F3526798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F3026798B5C00226544 /* Extensions.swift in Sources */,
 				70044F102678D3BF00226544 /* Food.swift in Sources */,
 				70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */,
+				701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
 				7034540B267A545500322503 /* Animation.swift in Sources */,
 				70044F142678D3FC00226544 /* Day.swift in Sources */,
 			);
@@ -373,12 +396,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				70044F212678D49600226544 /* Constants.swift in Sources */,
-				70044F2D26798ADE00226544 /* AddFoodController.swift in Sources */,
+				70044F2D26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				70044F1D2678D48A00226544 /* Global.swift in Sources */,
-				70044F3626798DEC00226544 /* AddFoodViewModel.swift in Sources */,
+				70044F3626798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F3126798B5C00226544 /* Extensions.swift in Sources */,
 				70044F112678D3BF00226544 /* Food.swift in Sources */,
 				70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */,
+				701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
 				7034540C267A545500322503 /* Animation.swift in Sources */,
 				70044F152678D3FC00226544 /* Day.swift in Sources */,
 			);

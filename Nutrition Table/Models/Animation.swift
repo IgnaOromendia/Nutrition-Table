@@ -16,21 +16,11 @@ class Animation {
         case out_
     }
     
-    static func animate(_ anim:AnimationType, viewBlur:UIView, navController:UINavigationController) {
-        switch anim {
-        case .in_:
-            pantallaCompleta?.addSubview(viewBlur)
-            viewBlur.alpha = 0
-            UIView.animate(withDuration: 0.2) {
-                viewBlur.alpha = 1
-            }
-        case .out_:
-            navController.navigationBar.layer.zPosition = 0
-            UIView.animate(withDuration: 0.2, animations: {
-                viewBlur.alpha = 0
-            }) { (_) in
-                viewBlur.removeFromSuperview()
-            }
+    static func animateAlphaSegment(_ segement:UISegmentedControl, _ type:Bool) {
+        let alpha: CGFloat = type ? 1 : 0
+        UIView.animate(withDuration: 0.4) {
+            segement.alpha = alpha
         }
+        
     }
 }

@@ -1,50 +1,76 @@
 //
-//  MenuController.swift
+//  AddFoodController.swift
 //  Nutrition Table
 //
-//  Created by Igna on 15/06/2021.
+//  Created by Igna on 16/06/2021.
 //
 
 import UIKit
 
-class AddFoodController: UIViewController {
+class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos {
     
-    @IBOutlet weak var view_snack1: UIView!
-    @IBOutlet weak var view_Breakfast: UIView!
-    @IBOutlet weak var view_lunch: UIView!
-    @IBOutlet weak var view_snak2: UIView!
-    @IBOutlet weak var view_afternoon: UIView!
-    @IBOutlet weak var view_dinner: UIView!
-    @IBOutlet weak var view_pop: UIView!
-    @IBOutlet var view_effect: UIVisualEffectView!
+    @IBOutlet weak var food_tableView: UITableView!
+    @IBOutlet weak var typeFood_segmentedControl: UISegmentedControl!
+    @IBOutlet weak var food_textView: UITextView!
+    @IBOutlet weak var btn_addFood: UIButton!
+    @IBOutlet weak var lbl_switchFoodType: UILabel!
+    @IBOutlet weak var foodType_switch: UISwitch!
+    @IBOutlet weak var view_switch: UIView!
     
-    
-    @IBOutlet weak var im_breakfast: UIImageView!
-    @IBOutlet weak var im_snack1: UIImageView!
-    @IBOutlet weak var im_lunch: UIImageView!
-    @IBOutlet weak var im_snak2: UIImageView!
-    @IBOutlet weak var im_afternoon: UIImageView!
-    @IBOutlet weak var im_dinner: UIImageView!
-    
-    @IBOutlet weak var btn_backFromPop: UIButton!
+    var meal = Meal()
+    var foodType: FoodType? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
-        AddFoodViewModel.setPopOver(btn_backFromPop, view_pop)
-        AddFoodViewModel.setViews([view_Breakfast,view_snack1,view_lunch,view_snak2,view_afternoon,view_dinner])
-        AddFoodViewModel.setImages([im_breakfast,im_snack1,im_lunch,im_snak2,im_afternoon,im_dinner])
+        AddFoodViewModel.setViewSwitch(view_switch,foodType_switch)
+        AddFoodViewModel.setDoneButton(btn_addFood)
+        AddFoodViewModel.setTextView(food_textView)
+        AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl)
     }
     
-    
-    
-    @IBAction func btn_breakfast(_ sender: Any) {
-        Animation.animate(.in_, viewBlur: view_effect, navController: navigationController!)
+    @IBAction func switch_foodType(_ sender: UISwitch) {
+        if !sender.isOn {
+            foodType = nil
+        }
+        Animation.animateAlphaSegment(typeFood_segmentedControl, sender.isOn)
     }
     
-    @IBAction func backFromPop(_ sender: Any) {
-        // Modificar las comidas
-        Animation.animate(.out_, viewBlur: view_effect, navController: navigationController!)
+    @IBAction func changeFoodType(_ sender: UISegmentedControl) {
+        AddFoodViewModel.setSegmentedControl(sender)
+    }
+    
+    // MARK: - TEXTS
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        textView.text = ""
+        textView.textColor = .black
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            do {
+                try AddFoodViewModel.addFood(to: &meal, name: textView.text, type: foodType)
+            } catch {
+                print("La conn")
+            }
+            
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    // MARK: - TABLEVIEW
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meal.foods.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addFoodCellid",for: indexPath) as! AddFoodCell
+        cell.setCell(text: meal.foods[indexPath.row].name, type: meal.foods[indexPath.row].type)
+        return cell
     }
     
 }

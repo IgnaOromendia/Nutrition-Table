@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-1538" y="72"/>
         </scene>
-        <!--Add Food Controller-->
+        <!--Choose Food Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AddFoodController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChooseFoodController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +171,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="vjw-j2-8Qo"/>
                     <connections>
-                        <outlet property="btn_backFromPop" destination="Jci-GH-jOf" id="hWz-R0-fUg"/>
                         <outlet property="im_afternoon" destination="BN3-7a-o8i" id="di1-i5-MQ6"/>
                         <outlet property="im_breakfast" destination="4t1-Ik-6SP" id="uO9-JM-rJ2"/>
                         <outlet property="im_dinner" destination="fao-Kp-U42" id="Mbv-Xx-fs2"/>
@@ -181,56 +180,123 @@
                         <outlet property="view_Breakfast" destination="Cmz-l5-or1" id="fhE-3o-9ec"/>
                         <outlet property="view_afternoon" destination="dd5-gD-zpR" id="9jX-Rw-XyE"/>
                         <outlet property="view_dinner" destination="awg-GA-46I" id="j8a-V3-43J"/>
-                        <outlet property="view_effect" destination="XXx-3T-1Xf" id="Vea-K5-8Rp"/>
                         <outlet property="view_lunch" destination="JV5-Zv-2Uz" id="EOQ-dj-ECb"/>
-                        <outlet property="view_pop" destination="zz6-VM-vtu" id="Zt7-8U-Klt"/>
                         <outlet property="view_snack1" destination="1Yn-z0-Dzs" id="erV-bo-oYe"/>
                         <outlet property="view_snak2" destination="CXz-h0-6cx" id="SYp-8o-1Cu"/>
+                        <segue destination="UFI-IZ-6cg" kind="show" id="sQH-FQ-JwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" id="XXx-3T-1Xf">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hb6-Ih-ZAj">
+            </objects>
+            <point key="canvasLocation" x="61.538461538461533" y="71.800947867298575"/>
+        </scene>
+        <!--Add Food Controller-->
+        <scene sceneID="6x7-oC-ly3">
+            <objects>
+                <viewController storyboardIdentifier="addFood" id="UFI-IZ-6cg" customClass="AddFoodController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZUU-MA-TYM">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iP7-4j-7H8">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="716"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IHo-PP-S5t">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="716"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <vibrancyEffect>
-                                    <blurEffect style="regular"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zz6-VM-vtu">
-                                <rect key="frame" x="75" y="227" width="240" height="390"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-sp-LQ9">
+                                <rect key="frame" x="0.0" y="88" width="390" height="288"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addFoodCellid" rowHeight="56" id="4Yg-1a-3Sg" customClass="AddFoodCell" customModule="Nutrition_Table" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Yg-1a-3Sg" id="URZ-Yf-dnf">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fs7-UJ-NqQ">
+                                                    <rect key="frame" x="322" y="11" width="34" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="view_foodType" destination="Fs7-UJ-NqQ" id="W5Z-pq-KTx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UFI-IZ-6cg" id="MNl-NY-QVO"/>
+                                    <outlet property="delegate" destination="UFI-IZ-6cg" id="cqX-8k-8FI"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yLP-cR-Jfd">
+                                <rect key="frame" x="16" y="630" width="358" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Protein"/>
+                                    <segment title="Carbohydrates"/>
+                                    <segment title="Vegetables"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeFoodType:" destination="UFI-IZ-6cg" eventType="valueChanged" id="1YL-nk-xtx"/>
+                                </connections>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Food" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="23U-ET-XZf">
+                                <rect key="frame" x="16" y="400" width="358" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UFI-IZ-6cg" id="joD-oM-itD"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZc-ly-XT3">
+                                <rect key="frame" x="90" y="688" width="210" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.15753775710000001" green="0.54142572659999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctz-Zq-zaX">
+                                <rect key="frame" x="23" y="559" width="345" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jci-GH-jOf">
-                                        <rect key="frame" x="47" y="332" width="147" height="39"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FLj-7r-1pi">
+                                        <rect key="frame" x="276" y="8" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.14411784815684558" green="0.49530418682867539" blue="0.91481465041035359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
                                         <connections>
-                                            <action selector="backFromPop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lWV-od-uMc"/>
+                                            <action selector="switch_foodType:" destination="UFI-IZ-6cg" eventType="valueChanged" id="wQQ-5z-biL"/>
                                         </connections>
-                                    </button>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable food type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-YF-ivq">
+                                        <rect key="frame" x="22" y="6" width="132" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.53225168312853444" green="0.43738888031275824" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="fTS-eI-YuJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <blurEffect style="systemThinMaterialDark"/>
-                </visualEffectView>
+                    <navigationItem key="navigationItem" id="rZF-Ed-hli"/>
+                    <connections>
+                        <outlet property="btn_addFood" destination="pZc-ly-XT3" id="N3O-fO-rgp"/>
+                        <outlet property="foodType_switch" destination="FLj-7r-1pi" id="yua-a4-oZH"/>
+                        <outlet property="food_tableView" destination="LCy-sp-LQ9" id="8XI-Mh-2fR"/>
+                        <outlet property="food_textView" destination="23U-ET-XZf" id="xwg-gK-XlE"/>
+                        <outlet property="lbl_switchFoodType" destination="Wy6-YF-ivq" id="moO-Hw-Pfm"/>
+                        <outlet property="typeFood_segmentedControl" destination="yLP-cR-Jfd" id="c9w-kZ-8Mn"/>
+                        <outlet property="view_switch" destination="ctz-Zq-zaX" id="scl-Sj-euU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fw0-iF-ik8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61.538461538461533" y="71.800947867298575"/>
+            <point key="canvasLocation" x="764.61538461538464" y="71.800947867298575"/>
         </scene>
     </scenes>
     <resources>

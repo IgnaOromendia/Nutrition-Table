@@ -9,13 +9,17 @@ import Foundation
 
 class Food: CustomStringConvertible, Equatable, Comparable {
     var name: String
-    var type: FoodType
+    var type: FoodType?
     
     var description: String {
-        return "\(self.name) \(self.type)"
+        if let type = self.type {
+            return "\(self.name) \(type)"
+        } else {
+            return "\(self.name)"
+        }
     }
     
-    init(name: String, type: FoodType) {
+    init(name: String, type: FoodType?) {
         self.name = name
         self.type = type
     }
@@ -38,11 +42,11 @@ class Meal {
         self.foods = foods
     }
     
-    func addFood(_ alimento:Food){
-        self.foods.append(alimento)
+    func addFood(_ food:Food){
+        self.foods.append(food)
     }
     
-    func addDrink(_ bebida:String?) {
-        self.drink = bebida
+    func addDrink(_ drink:String?) {
+        self.drink = drink
     }
 }

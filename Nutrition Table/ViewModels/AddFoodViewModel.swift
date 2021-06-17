@@ -1,57 +1,49 @@
 //
-//  MenuViewModel.swift
+//  File.swift
 //  Nutrition Table
 //
-//  Created by Igna on 15/06/2021.
+//  Created by Igna on 16/06/2021.
 //
 
 import Foundation
 import UIKit
 
 class AddFoodViewModel {
-    static func setImages(_ images:[UIImageView]) {
-        for i in 0...(images.count - 1) {
-            if let image = imagesMenu[i] {
-                images[i].image = image
-            }
+    static func setDoneButton(_ btn:UIButton) {
+        btn.redondeado(de: 17)
+        btn.titleLabel?.text = "Done"
+        btn.titleLabel?.textColor = .white
+    }
+    
+    static func setSegmentedControl(_ segmented:UISegmentedControl) {
+        switch segmented.selectedSegmentIndex {
+        case 0:
+            segmented.selectedSegmentTintColor = .orangeC
+            segmented.backgroundColor = .lightOrangeC
+        case 1:
+            segmented.selectedSegmentTintColor = .yellow
+            segmented.backgroundColor = .lightyellowC
+        case 2:
+            segmented.selectedSegmentTintColor = .greenC
+            segmented.backgroundColor = .lightGreenC
+        default:
+            segmented.selectedSegmentTintColor = .white
         }
     }
     
-    static func setViews(_ views:[UIView]) {
-        for view in views {
-            view.setMenuView()
-        }
+    static func setViewSwitch(_ view:UIView, _ sw:UISwitch) {
+        view.redondeado(de: 16)
+        sw.onTintColor = .darkPurpleC
     }
     
-    static func setAddButton(_ view:UIView, _ im_add:UIImageView) {
-        view.redondeado(de: 19)
-        view.sombra = true
-        im_add.image = UIImage(named: "btn_add.png")
+    static func setTextView(_ textView:UITextView) {
+        textView.clipsToBounds = false
+        textView.sombra = true
     }
     
-    static func setPopOver(_ btn:UIButton,_ view: UIView) {
-        btn.redondeado(de: 15)
-        view.redondeado(de: 25)
+    static func addFood(to meal: inout Meal, name: String, type: FoodType?) throws {
+        guard name != ""  else { throw AddFoodWarningType.foodTextEmpty }
+        meal.addFood(Food(name: name, type: type))
     }
-    
-//    static func labelAddName() -> String {
-//        // Estaria bueno q vaya aprendiendo los horarios del usuario
-//        switch Date().getHour() {
-//        case 5..<11:
-//            return "Add Breakfast"
-//        case 11..<12:
-//            return "Add Snack"
-//        case 12..<15:
-//            return "Add Lunch"
-//        case 15..<16:
-//            return "Add Snack"
-//        case 16..<19:
-//            return "Add Afternoon Snack"
-//        case 19..<5:
-//            return "Add Dinner"
-//        default:
-//            return ""
-//        }
-//    }
     
 }

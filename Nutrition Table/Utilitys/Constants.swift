@@ -23,7 +23,12 @@ enum TipoFoodDelDia {
     case dinner
 }
 
+enum AddFoodWarningType: Error {
+    case foodTextEmpty
+}
+
 typealias Snaks = (s1:Food, s2: Food)
+typealias UITableViewMethos = UITableViewDelegate & UITableViewDataSource
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
                           UIImage(named: "chips.png"),
