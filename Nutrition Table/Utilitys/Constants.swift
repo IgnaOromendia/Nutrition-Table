@@ -28,8 +28,9 @@ enum AddFoodWarningType: Error {
     case alreadyContainsFood
 }
 
-typealias Snaks = (s1:Food, s2: Food)
+typealias Snaks = (s1:Meal, s2: Meal)
 typealias UITableViewMethos = UITableViewDelegate & UITableViewDataSource
+typealias WeekDay = (date: Date, dateDay: String)
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
                           UIImage(named: "chips.png"),

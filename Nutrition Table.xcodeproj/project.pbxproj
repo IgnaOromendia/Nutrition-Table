@@ -28,8 +28,6 @@
 		70044F202678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
 		70044F212678D49600226544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F1E2678D49600226544 /* Constants.swift */; };
 		70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
-		70044F2C26798ADE00226544 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
-		70044F2D26798ADE00226544 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
 		70044F2F26798B5C00226544 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2E26798B5C00226544 /* Extensions.swift */; };
 		70044F3026798B5C00226544 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2E26798B5C00226544 /* Extensions.swift */; };
 		70044F3126798B5C00226544 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2E26798B5C00226544 /* Extensions.swift */; };
@@ -48,6 +46,13 @@
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
+		70C5A139267B73C20004B23F /* WeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A138267B73C20004B23F /* WeekController.swift */; };
+		70C5A13B267B73E60004B23F /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13A267B73E60004B23F /* WeekViewModel.swift */; };
+		70C5A13C267B73E60004B23F /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13A267B73E60004B23F /* WeekViewModel.swift */; };
+		70C5A13D267B73E60004B23F /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13A267B73E60004B23F /* WeekViewModel.swift */; };
+		70C5A13F267BB7C80004B23F /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13E267BB7C80004B23F /* DayCell.swift */; };
+		70C5A140267BB7CC0004B23F /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13E267BB7C80004B23F /* DayCell.swift */; };
+		70C5A141267BB7CD0004B23F /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13E267BB7C80004B23F /* DayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,9 @@
 		701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewModel.swift; sourceTree = "<group>"; };
 		701B067C267ACE32003CACF3 /* AddFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
+		70C5A13A267B73E60004B23F /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
+		70C5A13E267BB7C80004B23F /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +198,7 @@
 			children = (
 				70044F2A26798ADE00226544 /* ChooseFoodController.swift */,
 				701B0677267A6FD5003CACF3 /* AddFoodController.swift */,
+				70C5A138267B73C20004B23F /* WeekController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,6 +228,7 @@
 			children = (
 				70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */,
 				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
+				70C5A13A267B73E60004B23F /* WeekViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -227,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				701B067C267ACE32003CACF3 /* AddFoodCell.swift */,
+				70C5A13E267BB7C80004B23F /* DayCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,7 +377,10 @@
 				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */,
 				70044F132678D3FC00226544 /* Day.swift in Sources */,
+				70C5A139267B73C20004B23F /* WeekController.swift in Sources */,
+				70C5A13B267B73E60004B23F /* WeekViewModel.swift in Sources */,
 				70044EDA2678D0DD00226544 /* SceneDelegate.swift in Sources */,
+				70C5A13F267BB7C80004B23F /* DayCell.swift in Sources */,
 				70044EE22678D0DD00226544 /* Nutrition_Table.xcdatamodeld in Sources */,
 				701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
 				70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
@@ -383,12 +397,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				70044F202678D49600226544 /* Constants.swift in Sources */,
-				70044F2C26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				70044F1C2678D48A00226544 /* Global.swift in Sources */,
 				701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */,
 				70044F3526798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
+				70C5A140267BB7CC0004B23F /* DayCell.swift in Sources */,
 				70044F3026798B5C00226544 /* Extensions.swift in Sources */,
 				701B0680267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */,
+				70C5A13C267B73E60004B23F /* WeekViewModel.swift in Sources */,
 				70044F102678D3BF00226544 /* Food.swift in Sources */,
 				70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */,
 				701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
@@ -402,12 +417,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				70044F212678D49600226544 /* Constants.swift in Sources */,
-				70044F2D26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				70044F1D2678D48A00226544 /* Global.swift in Sources */,
 				701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */,
 				70044F3626798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
+				70C5A141267BB7CD0004B23F /* DayCell.swift in Sources */,
 				70044F3126798B5C00226544 /* Extensions.swift in Sources */,
 				701B0681267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */,
+				70C5A13D267B73E60004B23F /* WeekViewModel.swift in Sources */,
 				70044F112678D3BF00226544 /* Food.swift in Sources */,
 				70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */,
 				701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */,

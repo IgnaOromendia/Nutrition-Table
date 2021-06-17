@@ -9,13 +9,13 @@ import Foundation
 
 class Day {
     var date: Date
-    var breakfast: Food?
+    var breakfast: Meal?
     var snaks: Snaks?
-    var lunch: Food?
-    var dinner: Food?
-    var afternoonSnak: Food?
+    var lunch: Meal?
+    var dinner: Meal?
+    var afternoonSnak: Meal?
     
-    init(breakfast:Food?, snaks:Snaks?,lunch:Food?,dinner:Food?, afternoonSnak:Food?, date:Date) {
+    init(breakfast:Meal?, snaks:Snaks?,lunch:Meal?,dinner:Meal?, afternoonSnak:Meal?, date:Date) {
         self.breakfast = breakfast
         self.lunch = lunch
         self.dinner = dinner
@@ -28,7 +28,7 @@ class Day {
         self.init(breakfast:nil, snaks:nil,lunch:nil,dinner:nil, afternoonSnak:nil, date: Date())
     }
     
-    func getFood(tipo: TipoFoodDelDia) -> Food? {
+    func getFood(tipo: TipoFoodDelDia) -> Meal? {
         switch tipo {
         case .breakfast:
             guard let breakfast = self.breakfast else {return nil}
@@ -52,8 +52,8 @@ class Day {
     }
     
     
-    func getAllFoods() -> [TipoFoodDelDia:Food]? {
-        var Foods:[TipoFoodDelDia:Food] = [:]
+    func getAllFoods() -> [TipoFoodDelDia:Meal]? {
+        var Foods:[TipoFoodDelDia:Meal] = [:]
         
         if let breakfast = self.breakfast {
             Foods[TipoFoodDelDia.breakfast] = breakfast
@@ -75,6 +75,8 @@ class Day {
         
         return Foods.count > 0 ? Foods : nil
     }
+    
+    
     
     
 }

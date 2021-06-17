@@ -108,6 +108,27 @@ extension Date {
         return date.hour ?? -1
     }
     
+    func getWeekDays() -> [WeekDay] {
+        var days: [WeekDay] = []
+        let date = Calendar.current.dateComponents([.weekday], from: self)
+        let dateFormatter = DateFormatter()
+        let dayDistance = abs((date.weekday?.distance(to: 0) ?? 0) + 1)
+        
+        dateFormatter.dateFormat = "EEEE"
+
+        for i in 0..<dayDistance {
+            let day = self - TimeInterval(86400 * i)
+            let weekDay = dateFormatter.string(from:day)
+            days.append((day,weekDay))
+        }
+        
+        return days
+    }
+    
+    
+    
+    
+    
 }
 
 extension UIColor {

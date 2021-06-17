@@ -32,6 +32,117 @@
             </objects>
             <point key="canvasLocation" x="-763" y="72"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="93T-kP-8Rh">
+            <objects>
+                <navigationController id="KgG-Xe-XGV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="ipK-HL-Bdu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eaU-vu-5Ww">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MX3-7X-hRa" kind="relationship" relationship="rootViewController" id="qLS-7m-MZy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDD-Qe-mGn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-763" y="760"/>
+        </scene>
+        <!--Week Controller-->
+        <scene sceneID="lVg-oN-Bbf">
+            <objects>
+                <tableViewController id="MX3-7X-hRa" customClass="WeekController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8eR-8M-M2D">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayCellid" rowHeight="204" id="zAS-tp-8ah" customClass="DayCell" customModule="Nutrition_Table" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="204"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zAS-tp-8ah" id="8gd-uK-md6">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="204"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8P-WC-ezt">
+                                            <rect key="frame" x="26" y="12" width="338" height="180"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-tY-HIQ">
+                                                    <rect key="frame" x="281" y="13" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awv-RG-s9v">
+                                                    <rect key="frame" x="56" y="142" width="274" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1by-ia-QQ8">
+                                                    <rect key="frame" x="8" y="142" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-Rz-2xb">
+                                                    <rect key="frame" x="55" y="57" width="275" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IgD-jd-6nJ">
+                                                    <rect key="frame" x="8" y="57" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GY1-Lt-tPn">
+                                                    <rect key="frame" x="55" y="99" width="275" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4O-uI-Fid">
+                                                    <rect key="frame" x="8" y="99" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkK-m7-bsj">
+                                                    <rect key="frame" x="8" y="8" width="191" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="circleView_FoodType" destination="Zc9-tY-HIQ" id="82t-Dl-4Ic"/>
+                                    <outlet property="im_breakfast" destination="IgD-jd-6nJ" id="xSn-0V-U7y"/>
+                                    <outlet property="im_dinner" destination="1by-ia-QQ8" id="D7X-W9-FLt"/>
+                                    <outlet property="im_lunch" destination="b4O-uI-Fid" id="R48-Pk-nhO"/>
+                                    <outlet property="lbl_breakfast" destination="cXO-Rz-2xb" id="M9x-oU-bOv"/>
+                                    <outlet property="lbl_day" destination="SkK-m7-bsj" id="YFc-Dr-dk4"/>
+                                    <outlet property="lbl_dinner" destination="awv-RG-s9v" id="vbc-bU-lJx"/>
+                                    <outlet property="lbl_lunch" destination="GY1-Lt-tPn" id="vky-ZU-dT9"/>
+                                    <outlet property="view_day" destination="x8P-WC-ezt" id="P49-bA-R4g"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MX3-7X-hRa" id="inW-TT-rrY"/>
+                            <outlet property="delegate" destination="MX3-7X-hRa" id="mLZ-ib-cRb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1DP-dO-cPl"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KtS-Xw-lQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.846153846153847" y="760.66350710900474"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kHF-N0-EBT">
             <objects>
@@ -43,6 +154,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="VS0-1p-GTh" kind="relationship" relationship="viewControllers" id="lxw-A3-Bkh"/>
+                        <segue destination="KgG-Xe-XGV" kind="relationship" relationship="viewControllers" id="Vmh-SY-OVq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57e-oI-nNs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -347,6 +459,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

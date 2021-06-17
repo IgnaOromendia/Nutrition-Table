@@ -50,4 +50,16 @@ class Meal {
         self.drink = drink
     }
     
+    func getFoods() -> String {
+        if self.foods.count < 2 {
+            return foods[0].name
+        } else {
+            var result: String = ""
+            for food in foods {
+                result += food == foods.last! ? "\(food)" : "\(food), "
+            }
+            return result
+        }
+    }
+    
 }
