@@ -41,6 +41,10 @@
 		701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B067C267ACE32003CACF3 /* AddFoodCell.swift */; };
 		701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B067C267ACE32003CACF3 /* AddFoodCell.swift */; };
 		701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B067C267ACE32003CACF3 /* AddFoodCell.swift */; };
+		701B0680267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */; };
+		701B0681267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */; };
+		701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
+		701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
@@ -381,8 +385,10 @@
 				70044F202678D49600226544 /* Constants.swift in Sources */,
 				70044F2C26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				70044F1C2678D48A00226544 /* Global.swift in Sources */,
+				701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */,
 				70044F3526798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F3026798B5C00226544 /* Extensions.swift in Sources */,
+				701B0680267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */,
 				70044F102678D3BF00226544 /* Food.swift in Sources */,
 				70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */,
 				701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
@@ -398,8 +404,10 @@
 				70044F212678D49600226544 /* Constants.swift in Sources */,
 				70044F2D26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				70044F1D2678D48A00226544 /* Global.swift in Sources */,
+				701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */,
 				70044F3626798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F3126798B5C00226544 /* Extensions.swift in Sources */,
+				701B0681267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */,
 				70044F112678D3BF00226544 /* Food.swift in Sources */,
 				70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */,
 				701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */,

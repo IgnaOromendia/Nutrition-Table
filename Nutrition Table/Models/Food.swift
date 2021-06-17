@@ -50,14 +50,4 @@ class Meal {
         self.drink = drink
     }
     
-    func contains(_ food: Food) -> Bool {
-        var result = false
-        for item in self.foods {
-            if item == food {
-                result = true
-            }
-        }
-        return result
-    }
-    
 }

@@ -9,25 +9,34 @@ import XCTest
 @testable import Nutrition_Table
 
 class Nutrition_TableTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func test_valid_case() throws {
+        let foodExpected = Food(name: "Carne", type: .protein)
+        let foodOut = try AddFoodViewModel.addFood(name: "Carne", type: .protein, [])
+        XCTAssertEqual(foodExpected.name, foodOut.name)
     }
+    
+    func test_empty_name() throws {
+        let errorExcpected = AddFoodWarningType.foodTextEmpty
+        var error: AddFoodWarningType?
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        XCTAssertThrowsError(try AddFoodViewModel.addFood(name: "", type: .protein, [])) { thrownError in
+            error = thrownError as? AddFoodWarningType
         }
+        
+        XCTAssertEqual(errorExcpected, error)
     }
-
+    
+    func test_food_already_inArray() throws {
+        let array = [Food(name: "Carne", type: .protein)]
+        let errorExcpected = AddFoodWarningType.alreadyContainsFood
+        var error: AddFoodWarningType?
+        
+        XCTAssertThrowsError(try AddFoodViewModel.addFood(name: "Carne", type: .protein, array)) { errorThrown in
+            error = errorThrown as? AddFoodWarningType
+        }
+        
+        XCTAssertEqual(errorExcpected, error)
+    }
 }
+

@@ -52,7 +52,8 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             do {
-                try AddFoodViewModel.addFood(to: &meal, name: textView.text, type: foodType)
+                let food = try AddFoodViewModel.addFood(name: textView.text, type: foodType, meal.foods)
+                meal.addFood(food)
                 food_tableView.reloadData()
                 textView.makePlaceholder("Write down your food here")
             } catch AddFoodWarningType.foodTextEmpty{

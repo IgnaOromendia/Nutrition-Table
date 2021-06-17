@@ -57,11 +57,11 @@ class AddFoodViewModel {
         textView.sombra = true
     }
     
-    static func addFood(to meal: inout Meal, name: String, type: FoodType?) throws {
-        guard name != ""  else { throw AddFoodWarningType.foodTextEmpty }
+    static func addFood(name: String, type: FoodType?, _ foods: [Food]) throws -> Food {
+        guard !name.isEmpty  else { throw AddFoodWarningType.foodTextEmpty }
         let food = Food(name: name, type: type)
-        guard meal.contains(food) else { throw AddFoodWarningType.alreadyContainsFood}
-        meal.addFood(food)
+        guard !foods.contains(food) else { throw AddFoodWarningType.alreadyContainsFood}
+        return food
     }
     
 }
