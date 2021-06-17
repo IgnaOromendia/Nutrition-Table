@@ -19,6 +19,8 @@ class AddFoodCell: UITableViewCell {
         selectionStyle = .none
         textLabel?.text = text
         view_foodType.circle = true
+        view_foodType.layer.borderWidth = 1
+        view_foodType.layer.borderColor = UIColor.lightGray.cgColor
         switch type {
         case .protein:
             view_foodType.backgroundColor = .orangeC

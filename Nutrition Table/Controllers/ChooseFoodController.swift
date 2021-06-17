@@ -34,17 +34,7 @@ class ChooseFoodController: UIViewController {
         ChooseFoodViewModel.setImages([im_breakfast,im_snack1,im_lunch,im_snak2,im_afternoon,im_dinner])
     }
     
-    // MARK: - TEXTS
-    
-//    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-//        textView.textColor = .black
-//        textView.text = ""
-//        return true
-//    }
-    
-
-    // Buscar como hacer referencia al keyboard para frenar la edicion
-    
+  
     
     
     // MARK: - BUTTONS
@@ -52,6 +42,22 @@ class ChooseFoodController: UIViewController {
     @IBAction func btn_breakfast(_ sender: Any) {
         self.transition(a: "addFood")
     }
+    @IBAction func btn_lunch(_ sender: Any) {
+        self.transition(a: "addFood")
+    }
+    @IBAction func btn_snack1(_ sender: Any) {
+        self.transition(a: "addFood")
+    }
+    @IBAction func btn_snack2(_ sender: Any) {
+        self.transition(a: "addFood")
+    }
+    @IBAction func btn_afternoon(_ sender: Any) {
+        self.transition(a: "addFood")
+    }
+    @IBAction func btn_dinner(_ sender: Any) {
+        self.transition(a: "addFood")
+    }
+    
     
     
 }

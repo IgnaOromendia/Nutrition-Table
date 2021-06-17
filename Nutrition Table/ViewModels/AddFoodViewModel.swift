@@ -15,19 +15,35 @@ class AddFoodViewModel {
         btn.titleLabel?.textColor = .white
     }
     
-    static func setSegmentedControl(_ segmented:UISegmentedControl) {
+    static func setSegmentedControl(_ segmented:UISegmentedControl, _ type: inout FoodType?) {
         switch segmented.selectedSegmentIndex {
         case 0:
             segmented.selectedSegmentTintColor = .orangeC
             segmented.backgroundColor = .lightOrangeC
+            type = .protein
         case 1:
             segmented.selectedSegmentTintColor = .yellow
             segmented.backgroundColor = .lightyellowC
+            type = .carbohydrates
         case 2:
             segmented.selectedSegmentTintColor = .greenC
             segmented.backgroundColor = .lightGreenC
+            type = .vegetables
         default:
             segmented.selectedSegmentTintColor = .white
+            type = nil
+        }
+    }
+    
+    static func setFoodType(_ s:Int) -> FoodType? {
+        if s == 0 {
+            return .protein
+        } else if s == 1 {
+            return .carbohydrates
+        } else if s == 2 {
+            return .vegetables
+        } else {
+            return nil
         }
     }
     
@@ -43,7 +59,9 @@ class AddFoodViewModel {
     
     static func addFood(to meal: inout Meal, name: String, type: FoodType?) throws {
         guard name != ""  else { throw AddFoodWarningType.foodTextEmpty }
-        meal.addFood(Food(name: name, type: type))
+        let food = Food(name: name, type: type)
+        guard meal.contains(food) else { throw AddFoodWarningType.alreadyContainsFood}
+        meal.addFood(food)
     }
     
 }

@@ -25,6 +25,7 @@ enum TipoFoodDelDia {
 
 enum AddFoodWarningType: Error {
     case foodTextEmpty
+    case alreadyContainsFood
 }
 
 typealias Snaks = (s1:Food, s2: Food)

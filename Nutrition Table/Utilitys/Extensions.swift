@@ -130,3 +130,15 @@ extension UIColor {
     static var lightyellowC:     UIColor {return rgbColor(r: 255, g: 252, b: 121)}
     static var purplceC:         UIColor {return rgbColor(r:102, g:32, b:185)}
 }
+
+extension UITextView {
+    func makePlaceholder(_ text: String) {
+        self.textColor = .darkGray
+        self.text = text
+    }
+    
+    func removePlaceholder() {
+        self.text = ""
+        self.textColor = .black
+    }
+}

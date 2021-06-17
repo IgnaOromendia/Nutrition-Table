@@ -25,7 +25,7 @@ class Food: CustomStringConvertible, Equatable, Comparable {
     }
     
     static func == (lhs: Food, rhs: Food) -> Bool {
-        return lhs.name == rhs.name && lhs.type == rhs.type
+        return lhs.name == rhs.name
     }
     
     static func < (lhs: Food, rhs: Food) -> Bool {
@@ -49,4 +49,15 @@ class Meal {
     func addDrink(_ drink:String?) {
         self.drink = drink
     }
+    
+    func contains(_ food: Food) -> Bool {
+        var result = false
+        for item in self.foods {
+            if item == food {
+                result = true
+            }
+        }
+        return result
+    }
+    
 }

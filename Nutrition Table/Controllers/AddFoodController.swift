@@ -25,25 +25,27 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
         AddFoodViewModel.setViewSwitch(view_switch,foodType_switch)
         AddFoodViewModel.setDoneButton(btn_addFood)
         AddFoodViewModel.setTextView(food_textView)
-        AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl)
+        AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
+        foodType = nil
     }
     
     @IBAction func switch_foodType(_ sender: UISwitch) {
-        if !sender.isOn {
-            foodType = nil
-        }
+        foodType = AddFoodViewModel.setFoodType(typeFood_segmentedControl.selectedSegmentIndex)
         Animation.animateAlphaSegment(typeFood_segmentedControl, sender.isOn)
     }
     
     @IBAction func changeFoodType(_ sender: UISegmentedControl) {
-        AddFoodViewModel.setSegmentedControl(sender)
+        AddFoodViewModel.setSegmentedControl(sender, &foodType)
     }
     
+    @IBAction func confirmMeal(_ sender: Any) {
+        // Agregar el meal por aca
+        navigationController?.popViewController(animated: true)
+    }
     // MARK: - TEXTS
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        textView.text = ""
-        textView.textColor = .black
+        textView.removePlaceholder()
         return true
     }
     
@@ -51,10 +53,15 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
         if text == "\n" {
             do {
                 try AddFoodViewModel.addFood(to: &meal, name: textView.text, type: foodType)
+                food_tableView.reloadData()
+                textView.makePlaceholder("Write down your food here")
+            } catch AddFoodWarningType.foodTextEmpty{
+                print("vacio")
+            } catch AddFoodWarningType.alreadyContainsFood {
+                print("ya lo tieneee")
             } catch {
-                print("La conn")
+                print("ke")
             }
-            
             textView.resignFirstResponder()
             return false
         }
@@ -69,8 +76,12 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addFoodCellid",for: indexPath) as! AddFoodCell
-        cell.setCell(text: meal.foods[indexPath.row].name, type: meal.foods[indexPath.row].type)
+        let reverseFood: [Food] = meal.foods.reversed()
+        cell.setCell(text: reverseFood[indexPath.row].name, type: reverseFood[indexPath.row].type)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
+    }
 }
