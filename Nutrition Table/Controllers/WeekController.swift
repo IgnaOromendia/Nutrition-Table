@@ -15,6 +15,10 @@ class WeekController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weekDays.count
     }

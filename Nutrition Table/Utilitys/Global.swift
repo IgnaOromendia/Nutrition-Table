@@ -12,6 +12,7 @@ import Foundation
 // week es un array de dias q contienen las Foods del dia
 
 
-var week: [Day] = []
+var week = Week()
+var foodDay: DayFoodType = .breakfast
 
 // letra de lbl euphemia 22

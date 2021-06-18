@@ -31,6 +31,7 @@ extension UIView {
         }
     }
     
+    // Circle view
     var circle: Bool {
         get {
             if self.layer.cornerRadius > 0 {
@@ -44,13 +45,14 @@ extension UIView {
         }
     }
     
-    func redondeado(de numero:CGFloat) {
+    // Corner Radius
+    func cornerRadius(de numero:CGFloat) {
         self.layer.cornerRadius = numero
     }
     
-    
+    #warning("Change to a view model")
     func setMenuView() {
-        self.redondeado(de: 15)
+        self.cornerRadius(de: 15)
         self.sombra = true
     }
 }
@@ -86,33 +88,49 @@ extension UIViewController {
 }
 
 extension Date {
-    /// Devuelve la fecha en formato dd/mm/aa u Hoy o Manana
-    /// - Returns: Fecha en string
-//    func obtenerComponentesFecha() -> String {
-//        let fecha = Calendar.current.dateComponents([.day,.month,.year], from: self)
-//        let componenetes = (dia:fecha.day!,mes:fecha.month!,ano:fecha.year!)
-//        let fechaActual = Calendar.current.dateComponents([.day,.month,.year], from: Date())
-//        let fechaSiguiente = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: Date())!
-//        let fechaSiguienteComponenetes = Calendar.current.dateComponents([.day,.month,.year], from: fechaSiguiente)
-//        if fecha == fechaActual {
-//            return "Hoy"
-//        } else if fecha == fechaSiguienteComponenetes {
-//            return "Mañana"
-//        } else {
-//            return "\(componenetes.dia)/\(componenetes.mes)/\(componenetes.ano)"
-//        }
-//    }
     
-    func getHour() -> Int {
-        let date = Calendar.current.dateComponents([.hour], from: self)
-        return date.hour ?? -1
+    // Get hour
+    var hour: Int {
+        get {
+            let date = Calendar.current.dateComponents([.hour], from: self)
+            return date.hour ?? -1
+        }
     }
     
+    // Get a string date 12/12/2021 with this fomrat
+    var comparableDate: String {
+        get {
+            let date = Calendar.current.dateComponents([.day,.month,.year], from: self)
+            return "\(date.day ?? -1)/\(date.month ?? -1)/\(date.year ?? -1)"
+        }
+    }
+    
+    // Get string date 26/3
+    var dayMonthDate: String {
+        get {
+            let date = Calendar.current.dateComponents([.day,.month], from: self)
+            return "\(date.day ?? -1)/\(date.month ?? -1)"
+        }
+    }
+    
+    // Get today comparable day
+    static var today: String {
+        get {
+            return Date().comparableDate
+        }
+    }
+    
+    // Get the distance between today and Monday from the current week
+    func getDistanceMonday() -> Int {
+        let date = Calendar.current.dateComponents([.weekday], from: self)
+        return abs((date.weekday?.distance(to: 0) ?? 0) + 1)
+    }
+    
+    // Get all the days between today and Monday from the current week
     func getWeekDays() -> [WeekDay] {
         var days: [WeekDay] = []
-        let date = Calendar.current.dateComponents([.weekday], from: self)
         let dateFormatter = DateFormatter()
-        let dayDistance = abs((date.weekday?.distance(to: 0) ?? 0) + 1)
+        let dayDistance = getDistanceMonday()
         
         dateFormatter.dateFormat = "EEEE"
 
@@ -124,11 +142,6 @@ extension Date {
         
         return days
     }
-    
-    
-    
-    
-    
 }
 
 extension UIColor {
@@ -150,6 +163,11 @@ extension UIColor {
     static var lightOrangeC:     UIColor {return rgbColor(r: 255, g: 178, b: 97)}
     static var lightyellowC:     UIColor {return rgbColor(r: 255, g: 252, b: 121)}
     static var purplceC:         UIColor {return rgbColor(r:102, g:32, b:185)}
+    
+    static func randomColor() -> UIColor? {
+        let colors: [UIColor] = [greenC,blueC,orangeC,redC, purplceC, bluePurpleC, lightOrangeC, lightGray]
+        return colors.randomElement()
+    }
 }
 
 extension UITextView {

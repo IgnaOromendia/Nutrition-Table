@@ -10,7 +10,7 @@ import UIKit
 
 class AddFoodViewModel {
     static func setDoneButton(_ btn:UIButton) {
-        btn.redondeado(de: 17)
+        btn.cornerRadius(de: 17)
         btn.titleLabel?.text = "Done"
         btn.titleLabel?.textColor = .white
     }
@@ -48,7 +48,7 @@ class AddFoodViewModel {
     }
     
     static func setViewSwitch(_ view:UIView, _ sw:UISwitch) {
-        view.redondeado(de: 16)
+        view.cornerRadius(de: 16)
         sw.onTintColor = .darkPurpleC
     }
     
@@ -58,9 +58,9 @@ class AddFoodViewModel {
     }
     
     static func addFood(name: String, type: FoodType?, _ foods: [Food]) throws -> Food {
-        guard !name.isEmpty  else { throw AddFoodWarningType.foodTextEmpty }
+        guard !name.isEmpty  else { throw AddFoodWarning.foodTextEmpty }
         let food = Food(name: name, type: type)
-        guard !foods.contains(food) else { throw AddFoodWarningType.alreadyContainsFood}
+        guard !foods.contains(food) else { throw AddFoodWarning.alreadyContainsFood}
         return food
     }
     

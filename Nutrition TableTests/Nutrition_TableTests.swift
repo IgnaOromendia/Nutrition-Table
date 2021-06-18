@@ -18,11 +18,11 @@ class Nutrition_TableTests: XCTestCase {
     }
     
     func test_empty_name() throws {
-        let errorExcpected = AddFoodWarningType.foodTextEmpty
-        var error: AddFoodWarningType?
+        let errorExcpected = AddFoodWarning.foodTextEmpty
+        var error: AddFoodWarning?
 
         XCTAssertThrowsError(try AddFoodViewModel.addFood(name: "", type: .protein, [])) { thrownError in
-            error = thrownError as? AddFoodWarningType
+            error = thrownError as? AddFoodWarning
         }
         
         XCTAssertEqual(errorExcpected, error)
@@ -30,11 +30,11 @@ class Nutrition_TableTests: XCTestCase {
     
     func test_food_already_inArray() throws {
         let array = [Food(name: "Carne", type: .protein)]
-        let errorExcpected = AddFoodWarningType.alreadyContainsFood
-        var error: AddFoodWarningType?
+        let errorExcpected = AddFoodWarning.alreadyContainsFood
+        var error: AddFoodWarning?
         
         XCTAssertThrowsError(try AddFoodViewModel.addFood(name: "Carne", type: .protein, array)) { errorThrown in
-            error = errorThrown as? AddFoodWarningType
+            error = errorThrown as? AddFoodWarning
         }
         
         XCTAssertEqual(errorExcpected, error)
@@ -42,7 +42,7 @@ class Nutrition_TableTests: XCTestCase {
     
     // MARK: - MODEL DAY TESTS
     
-    func test_getFood_validateCase() {
+    func test_getFood_validCase() {
         let foodExcpected = Food(name: "Carne", type: .protein)
         let foodExcpected2 = Food(name: "Pasta", type: .carbohydrates)
         let mealExcpected = Meal(foods: [foodExcpected], drink: nil)
@@ -64,6 +64,31 @@ class Nutrition_TableTests: XCTestCase {
         XCTAssertNil(meals)
     }
     
+    func test_addMeal_validCase() {
+        let food = Food(name: "Carne", type: .protein)
+        let meal = Meal(foods: [food], drink: nil)
+        let day = Day()
+        let excpectedDay = Day()
+        excpectedDay.lunch = meal
+        
+        XCTAssertNoThrow(try day.addMeal(meal, to: .lunch))
+        XCTAssertEqual(excpectedDay.lunch, day.lunch)
+    }
+    
+    func test_addFood_already_contained() {
+        var error: AddMealWarning?
+        let excpectedError = AddMealWarning.alreadyContainsMeal
+        let food = Food(name: "Carne", type: .protein)
+        let meal = Meal(foods: [food], drink: nil)
+        let day = Day()
+        day.lunch = meal
+        
+        XCTAssertThrowsError(try day.addMeal(meal, to: .lunch)) { thrownError in
+            error = thrownError as? AddMealWarning
+        }
+        
+        XCTAssertEqual(error, excpectedError)
+    }
     
 }
 

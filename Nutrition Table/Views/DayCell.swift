@@ -28,10 +28,17 @@ class DayCell: UITableViewCell {
     
     func setCell(with weekDay:WeekDay) {
         self.selectionStyle = .none
-        view_day.redondeado(de: 30)
+        view_day.cornerRadius(de: 30)
+        //view_day.backgroundColor = .randomColor()
         circleView_FoodType.circle = true
         setFoodLabels(weekDay)
-        lbl_day.text = weekDay.dateDay
+        setImages()
+        lbl_day.text = weekDay.dateDay + ", " + weekDay.date.dayMonthDate
+    }
+    
+    private func setImages() {
+        im_lunch.image = UIImage(named: "Sun2.png")
+        im_dinner.image = UIImage(named: "Moon2.png")
     }
     
     private func setFoodLabels(_ weekDay:WeekDay) {

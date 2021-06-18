@@ -40,21 +40,27 @@ class ChooseFoodController: UIViewController {
     // MARK: - BUTTONS
     
     @IBAction func btn_breakfast(_ sender: Any) {
+        foodDay = .breakfast
         self.transition(a: "addFood")
     }
     @IBAction func btn_lunch(_ sender: Any) {
+        foodDay = .lunch
         self.transition(a: "addFood")
     }
     @IBAction func btn_snack1(_ sender: Any) {
+        foodDay = .snack1
         self.transition(a: "addFood")
     }
     @IBAction func btn_snack2(_ sender: Any) {
+        foodDay = .snack2
         self.transition(a: "addFood")
     }
     @IBAction func btn_afternoon(_ sender: Any) {
+        foodDay = .afternoonSnack
         self.transition(a: "addFood")
     }
     @IBAction func btn_dinner(_ sender: Any) {
+        foodDay = .dinner
         self.transition(a: "addFood")
     }
     

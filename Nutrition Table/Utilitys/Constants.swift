@@ -14,16 +14,21 @@ enum FoodType {
     case vegetables
 }
 
-enum TipoFoodDelDia {
+enum DayFoodType {
     case breakfast
     case lunch
-    case snak1
-    case snak2
-    case afternoonSnak
+    case snack1
+    case snack2
+    case afternoonSnack
     case dinner
 }
 
-enum AddFoodWarningType: Error {
+enum AddMealWarning: LocalizedError {
+    case alreadyContainsMeal
+    case todayError
+}
+
+enum AddFoodWarning: Error {
     case foodTextEmpty
     case alreadyContainsFood
 }

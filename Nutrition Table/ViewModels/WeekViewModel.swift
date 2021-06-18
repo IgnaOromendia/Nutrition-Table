@@ -12,8 +12,8 @@ import UIKit
 class WeekViewModel {
     
     static func setDay(from weekDay:Date) -> Day? {
-        for day in week {
-            if (day.date == weekDay) {
+        for day in week.days {
+            if (day.date.comparableDate == weekDay.comparableDate) {
                 return day
             }
         }

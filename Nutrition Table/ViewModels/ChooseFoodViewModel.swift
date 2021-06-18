@@ -24,14 +24,14 @@ class ChooseFoodViewModel {
     }
     
     static func setAddButton(_ view:UIView, _ im_add:UIImageView) {
-        view.redondeado(de: 19)
+        view.cornerRadius(de: 19)
         view.sombra = true
         im_add.image = UIImage(named: "btn_add.png")
     }
     
     static func setPopOver(_ btn:UIButton,_ view: UIView) {
-        btn.redondeado(de: 15)
-        view.redondeado(de: 25)
+        btn.cornerRadius(de: 15)
+        view.cornerRadius(de: 25)
     }
     
 //    static func labelAddName() -> String {

@@ -39,7 +39,16 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
     }
     
     @IBAction func confirmMeal(_ sender: Any) {
-        // Agregar el meal por aca
+        do {
+            try week.addMealToday(meal, in: foodDay)
+        } catch AddMealWarning.alreadyContainsMeal{
+            print("ya lo tiene")
+        } catch AddMealWarning.todayError {
+            print("ketamina")
+        } catch {
+            print("keta x 2")
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     // MARK: - TEXTS
@@ -56,9 +65,9 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
                 meal.addFood(food)
                 food_tableView.reloadData()
                 textView.makePlaceholder("Write down your food here")
-            } catch AddFoodWarningType.foodTextEmpty{
+            } catch AddFoodWarning.foodTextEmpty{
                 print("vacio")
-            } catch AddFoodWarningType.alreadyContainsFood {
+            } catch AddFoodWarning.alreadyContainsFood {
                 print("ya lo tieneee")
             } catch {
                 print("ke")
