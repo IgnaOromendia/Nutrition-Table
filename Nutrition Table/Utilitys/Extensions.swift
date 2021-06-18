@@ -162,10 +162,12 @@ extension UIColor {
     static var orangeC:          UIColor {return rgbColor(r:255, g:147, b:0)}
     static var lightOrangeC:     UIColor {return rgbColor(r: 255, g: 178, b: 97)}
     static var lightyellowC:     UIColor {return rgbColor(r: 255, g: 252, b: 121)}
-    static var purplceC:         UIColor {return rgbColor(r:102, g:32, b:185)}
+    static var purpleC:          UIColor {return rgbColor(r:102, g:32, b:185)}
+    static var purpleWhiteC:     UIColor {return rgbColor(r:68, g:66, b:153)}
+    static var redWhiteC:        UIColor {return rgbColor(r:216, g:75, b:83)}
     
     static func randomColor() -> UIColor? {
-        let colors: [UIColor] = [greenC,blueC,orangeC,redC, purplceC, bluePurpleC, lightOrangeC, lightGray]
+        let colors: [UIColor] = [greenC,blueC,orangeC, purpleWhiteC, redWhiteC, lightOrangeC]
         return colors.randomElement()
     }
 }

@@ -10,9 +10,12 @@ import UIKit
 class WeekController: UITableViewController {
     
     var weekDays: [WeekDay] = Date().getWeekDays()
+    var colors: [UIColor?] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
+        setViewsColors()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -25,7 +28,7 @@ class WeekController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayCellid", for: indexPath) as! DayCell
-        cell.setCell(with: weekDays[indexPath.row])
+        cell.setCell(with: weekDays[indexPath.row], colors[indexPath.row])
         return cell
     }
     
@@ -33,7 +36,15 @@ class WeekController: UITableViewController {
         return 204
     }
     
-    
+    private func setViewsColors() {
+        for _ in weekDays {
+            var randomColor: UIColor? = .randomColor()
+            while (!colors.contains(randomColor)) {
+                colors.append(randomColor)
+                randomColor = .randomColor()
+            }
+        }
+    }
     
     
 }

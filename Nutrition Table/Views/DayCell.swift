@@ -26,10 +26,10 @@ class DayCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setCell(with weekDay:WeekDay) {
+    func setCell(with weekDay:WeekDay, _ color: UIColor?) {
         self.selectionStyle = .none
-        view_day.cornerRadius(de: 30)
-        //view_day.backgroundColor = .randomColor()
+        view_day.cornerRadius(de: 25)
+        view_day.backgroundColor = color
         circleView_FoodType.circle = true
         setFoodLabels(weekDay)
         setImages()
