@@ -75,5 +75,4 @@ class DayCell: UITableViewCell {
         circleView_FoodType.alpha = 0;
     }
 
-     jaja soy malo
 }
