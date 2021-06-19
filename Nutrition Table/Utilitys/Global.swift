@@ -16,3 +16,5 @@ var week = Week()
 var foodDay: DayFoodType = .breakfast
 
 // letra de lbl euphemia 22
+
+// Mati es un cuelado
