@@ -19,21 +19,12 @@ class ChooseFoodViewModel {
     
     static func setViews(_ views:[UIView]) {
         for view in views {
-            view.setMenuView()
+            view.cornerRadius(de: 15)
+            view.shadow = true
         }
     }
     
-    static func setAddButton(_ view:UIView, _ im_add:UIImageView) {
-        view.cornerRadius(de: 19)
-        view.sombra = true
-        im_add.image = UIImage(named: "btn_add.png")
-    }
-    
-    static func setPopOver(_ btn:UIButton,_ view: UIView) {
-        btn.cornerRadius(de: 15)
-        view.cornerRadius(de: 25)
-    }
-    
+    // Use in home view
 //    static func labelAddName() -> String {
 //        // Estaria bueno q vaya aprendiendo los horarios del usuario
 //        switch Date().getHour() {

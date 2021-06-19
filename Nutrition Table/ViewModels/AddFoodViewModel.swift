@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class AddFoodViewModel {
+    
     static func setDoneButton(_ btn:UIButton) {
         btn.cornerRadius(de: 17)
         btn.titleLabel?.text = "Done"
@@ -54,7 +55,7 @@ class AddFoodViewModel {
     
     static func setTextView(_ textView:UITextView) {
         textView.clipsToBounds = false
-        textView.sombra = true
+        textView.shadow = true
     }
     
     static func addFood(name: String, type: FoodType?, _ foods: [Food]) throws -> Food {
@@ -63,5 +64,10 @@ class AddFoodViewModel {
         guard !foods.contains(food) else { throw AddFoodWarning.alreadyContainsFood}
         return food
     }
+    
+    #warning("Probar en un celular posta")
+    // Nombre de mierda
+    // Adding a meal without food, but something weitten in textView
+    //static func confirmationFoodWritten() {}
     
 }

@@ -7,22 +7,24 @@
 
 import Foundation
 
+// A dat contains 6 meals and a date
+
 class Day: CustomStringConvertible {
-    var date: Date
-    var breakfast: Meal?
-    var snaks: Snaks?
-    var lunch: Meal?
-    var dinner: Meal?
-    var afternoonSnack: Meal?
+    private var date: Date
+    private var breakfast: Meal?
+    private var snacks: Snaks?
+    private var lunch: Meal?
+    private var dinner: Meal?
+    private var afternoonSnack: Meal?
     
     var description: String {
         return """
-            Breakfast: \(breakfast?.foods ?? [])
-            Snack1: \(snaks?.s1.foods ?? [])
-            Snack2: \(snaks?.s2.foods ?? [])
-            Lunch: \(lunch?.foods ?? [])
-            Afternoon: \(afternoonSnack?.foods ?? [])
-            Dinner: \(dinner?.foods ?? [])
+            Breakfast: \(breakfast?.getFoodNames() ?? "")
+            Snack1: \(snacks?.s1.getFoodNames() ?? "")
+            Snack2: \(snacks?.s2.getFoodNames() ?? "")
+            Lunch: \(lunch?.getFoodNames() ?? "")
+            Afternoon: \(afternoonSnack?.getFoodNames() ?? "")
+            Dinner: \(dinner?.getFoodNames() ?? "")
         """
     }
     
@@ -31,7 +33,7 @@ class Day: CustomStringConvertible {
         self.lunch = lunch
         self.dinner = dinner
         self.afternoonSnack = afternoonSnak
-        self.snaks = snaks
+        self.snacks = snaks
         self.date = date
     }
     
@@ -39,7 +41,12 @@ class Day: CustomStringConvertible {
         self.init(breakfast:nil, snaks:nil,lunch:nil,dinner:nil, afternoonSnak:nil, date: date)
     }
     
-    func getFood(tipo: DayFoodType) -> Meal? {
+    func getDate() -> Date {
+        return self.date
+    }
+    
+    // Get a specific meal
+    func getMeal(tipo: DayFoodType) -> Meal? {
         switch tipo {
         case .breakfast:
             guard let breakfast = self.breakfast else {return nil}
@@ -48,10 +55,10 @@ class Day: CustomStringConvertible {
             guard let lunch = self.lunch else {return nil}
             return lunch
         case .snack1:
-            guard let snak1 = self.snaks?.s1 else {return nil}
+            guard let snak1 = self.snacks?.s1 else {return nil}
             return snak1
         case .snack2:
-            guard let snak1 = self.snaks?.s2 else {return nil}
+            guard let snak1 = self.snacks?.s2 else {return nil}
             return snak1
         case .afternoonSnack:
             guard let afternoonSnak = self.afternoonSnack else {return nil}
@@ -62,8 +69,8 @@ class Day: CustomStringConvertible {
         }
     }
     
-    
-    func getAllFoods() -> [DayFoodType:Meal]? {
+    // Get all the meals
+    func getAllMeals() -> [DayFoodType:Meal]? {
         var Foods:[DayFoodType:Meal] = [:]
         
         if let breakfast = self.breakfast {
@@ -87,6 +94,7 @@ class Day: CustomStringConvertible {
         return Foods.count > 0 ? Foods : nil
     }
     
+    // Add a spceific meal
     func addMeal(_ meal:Meal, to moment:DayFoodType) throws {
         switch moment {
         case .breakfast:
@@ -96,11 +104,11 @@ class Day: CustomStringConvertible {
             guard self.lunch != meal else { throw AddMealWarning.alreadyContainsMeal }
             self.lunch = meal
         case .snack1:
-            guard self.snaks?.s1 != meal else { throw AddMealWarning.alreadyContainsMeal }
-            self.snaks?.s1 = meal
+            guard self.snacks?.s1 != meal else { throw AddMealWarning.alreadyContainsMeal }
+            self.snacks?.s1 = meal
         case .snack2:
-            guard self.snaks?.s2 != meal else { throw AddMealWarning.alreadyContainsMeal }
-            self.snaks?.s2 = meal
+            guard self.snacks?.s2 != meal else { throw AddMealWarning.alreadyContainsMeal }
+            self.snacks?.s2 = meal
         case .afternoonSnack:
             guard self.afternoonSnack != meal else { throw AddMealWarning.alreadyContainsMeal }
             self.afternoonSnack = meal

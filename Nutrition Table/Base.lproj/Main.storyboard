@@ -148,6 +148,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="1DP-dO-cPl"/>
+                    <connections>
+                        <segue destination="9cw-S3-Zlg" kind="show" id="bki-Ua-GTE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtS-Xw-lQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,13 +159,14 @@
         <!--Day Controller-->
         <scene sceneID="M7F-dR-Phy">
             <objects>
-                <viewController id="9cw-S3-Zlg" customClass="DayController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dayViewid" id="9cw-S3-Zlg" customClass="DayController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uh6-fl-CCl">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="3Ej-Fs-cBO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QOb-QP-dRQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvF-yg-5YA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

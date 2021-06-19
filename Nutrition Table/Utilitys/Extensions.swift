@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     /// Ejemplo: miView.sombra = true
-    var sombra: Bool {
+    var shadow: Bool {
         get {
             if self.layer.shadowRadius > 0 {
                 return true
@@ -49,12 +49,6 @@ extension UIView {
     func cornerRadius(de numero:CGFloat) {
         self.layer.cornerRadius = numero
     }
-    
-    #warning("Change to a view model")
-    func setMenuView() {
-        self.cornerRadius(de: 15)
-        self.sombra = true
-    }
 }
 
 extension UIViewController {
@@ -73,14 +67,15 @@ extension UIViewController {
         }
     }
     
+    // Set the navigation trnasparent
     func setNavigationTransparent(title: String? = nil) {
         navigationItem.title = title
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    /// Para hacer transiciones simples de un ViewController a otro
-    func transition(a id:String) {
+    // Transifiton from vc to vc
+    func transition(to id:String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let destino = storyboard.instantiateViewController(identifier: id)
         navigationController?.pushViewController(destino, animated: true)
@@ -121,6 +116,7 @@ extension Date {
     }
     
     // Get the distance between today and Monday from the current week
+    #warning("Fijarse como hacer q sea el lunes")
     func getDistanceMonday() -> Int {
         let date = Calendar.current.dateComponents([.weekday], from: self)
         return abs((date.weekday?.distance(to: 0) ?? 0) + 1)
@@ -145,10 +141,12 @@ extension Date {
 }
 
 extension UIColor {
+    // Set a RGB color
     private static func rgbColor(r:Int, g:Int, b:Int) -> UIColor {
         return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
     }
     
+    // Colos
     static var darkRedC:         UIColor {return rgbColor(r: 184, g: 23, b: 18)}
     static var lightRedC:        UIColor {return rgbColor(r: 255, g: 119, b: 111)}
     static var lightPurpleC:     UIColor {return rgbColor(r: 125, g: 86, b: 198) }
@@ -166,6 +164,7 @@ extension UIColor {
     static var purpleWhiteC:     UIColor {return rgbColor(r:68, g:66, b:153)}
     static var redWhiteC:        UIColor {return rgbColor(r:216, g:75, b:83)}
     
+    // choose random color from predefined array
     static func randomColor() -> UIColor? {
         let colors: [UIColor] = [greenC,blueC,orangeC, purpleWhiteC, redWhiteC, lightOrangeC]
         return colors.randomElement()
@@ -173,6 +172,7 @@ extension UIColor {
 }
 
 extension UITextView {
+    //Placeholders
     func makePlaceholder(_ text: String) {
         self.textColor = .darkGray
         self.text = text

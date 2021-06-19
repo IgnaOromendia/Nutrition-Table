@@ -7,16 +7,14 @@
 
 import Foundation
 
+// Meal contains foods
+
 class Food: CustomStringConvertible, Equatable, Comparable {
     var name: String
     var type: FoodType?
     
     var description: String {
-        if let type = self.type {
-            return "\(self.name) \(type)"
-        } else {
-            return "\(self.name)"
-        }
+        return "\(self.name)"
     }
     
     init(name: String, type: FoodType?) {
@@ -34,8 +32,8 @@ class Food: CustomStringConvertible, Equatable, Comparable {
 }
 
 class Meal: Equatable {
-    var foods: [Food]
-    var drink: String?
+    private var foods: [Food]
+    private var drink: String?
     
     init(foods: [Food] = [], drink: String? = nil) {
         self.drink = drink
@@ -54,7 +52,12 @@ class Meal: Equatable {
         self.drink = drink
     }
     
-    func getFoods() -> String {
+    func getFoodArray() -> [Food] {
+        return self.foods
+    }
+    
+    // Get all the food's names and return a string
+    func getFoodNames() -> String {
         if self.foods.count < 2 {
             return foods[0].name
         } else {

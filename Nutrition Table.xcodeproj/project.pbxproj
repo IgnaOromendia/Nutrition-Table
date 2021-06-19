@@ -225,8 +225,8 @@
 			children = (
 				70044F0E2678D3BF00226544 /* Food.swift */,
 				70044F122678D3FC00226544 /* Day.swift */,
-				70345409267A545500322503 /* Animation.swift */,
 				70C5A144267C196A0004B23F /* Week.swift */,
+				70345409267A545500322503 /* Animation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

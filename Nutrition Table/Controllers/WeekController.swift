@@ -16,6 +16,8 @@ class WeekController: UITableViewController {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         setViewsColors()
+        //setNavigationTransparent()
+        //WeekViewModel.setCustomNavigation(navigationController)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,15 +38,18 @@ class WeekController: UITableViewController {
         return 204
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        transition(to: "dayViewid")
+    }
+    
     private func setViewsColors() {
         for _ in weekDays {
             var randomColor: UIColor? = .randomColor()
-            while (!colors.contains(randomColor)) {
-                colors.append(randomColor)
-                randomColor = .randomColor()
-            }
+            //while (!colors.contains(randomColor)) {
+            colors.append(randomColor)
+            randomColor = .randomColor()
+            //}
         }
     }
-    
     
 }

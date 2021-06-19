@@ -29,41 +29,35 @@ class ChooseFoodController: UIViewController {
         super.viewDidLoad()
         setNavigationTransparent()
         view.backgroundColor = .orangeC
-        ChooseFoodViewModel.setViews([view_Breakfast,view_snack1,view_lunch,
-                                      view_snak2,view_afternoon,view_dinner])
+        ChooseFoodViewModel.setViews([view_Breakfast,view_snack1,view_lunch,view_snak2,view_afternoon,view_dinner])
         ChooseFoodViewModel.setImages([im_breakfast,im_snack1,im_lunch,im_snak2,im_afternoon,im_dinner])
     }
-    
-  
-    
     
     // MARK: - BUTTONS
     
     @IBAction func btn_breakfast(_ sender: Any) {
         foodDay = .breakfast
-        self.transition(a: "addFood")
+        self.transition(to: "addFood")
     }
     @IBAction func btn_lunch(_ sender: Any) {
         foodDay = .lunch
-        self.transition(a: "addFood")
+        self.transition(to: "addFood")
     }
     @IBAction func btn_snack1(_ sender: Any) {
         foodDay = .snack1
-        self.transition(a: "addFood")
+        self.transition(to: "addFood")
     }
     @IBAction func btn_snack2(_ sender: Any) {
         foodDay = .snack2
-        self.transition(a: "addFood")
+        self.transition(to: "addFood")
     }
     @IBAction func btn_afternoon(_ sender: Any) {
         foodDay = .afternoonSnack
-        self.transition(a: "addFood")
+        self.transition(to: "addFood")
     }
     @IBAction func btn_dinner(_ sender: Any) {
         foodDay = .dinner
-        self.transition(a: "addFood")
+        self.transition(to: "addFood")
     }
-    
-    
-    
+
 }

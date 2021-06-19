@@ -16,11 +16,12 @@ class Animation {
         case out_
     }
     
-    static func animateAlphaSegment(_ segement:UISegmentedControl, _ type:Bool) {
+    #warning("ver si se puede hacer un general")
+    //Animation of alhpa
+    static func animateAlpha(_ view:UIView, _ type:Bool) {
         let alpha: CGFloat = type ? 1 : 0
         UIView.animate(withDuration: 0.4) {
-            segement.alpha = alpha
+            view.alpha = alpha
         }
-        
     }
 }

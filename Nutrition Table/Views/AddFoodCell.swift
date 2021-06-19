@@ -14,7 +14,9 @@ class AddFoodCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
+    #warning("Mejorar el diseño")
+    // Cell genreated if you add food
     func setCell(text:String, type: FoodType?) {
         selectionStyle = .none
         textLabel?.text = text
@@ -32,5 +34,4 @@ class AddFoodCell: UITableViewCell {
             view_foodType.backgroundColor = .white
         }
     }
-
 }

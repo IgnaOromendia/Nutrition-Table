@@ -42,14 +42,14 @@ class Nutrition_TableTests: XCTestCase {
     
     // MARK: - MODEL DAY TESTS
     
-    func test_getFood_validCase() {
+    func test_getMeal_validCase() {
         let foodExcpected = Food(name: "Carne", type: .protein)
         let foodExcpected2 = Food(name: "Pasta", type: .carbohydrates)
         let mealExcpected = Meal(foods: [foodExcpected], drink: nil)
         let mealExcpected2 = Meal(foods: [foodExcpected2], drink: nil)
         let day = Day(breakfast: mealExcpected2, snaks: nil, lunch: mealExcpected, dinner: nil, afternoonSnak: nil, date: Date())
-        let meal = day.getFood(tipo: .lunch)
-        let meals = day.getAllFoods()
+        let meal = day.getMeal(tipo: .lunch)
+        let meals = day.getAllMeals()
         
         XCTAssertEqual(mealExcpected, meal)
         XCTAssertEqual([.lunch:mealExcpected,.breakfast:mealExcpected2], meals!)
@@ -57,8 +57,8 @@ class Nutrition_TableTests: XCTestCase {
     
     func test_getNilFood() {
         let day = Day()
-        let meal = day.getFood(tipo: .lunch)
-        let meals = day.getAllFoods()
+        let meal = day.getMeal(tipo: .lunch)
+        let meals = day.getAllMeals()
         
         XCTAssertNil(meal)
         XCTAssertNil(meals)
@@ -68,11 +68,10 @@ class Nutrition_TableTests: XCTestCase {
         let food = Food(name: "Carne", type: .protein)
         let meal = Meal(foods: [food], drink: nil)
         let day = Day()
-        let excpectedDay = Day()
-        excpectedDay.lunch = meal
+        let excpectedDay = Day(breakfast: nil, snaks: nil, lunch: meal, dinner: nil, afternoonSnak: nil, date: Date())
         
         XCTAssertNoThrow(try day.addMeal(meal, to: .lunch))
-        XCTAssertEqual(excpectedDay.lunch, day.lunch)
+        XCTAssertEqual(excpectedDay.getMeal(tipo: .lunch), day.getMeal(tipo: .lunch))
     }
     
     func test_addFood_already_contained() {
@@ -80,8 +79,7 @@ class Nutrition_TableTests: XCTestCase {
         let excpectedError = AddMealWarning.alreadyContainsMeal
         let food = Food(name: "Carne", type: .protein)
         let meal = Meal(foods: [food], drink: nil)
-        let day = Day()
-        day.lunch = meal
+        let day = Day(breakfast: nil, snaks: nil, lunch: meal, dinner: nil, afternoonSnak: nil, date: Date())
         
         XCTAssertThrowsError(try day.addMeal(meal, to: .lunch)) { thrownError in
             error = thrownError as? AddMealWarning

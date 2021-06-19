@@ -26,6 +26,8 @@ class DayCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    #warning("No implementation of circleView_FoodType")
+    // Cell genereated in the week view
     func setCell(with weekDay:WeekDay, _ color: UIColor?) {
         self.selectionStyle = .none
         view_day.cornerRadius(de: 25)
@@ -39,24 +41,25 @@ class DayCell: UITableViewCell {
     private func setImages() {
         im_lunch.image = UIImage(named: "Sun2.png")
         im_dinner.image = UIImage(named: "Moon2.png")
+        im_breakfast.image = UIImage(named: "Sunrise2.png")
     }
     
     private func setFoodLabels(_ weekDay:WeekDay) {
         if let day = WeekViewModel.setDay(from: weekDay.date) {
-            if let breakfast = day.breakfast {
-                lbl_breakfast.text = breakfast.getFoods()
+            if let breakfast = day.getMeal(tipo: .breakfast) {
+                lbl_breakfast.text = breakfast.getFoodNames()
             } else {
                 lbl_breakfast.text = "No breakfast added"
             }
             
-            if let lunch = day.lunch {
-                lbl_lunch.text = lunch.getFoods()
+            if let lunch = day.getMeal(tipo: .lunch) {
+                lbl_lunch.text = lunch.getFoodNames()
             } else {
                 lbl_lunch.text = "No lunch added"
             }
             
-            if let dinner = day.dinner {
-                lbl_dinner.text = dinner.getFoods()
+            if let dinner = day.getMeal(tipo: .dinner) {
+                lbl_dinner.text = dinner.getFoodNames()
             } else {
                 lbl_dinner.text = "No dinner added"
             }
@@ -69,6 +72,7 @@ class DayCell: UITableViewCell {
         lbl_breakfast.text = "No breakfast added"
         lbl_lunch.text = "No lunch added"
         lbl_dinner.text = "No dinner added"
+        circleView_FoodType.alpha = 0;
     }
 
 }

@@ -28,18 +28,24 @@ enum AddMealWarning: LocalizedError {
     case todayError
 }
 
-enum AddFoodWarning: Error {
+enum AddFoodWarning: LocalizedError {
     case foodTextEmpty
     case alreadyContainsFood
 }
 
 typealias Snaks = (s1:Meal, s2: Meal)
-typealias UITableViewMethos = UITableViewDelegate & UITableViewDataSource
+typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
+typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
 typealias WeekDay = (date: Date, dateDay: String)
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
-                          UIImage(named: "chips.png"),
-                          UIImage(named: "salad.png"),
-                          UIImage(named: "choco.png"),
-                          UIImage(named: "croissant.png"),
-                          UIImage(named: "meat")]
+                              UIImage(named: "chips.png"),
+                              UIImage(named: "salad.png"),
+                              UIImage(named: "choco.png"),
+                              UIImage(named: "croissant.png"),
+                              UIImage(named: "meat")]
+
+let textViewAddFoodPlaceHolder = "Write down your food here"
+
+
+

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos {
+class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdos {
     
     @IBOutlet weak var food_tableView: UITableView!
     @IBOutlet weak var typeFood_segmentedControl: UISegmentedControl!
@@ -27,11 +27,12 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
         AddFoodViewModel.setTextView(food_textView)
         AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
         foodType = nil
+        // puede q este de mas
     }
     
     @IBAction func switch_foodType(_ sender: UISwitch) {
         foodType = AddFoodViewModel.setFoodType(typeFood_segmentedControl.selectedSegmentIndex)
-        Animation.animateAlphaSegment(typeFood_segmentedControl, sender.isOn)
+        Animation.animateAlpha(typeFood_segmentedControl, sender.isOn)
     }
     
     @IBAction func changeFoodType(_ sender: UISegmentedControl) {
@@ -61,10 +62,10 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             do {
-                let food = try AddFoodViewModel.addFood(name: textView.text, type: foodType, meal.foods)
+                let food = try AddFoodViewModel.addFood(name: textView.text, type: foodType, meal.getFoodArray())
                 meal.addFood(food)
                 food_tableView.reloadData()
-                textView.makePlaceholder("Write down your food here")
+                textView.makePlaceholder(textViewAddFoodPlaceHolder)
             } catch AddFoodWarning.foodTextEmpty{
                 print("vacio")
             } catch AddFoodWarning.alreadyContainsFood {
@@ -81,12 +82,12 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethos
     // MARK: - TABLEVIEW
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meal.foods.count
+        return meal.getFoodArray().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addFoodCellid",for: indexPath) as! AddFoodCell
-        let reverseFood: [Food] = meal.foods.reversed()
+        let reverseFood: [Food] = meal.getFoodArray().reversed()
         cell.setCell(text: reverseFood[indexPath.row].name, type: reverseFood[indexPath.row].type)
         return cell
     }
