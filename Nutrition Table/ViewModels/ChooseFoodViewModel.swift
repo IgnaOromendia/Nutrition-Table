@@ -1,5 +1,5 @@
 //
-//  MenuViewModel.swift
+//  ChooseFoodViewModel.swift
 //  Nutrition Table
 //
 //  Created by Igna on 15/06/2021.

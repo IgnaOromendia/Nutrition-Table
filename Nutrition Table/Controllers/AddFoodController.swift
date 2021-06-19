@@ -17,8 +17,8 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     @IBOutlet weak var foodType_switch: UISwitch!
     @IBOutlet weak var view_switch: UIView!
     
-    var meal = Meal()
-    var foodType: FoodType? = nil
+    private var meal = Meal()
+    private var foodType: FoodType? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,11 +88,11 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addFoodCellid",for: indexPath) as! AddFoodCell
         let reverseFood: [Food] = meal.getFoodArray().reversed()
-        cell.setCell(text: reverseFood[indexPath.row].name, type: reverseFood[indexPath.row].type)
+        cell.setCell(text: reverseFood[indexPath.row].getName(), type: reverseFood[indexPath.row].getType())
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 56
+        return addFoodCellHeight
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 // Meal contains foods
 
 class Food: CustomStringConvertible, Equatable, Comparable {
-    var name: String
-    var type: FoodType?
+    private var name: String
+    private var type: FoodType?
     
     var description: String {
         return "\(self.name)"
@@ -28,6 +28,14 @@ class Food: CustomStringConvertible, Equatable, Comparable {
     
     static func < (lhs: Food, rhs: Food) -> Bool {
         return lhs.name < rhs.name
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getType() -> FoodType? {
+        return type
     }
 }
 
@@ -59,7 +67,7 @@ class Meal: Equatable {
     // Get all the food's names and return a string
     func getFoodNames() -> String {
         if self.foods.count < 2 {
-            return foods[0].name
+            return foods[0].getName()
         } else {
             var result: String = ""
             for food in foods {

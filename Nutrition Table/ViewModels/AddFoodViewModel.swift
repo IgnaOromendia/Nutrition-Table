@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AddFoodViewModel.swift
 //  Nutrition Table
 //
 //  Created by Igna on 16/06/2021.
@@ -64,10 +64,5 @@ class AddFoodViewModel {
         guard !foods.contains(food) else { throw AddFoodWarning.alreadyContainsFood}
         return food
     }
-    
-    #warning("Probar en un celular posta")
-    // Nombre de mierda
-    // Adding a meal without food, but something weitten in textView
-    //static func confirmationFoodWritten() {}
     
 }

@@ -16,7 +16,6 @@ class Animation {
         case out_
     }
     
-    #warning("ver si se puede hacer un general")
     //Animation of alhpa
     static func animateAlpha(_ view:UIView, _ type:Bool) {
         let alpha: CGFloat = type ? 1 : 0

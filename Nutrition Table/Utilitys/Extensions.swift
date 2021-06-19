@@ -116,10 +116,10 @@ extension Date {
     }
     
     // Get the distance between today and Monday from the current week
-    #warning("Fijarse como hacer q sea el lunes")
     func getDistanceMonday() -> Int {
         let date = Calendar.current.dateComponents([.weekday], from: self)
-        return abs((date.weekday?.distance(to: 0) ?? 0) + 1)
+        let firstweekDay = Calendar.current.firstWeekday
+        return abs((date.weekday?.distance(to: firstweekDay) ?? 0) + 1)
     }
     
     // Get all the days between today and Monday from the current week

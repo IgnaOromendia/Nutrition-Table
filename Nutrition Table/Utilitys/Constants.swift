@@ -47,5 +47,8 @@ var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
 
 let textViewAddFoodPlaceHolder = "Write down your food here"
 
+// Row Heights
+let addFoodCellHeight: CGFloat = 56
+let weekCellHeight: CGFloat = 204
 
 

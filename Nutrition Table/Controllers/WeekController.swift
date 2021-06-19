@@ -9,8 +9,8 @@ import UIKit
 
 class WeekController: UITableViewController {
     
-    var weekDays: [WeekDay] = Date().getWeekDays()
-    var colors: [UIColor?] = []
+    private var weekDays: [WeekDay] = Date().getWeekDays()
+    private var colors: [UIColor?] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class WeekController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 204
+        return weekCellHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -45,10 +45,11 @@ class WeekController: UITableViewController {
     private func setViewsColors() {
         for _ in weekDays {
             var randomColor: UIColor? = .randomColor()
-            //while (!colors.contains(randomColor)) {
+            // agregar mas colores para amuentar las probabilidades
+//            while (colors.contains(randomColor)) {
+//                randomColor = .randomColor()
+//            }
             colors.append(randomColor)
-            randomColor = .randomColor()
-            //}
         }
     }
     
