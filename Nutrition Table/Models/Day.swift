@@ -70,28 +70,33 @@ class Day: CustomStringConvertible {
     }
     
     // Get all the meals
-    func getAllMeals() -> [DayFoodType:Meal]? {
-        var Foods:[DayFoodType:Meal] = [:]
+    func getAllMeals() -> [TypeAndMeal]? {
+        
+        var meals:[TypeAndMeal] = []
         
         if let breakfast = self.breakfast {
-            Foods[DayFoodType.breakfast] = breakfast
+            let mealToAdd:TypeAndMeal = (.breakfast, breakfast)
+            meals.append(mealToAdd)
         }
         
         if let lunch = self.lunch {
-            Foods[DayFoodType.lunch] = lunch
+            let mealToAdd:TypeAndMeal = (.lunch, lunch)
+            meals.append(mealToAdd)
         }
         
         if let dinner = self.dinner {
-            Foods[DayFoodType.dinner] = dinner
+            let mealToAdd:TypeAndMeal = (.dinner, dinner)
+            meals.append(mealToAdd)
         }
         
-        if let afternoonSnak = self.afternoonSnack {
-            Foods[DayFoodType.afternoonSnack] = afternoonSnak
+        if let afternoonSnack = self.afternoonSnack {
+            let mealToAdd:TypeAndMeal = (.afternoonSnack, afternoonSnack)
+            meals.append(mealToAdd)
         }
         
         // Faltan los snaks
         
-        return Foods.count > 0 ? Foods : nil
+        return meals.count > 0 ? meals : nil
     }
     
     // Add a spceific meal

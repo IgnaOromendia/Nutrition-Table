@@ -11,15 +11,6 @@ import UIKit
 
 class WeekViewModel {
     
-    static func setDay(from weekDay:Date) -> Day? {
-        for day in week.days {
-            if (day.getDate().comparableDate == weekDay.comparableDate) {
-                return day
-            }
-        }
-        return nil
-    }
-    
     static func setCustomNavigation(_ nav: UINavigationController?) {
         nav?.navigationBar.shadowImage = UIImage()
         

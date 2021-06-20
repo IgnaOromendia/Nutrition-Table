@@ -25,7 +25,7 @@ class Week {
         self.days = days.count > 0 ? days : generateWeek()
     }
     
-    // Generate a week form todaay to monday from the same week
+    // Generate a week form today to monday from the same week
     private func generateWeek() -> [Day] {
         let distanceMonday = Date().getDistanceMonday()
         var days: [Day] = []
@@ -48,6 +48,15 @@ class Week {
         } catch {
             throw AddMealWarning.alreadyContainsMeal
         }
+    }
+    
+    static func setDay(from weekDay:Date) -> Day? {
+        for day in week.days {
+            if (day.getDate().comparableDate == weekDay.comparableDate) {
+                return day
+            }
+        }
+        return nil
     }
     
 }

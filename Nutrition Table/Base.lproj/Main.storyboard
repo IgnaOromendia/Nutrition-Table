@@ -149,28 +149,41 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="1DP-dO-cPl"/>
                     <connections>
-                        <segue destination="9cw-S3-Zlg" kind="show" id="bki-Ua-GTE"/>
+                        <segue destination="adg-cc-XYn" kind="show" id="sck-Dk-SBg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtS-Xw-lQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53.846153846153847" y="760.66350710900474"/>
         </scene>
-        <!--Day Controller-->
-        <scene sceneID="M7F-dR-Phy">
+        <!--Day-->
+        <scene sceneID="1z6-ZC-LfT">
             <objects>
-                <viewController storyboardIdentifier="dayViewid" id="9cw-S3-Zlg" customClass="DayController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uh6-fl-CCl">
+                <tableViewController storyboardIdentifier="dayViewid" id="adg-cc-XYn" customClass="DayController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9oo-hY-gVQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="3Ej-Fs-cBO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="QOb-QP-dRQ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kvF-yg-5YA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="testCell" id="cz2-R1-raN">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cz2-R1-raN" id="7fW-dM-6nv">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="adg-cc-XYn" id="dbc-ix-btE"/>
+                            <outlet property="delegate" destination="adg-cc-XYn" id="wuG-Bw-YRK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Day" id="sGB-bP-9BD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jkv-Ba-abF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765" y="761"/>
+            <point key="canvasLocation" x="825" y="760"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kHF-N0-EBT">
