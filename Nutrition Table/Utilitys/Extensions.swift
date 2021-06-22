@@ -122,17 +122,22 @@ extension Date {
         return abs((date.weekday?.distance(to: firstweekDay) ?? 0) + 1)
     }
     
+    func getNameDay(day: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from:day)
+    }
+    
     // Get all the days between today and Monday from the current week
     func getWeekDays() -> [WeekDay] {
         var days: [WeekDay] = []
-        let dateFormatter = DateFormatter()
         let dayDistance = getDistanceMonday()
         
-        dateFormatter.dateFormat = "EEEE"
+        
 
         for i in 0..<dayDistance {
             let day = self - TimeInterval(86400 * i)
-            let weekDay = dateFormatter.string(from:day)
+            let weekDay = getNameDay(day: day)
             days.append((day,weekDay))
         }
         
@@ -142,7 +147,7 @@ extension Date {
 
 extension UIColor {
     // Set a RGB color
-    private static func rgbColor(r:Int, g:Int, b:Int) -> UIColor {
+    static func rgbColor(r:Int, g:Int, b:Int) -> UIColor {
         return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
     }
     

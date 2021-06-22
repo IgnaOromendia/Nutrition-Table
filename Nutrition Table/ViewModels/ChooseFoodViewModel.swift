@@ -23,26 +23,4 @@ class ChooseFoodViewModel {
             view.shadow = true
         }
     }
-    
-    // Use in home view
-//    static func labelAddName() -> String {
-//        // Estaria bueno q vaya aprendiendo los horarios del usuario
-//        switch Date().getHour() {
-//        case 5..<11:
-//            return "Add Breakfast"
-//        case 11..<12:
-//            return "Add Snack"
-//        case 12..<15:
-//            return "Add Lunch"
-//        case 15..<16:
-//            return "Add Snack"
-//        case 16..<19:
-//            return "Add Afternoon Snack"
-//        case 19..<5:
-//            return "Add Dinner"
-//        default:
-//            return ""
-//        }
-//    }
-    
 }

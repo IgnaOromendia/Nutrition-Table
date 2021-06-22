@@ -37,6 +37,7 @@ typealias Snaks = (s1:Meal, s2: Meal)
 typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
 typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
 typealias WeekDay = (date: Date, dateDay: String)
+typealias Coordenada = (x:CGFloat, y:CGFloat)
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
                               UIImage(named: "chips.png"),
@@ -51,4 +52,12 @@ let textViewAddFoodPlaceHolder = "Write down your food here"
 let addFoodCellHeight: CGFloat = 56
 let weekCellHeight: CGFloat = 204
 
+// Storyboard id
+
+let addFoodid = "addFoodid"
+let weekid = "weekid"
+let calendarid = "calendarid"
+let todayid = "todayid"
+let configid = "configid"
+let exportid = "exportid"
 
