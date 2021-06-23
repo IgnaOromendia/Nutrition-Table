@@ -52,4 +52,6 @@ let textViewAddFoodPlaceHolder = "Write down your food here"
 let addFoodCellHeight: CGFloat = 56
 let weekCellHeight: CGFloat = 204
 
+let addFoodid = "addFoodid"
+
 

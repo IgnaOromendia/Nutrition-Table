@@ -37,27 +37,27 @@ class ChooseFoodController: UIViewController {
     
     @IBAction func btn_breakfast(_ sender: Any) {
         foodDay = .breakfast
-        self.transition(to: "addFood")
+        self.transition(to: addFoodid)
     }
     @IBAction func btn_lunch(_ sender: Any) {
         foodDay = .lunch
-        self.transition(to: "addFood")
+        self.transition(to: addFoodid)
     }
     @IBAction func btn_snack1(_ sender: Any) {
         foodDay = .snack1
-        self.transition(to: "addFood")
+        self.transition(to: addFoodid)
     }
     @IBAction func btn_snack2(_ sender: Any) {
         foodDay = .snack2
-        self.transition(to: "addFood")
+        self.transition(to: addFoodid)
     }
     @IBAction func btn_afternoon(_ sender: Any) {
         foodDay = .afternoonSnack
-        self.transition(to: "addFood")
+        self.transition(to: addFoodid)
     }
     @IBAction func btn_dinner(_ sender: Any) {
         foodDay = .dinner
-        self.transition(to: "addFood")
+        self.transition(to: addFoodid)
     }
 
 }
