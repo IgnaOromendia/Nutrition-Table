@@ -43,6 +43,8 @@
 		701B0681267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */; };
 		701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
 		701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
+		7027B3BD2682D1FB005C6CF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */; };
+		7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BE2682D214005C6CF8 /* HomeController.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
@@ -102,6 +104,8 @@
 		701B0677267A6FD5003CACF3 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
 		701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewModel.swift; sourceTree = "<group>"; };
 		701B067C267ACE32003CACF3 /* AddFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
+		7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7027B3BE2682D214005C6CF8 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		70BE9DA6267CC24A0002E2BC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				70044F2A26798ADE00226544 /* ChooseFoodController.swift */,
 				701B0677267A6FD5003CACF3 /* AddFoodController.swift */,
 				70BE9DA6267CC24A0002E2BC /* DayController.swift */,
+				7027B3BE2682D214005C6CF8 /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
 				70C5A13A267B73E60004B23F /* WeekViewModel.swift */,
 				C54168FE267ED5B700493634 /* DayViewModel.swift */,
+				7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 			files = (
 				7034540A267A545500322503 /* Animation.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
+				7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */,
 				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */,
 				70044F132678D3FC00226544 /* Day.swift in Sources */,
@@ -399,6 +406,7 @@
 				701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
 				70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F2F26798B5C00226544 /* Extensions.swift in Sources */,
+				7027B3BD2682D1FB005C6CF8 /* HomeViewModel.swift in Sources */,
 				70044F0F2678D3BF00226544 /* Food.swift in Sources */,
 				701B067A267A9FF8003CACF3 /* AddFoodViewModel.swift in Sources */,
 				70044F1B2678D48A00226544 /* Global.swift in Sources */,
