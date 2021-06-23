@@ -43,7 +43,6 @@
 		701B0681267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */; };
 		701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
 		701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
-		7027B3B826820850005C6CF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3B726820850005C6CF8 /* HomeViewModel.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
@@ -58,7 +57,6 @@
 		70C5A145267C196A0004B23F /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A144267C196A0004B23F /* Week.swift */; };
 		70C5A146267C196A0004B23F /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A144267C196A0004B23F /* Week.swift */; };
 		70C5A147267C196A0004B23F /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A144267C196A0004B23F /* Week.swift */; };
-		70EE68DA267ED78700E852AD /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EE68D9267ED78700E852AD /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,14 +101,12 @@
 		701B0677267A6FD5003CACF3 /* AddFoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodController.swift; sourceTree = "<group>"; };
 		701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewModel.swift; sourceTree = "<group>"; };
 		701B067C267ACE32003CACF3 /* AddFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
-		7027B3B726820850005C6CF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		70BE9DA6267CC24A0002E2BC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
 		70C5A13A267B73E60004B23F /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
 		70C5A13E267BB7C80004B23F /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		70C5A144267C196A0004B23F /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
-		70EE68D9267ED78700E852AD /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +206,6 @@
 				701B0677267A6FD5003CACF3 /* AddFoodController.swift */,
 				70C5A138267B73C20004B23F /* WeekController.swift */,
 				70BE9DA6267CC24A0002E2BC /* DayController.swift */,
-				70EE68D9267ED78700E852AD /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,7 +237,6 @@
 				70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */,
 				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
 				70C5A13A267B73E60004B23F /* WeekViewModel.swift */,
-				7027B3B726820850005C6CF8 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -390,7 +384,6 @@
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
 				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */,
-				70EE68DA267ED78700E852AD /* HomeController.swift in Sources */,
 				70044F132678D3FC00226544 /* Day.swift in Sources */,
 				70C5A145267C196A0004B23F /* Week.swift in Sources */,
 				70C5A139267B73C20004B23F /* WeekController.swift in Sources */,
@@ -402,7 +395,6 @@
 				701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
 				70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F2F26798B5C00226544 /* Extensions.swift in Sources */,
-				7027B3B826820850005C6CF8 /* HomeViewModel.swift in Sources */,
 				70044F0F2678D3BF00226544 /* Food.swift in Sources */,
 				701B067A267A9FF8003CACF3 /* AddFoodViewModel.swift in Sources */,
 				70044F1B2678D48A00226544 /* Global.swift in Sources */,
