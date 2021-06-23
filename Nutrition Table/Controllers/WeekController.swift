@@ -39,7 +39,11 @@ class WeekController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        transition(to: "dayViewid")
+        if let day = Week.setDay(from: weekDays[indexPath.row].date) {
+            selectedDay = day
+            transition(to: "dayViewid")
+        }
+
     }
     
     private func setViewsColors() {
@@ -52,5 +56,4 @@ class WeekController: UITableViewController {
             colors.append(randomColor)
         }
     }
-    
 }

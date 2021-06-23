@@ -14,7 +14,7 @@ class Nutrition_TableTests: XCTestCase {
     func test_valid_case() throws {
         let foodExpected = Food(name: "Carne", type: .protein)
         let foodOut = try AddFoodViewModel.addFood(name: "Carne", type: .protein, [])
-        XCTAssertEqual(foodExpected.name, foodOut.name)
+        XCTAssertEqual(foodExpected.getName(), foodOut.getName())
     }
     
     func test_empty_name() throws {

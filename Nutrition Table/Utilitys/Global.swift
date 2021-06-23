@@ -14,5 +14,7 @@ import Foundation
 
 var week = Week()
 var foodDay: DayFoodType = .breakfast
+var selectedDay = Day()
 
 // letra de lbl euphemia 22
+
