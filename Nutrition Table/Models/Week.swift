@@ -49,7 +49,4 @@ class Week {
             throw AddMealWarning.alreadyContainsMeal
         }
     }
-    
-    
-    
 }
