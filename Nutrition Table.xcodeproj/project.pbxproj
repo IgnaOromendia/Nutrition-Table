@@ -44,6 +44,7 @@
 		701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
 		701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B0677267A6FD5003CACF3 /* AddFoodController.swift */; };
 		7027B3B826820850005C6CF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3B726820850005C6CF8 /* HomeViewModel.swift */; };
+		7027B3BB2682CAD1005C6CF8 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BA2682CAD1005C6CF8 /* DayViewModel.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
@@ -104,6 +105,7 @@
 		701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewModel.swift; sourceTree = "<group>"; };
 		701B067C267ACE32003CACF3 /* AddFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
 		7027B3B726820850005C6CF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7027B3BA2682CAD1005C6CF8 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		70BE9DA6267CC24A0002E2BC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
 				70C5A13A267B73E60004B23F /* WeekViewModel.swift */,
 				7027B3B726820850005C6CF8 /* HomeViewModel.swift */,
+				7027B3BA2682CAD1005C6CF8 /* DayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				70BE9DA7267CC24A0002E2BC /* DayController.swift in Sources */,
 				70C5A13B267B73E60004B23F /* WeekViewModel.swift in Sources */,
 				70044EDA2678D0DD00226544 /* SceneDelegate.swift in Sources */,
+				7027B3BB2682CAD1005C6CF8 /* DayViewModel.swift in Sources */,
 				70C5A13F267BB7C80004B23F /* DayCell.swift in Sources */,
 				70044EE22678D0DD00226544 /* Nutrition_Table.xcdatamodeld in Sources */,
 				701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
