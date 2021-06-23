@@ -38,8 +38,6 @@ typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
 typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
 typealias WeekDay = (date: Date, dateDay: String)
 
-typealias Coordenada = (x:CGFloat, y:CGFloat)
-
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
                               UIImage(named: "chips.png"),
                               UIImage(named: "salad.png"),

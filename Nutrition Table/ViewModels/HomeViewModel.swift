@@ -10,14 +10,6 @@ import UIKit
 
 class HomeViewModel {
     
-    private static let coordenadaToday: Coordenada = (23,107)
-    private static let coordenadaAddRecommended: Coordenada = (23,359)
-    private static let coordenadaExport: Coordenada = (23,476)
-    private static let coordenadaAdd: Coordenada = (261,476)
-    private static let coordenadaWeek: Coordenada = (23,614)
-    private static let coordenadaConfig: Coordenada = (23,710)
-    private static let coordenadaCalendar: Coordenada = (185,614)
-    
     private static let colorViewToady = UIColor.rgbColor(r: 10, g: 170, b: 205)
     private static let colorViewAddRecommended = UIColor.rgbColor(r: 246, g: 88, b: 38)
     private static let colorViewExport = UIColor.rgbColor(r: 72, g: 188, b: 167)
