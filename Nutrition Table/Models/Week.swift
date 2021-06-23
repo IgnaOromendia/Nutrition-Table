@@ -49,4 +49,13 @@ class Week {
             throw AddMealWarning.alreadyContainsMeal
         }
     }
+    
+    static func setDay(from weekDay:Date) -> Day? {
+            for day in week.days {
+                if (day.getDate().comparableDate == weekDay.comparableDate) {
+                    return day
+                }
+            }
+            return nil
+        }
 }
