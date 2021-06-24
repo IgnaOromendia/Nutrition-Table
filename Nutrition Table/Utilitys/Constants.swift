@@ -55,6 +55,7 @@ let weekCellHeight: CGFloat = 204
 // Storyboard id
 
 let addFoodid = "addFoodid"
+let chooseid = "chooseid"
 let weekid = "weekid"
 let calendarid = "calendarid"
 let todayid = "todayid"

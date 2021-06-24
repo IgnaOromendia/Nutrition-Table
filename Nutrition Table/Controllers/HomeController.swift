@@ -82,7 +82,37 @@ class HomeController: UIViewController {
         HomeViewModel.setView(views)
         HomeViewModel.setLabels(lables)
         HomeViewModel.setImages(images)
+        HomeViewModel.setTodayViews(containerViews, circleViews, lbl_meals)
     }
     
+    
+    @IBAction func export(_ sender: Any) {
+        // go to export
+    }
+    
+    @IBAction func add(_ sender: Any) {
+        transition(to: chooseid)
+    }
+    
+    @IBAction func addRecommended(_ sender: Any) {
+        // Poner el foodDayType
+        transition(to: addFoodid)
+    }
+    
+    @IBAction func today(_ sender: Any) {
+        // Ir directo a day view
+    }
+    
+    @IBAction func week(_ sender: Any) {
+        transition(to: weekid)
+    }
+    
+    @IBAction func config(_ sender: Any) {
+        // go to config
+    }
+    
+    @IBAction func calendar(_ sender: Any) {
+        // go to calendar
+    }
 }
 

@@ -39,7 +39,7 @@ class WeekController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let day = Week.setDay(from: weekDays[indexPath.row].date) {
+        if let day = Week.getDay(from: weekDays[indexPath.row].date) {
             selectedDay = day
             transition(to: "dayViewid")
         }

@@ -45,7 +45,7 @@ class DayCell: UITableViewCell {
     }
 
     private func setFoodLabels(_ weekDay:WeekDay) {
-        if let day = Week.setDay(from: weekDay.date) {
+        if let day = Week.getDay(from: weekDay.date) {
             if let breakfast = day.getMeal(tipo: .breakfast) {
                 lbl_breakfast.text = breakfast.getFoodNames()
             } else {

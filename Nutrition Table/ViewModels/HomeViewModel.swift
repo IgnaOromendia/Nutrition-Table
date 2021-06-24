@@ -47,17 +47,26 @@ class HomeViewModel {
     private static func labelAddName() -> String {
         // Estaria bueno q vaya aprendiendo los horarios del usuario
         switch Date().hour {
+            case 0..<5:
+                foodDay = .dinner
+                return "Add Dinner"
             case 5..<11:
+                foodDay = .breakfast
                 return "Add Breakfast"
             case 11..<12:
+                foodDay = .snack1
                 return "Add Snack"
             case 12..<15:
+                foodDay = .lunch
                 return "Add Lunch"
             case 15..<16:
+                foodDay = .snack2
                 return "Add Snack"
             case 16..<19:
+                foodDay = .afternoonSnack
                 return "Add Afternoon Snack"
-            case 19..<5:
+            case 19..<24:
+                foodDay = .dinner
                 return "Add Dinner"
             default:
                 return ""
@@ -66,7 +75,7 @@ class HomeViewModel {
     
     private static func setSpecialTexts() {
         texts[0] = Date().getNameDay(day: Date())
-        texts[1] = Date.today
+        texts[1] = Date().dayMonthDate
         texts[2] = labelAddName()
     }
     
@@ -83,6 +92,36 @@ class HomeViewModel {
     static func setImages(_ imageViews: [UIImageView]) {
         for (index,imageView) in imageViews.enumerated() {
             imageView.image = images[index]
+            if index != images.count - 2 {
+                imageView.tintColor = .white
+            } else {
+                imageView.tintColor = .black
+            }
+            
+        }
+    }
+    
+    // Ver de emprolijar
+    private static func setCircleView(_ circleView: UIView, _ index: Int) {
+        let mealTypes: [DayFoodType] = [.breakfast, .snack1, .lunch, .snack2, .afternoonSnack, .dinner]
+        let todayMeals = Week.getDay(from: Date())?.getAllMeals()
+        circleView.circle = true
+        circleView.backgroundColor = colorNotAdded
+        if let todayMeals = todayMeals {
+            for meal in todayMeals {
+                if meal.type == mealTypes[index] {
+                    circleView.backgroundColor = colorAdded
+                }
+            }
+        }
+    }
+    
+    static func setTodayViews(_ views: [UIView], _ circleViews: [UIView], _ labels: [UILabel]) {
+        for (index,view) in views.enumerated() {
+            view.cornerRadius(de: 11)
+            view.backgroundColor = colorViewMeal
+            setCircleView(circleViews[index], index)
+            labels[index].textColor = .white
         }
     }
     
