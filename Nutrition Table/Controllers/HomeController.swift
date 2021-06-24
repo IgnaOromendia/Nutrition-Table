@@ -79,6 +79,7 @@ class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationTransparent()
         HomeViewModel.setView(views)
         HomeViewModel.setLabels(lables)
         HomeViewModel.setImages(images)
@@ -86,6 +87,7 @@ class HomeController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        setNavigationTransparent()
         HomeViewModel.reloadTodayView(circleViews)
     }
     
@@ -99,12 +101,13 @@ class HomeController: UIViewController {
     }
     
     @IBAction func addRecommended(_ sender: Any) {
-        // Poner el foodDayType
+        // Food type already set in ViewModel
         transition(to: addFoodid)
     }
     
     @IBAction func today(_ sender: Any) {
-        // Ir directo a day view
+        selectedDay = Week.getDay(from: Date()) ?? Day()
+        transition(to: dayId)
     }
     
     @IBAction func week(_ sender: Any) {

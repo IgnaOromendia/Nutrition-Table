@@ -57,14 +57,21 @@ extension UIViewController {
     ///   - titulo: Titulo del navigation
     ///   - color: Color de las letras
     ///   - largeTitle: Para hacerlo Large  (predeterminado chico)
-    func setNavigationBar(titulo:String? = nil, color:UIColor? = nil, largeTitle: Bool = false) {
-        navigationItem.title = titulo
+//    func setNavigationBar(titulo:String? = nil, color:UIColor? = nil, largeTitle: Bool = false) {
+//        navigationItem.title = titulo
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.prefersLargeTitles = largeTitle
+//        if let color = color {
+//            navigationController?.navigationBar.tintColor = color
+//            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:color]
+//        }
+//    }
+    
+    func setNavigationBar(title: String?, color: UIColor?) {
+        navigationItem.title = title
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.prefersLargeTitles = largeTitle
-        if let color = color {
-            navigationController?.navigationBar.tintColor = color
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:color]
-        }
+        navigationController?.navigationBar.backgroundColor = color
+        
     }
     
     // Set the navigation trnasparent
@@ -119,7 +126,7 @@ extension Date {
     func getDistanceMonday() -> Int {
         let date = Calendar.current.dateComponents([.weekday], from: self)
         let firstweekDay = Calendar.current.firstWeekday
-        return abs((date.weekday?.distance(to: firstweekDay) ?? 0) + 1)
+        return abs((date.weekday?.distance(to: firstweekDay) ?? 0))
     }
     
     func getNameDay(day: Date) -> String {
@@ -132,8 +139,6 @@ extension Date {
     func getWeekDays() -> [WeekDay] {
         var days: [WeekDay] = []
         let dayDistance = getDistanceMonday()
-        
-        
 
         for i in 0..<dayDistance {
             let day = self - TimeInterval(86400 * i)

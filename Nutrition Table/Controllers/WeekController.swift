@@ -16,6 +16,7 @@ class WeekController: UITableViewController {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         setViewsColors()
+        
         //setNavigationTransparent()
         //WeekViewModel.setCustomNavigation(navigationController)
     }
@@ -41,9 +42,8 @@ class WeekController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let day = Week.getDay(from: weekDays[indexPath.row].date) {
             selectedDay = day
-            transition(to: "dayViewid")
+            transition(to: dayId)
         }
-
     }
     
     private func setViewsColors() {

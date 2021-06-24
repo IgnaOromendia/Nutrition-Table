@@ -58,7 +58,7 @@ let addFoodid = "addFoodid"
 let chooseid = "chooseid"
 let weekid = "weekid"
 let calendarid = "calendarid"
-let todayid = "todayid"
+let dayId = "dayid"
 let configid = "configid"
 let exportid = "exportid"
 

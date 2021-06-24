@@ -12,7 +12,7 @@ class DayController: UITableViewController  {
     let allMeals: [TypeAndMeal]? = selectedDay.getAllMeals()
     
     override func viewDidLoad() {
-        self.setNavigationBar(titulo: selectedDay.getDate().dayMonthDate)
+        setNavigationBar(title: selectedDay.getDate().dayMonthDate, color: .white)
     }
 
     
