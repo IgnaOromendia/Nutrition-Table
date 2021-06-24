@@ -101,18 +101,35 @@ class HomeViewModel {
         }
     }
     
-    // Ver de emprolijar
-    private static func setCircleView(_ circleView: UIView, _ index: Int) {
-        let mealTypes: [DayFoodType] = [.breakfast, .snack1, .lunch, .snack2, .afternoonSnack, .dinner]
+    private static func getMealsAdded() -> [DayFoodType] {
+        var meals: [DayFoodType] = []
         let todayMeals = Week.getDay(from: Date())?.getAllMeals()
-        circleView.circle = true
-        circleView.backgroundColor = colorNotAdded
         if let todayMeals = todayMeals {
             for meal in todayMeals {
-                if meal.type == mealTypes[index] {
-                    circleView.backgroundColor = colorAdded
-                }
+                meals.append(meal.type)
             }
+        }
+        return meals
+    }
+    
+    // Ver de emprolijar
+    private static func setCircleView(_ circleView: UIView, _ index: Int) {
+        let meals = getMealsAdded()
+        circleView.circle = true
+        if meals.contains(.breakfast) && index == 0 {
+            circleView.backgroundColor = colorAdded
+        } else if meals.contains(.snack1) && index == 1 {
+            circleView.backgroundColor = colorAdded
+        } else if meals.contains(.lunch) && index == 2 {
+            circleView.backgroundColor = colorAdded
+        }  else if meals.contains(.snack2) && index == 3 {
+            circleView.backgroundColor = colorAdded
+        } else if meals.contains(.afternoonSnack) && index == 4 {
+            circleView.backgroundColor = colorAdded
+        } else if meals.contains(.dinner) && index == 5 {
+            circleView.backgroundColor = colorAdded
+        } else {
+            circleView.backgroundColor = colorNotAdded
         }
     }
     
@@ -122,6 +139,25 @@ class HomeViewModel {
             view.backgroundColor = colorViewMeal
             setCircleView(circleViews[index], index)
             labels[index].textColor = .white
+        }
+    }
+    
+    static func reloadTodayView(_ circles: [UIView]) {
+        let meals = getMealsAdded()
+        for (index,view) in circles.enumerated() {
+            if meals.contains(.breakfast) && index == 0 {
+                Animation.animateColorChange(view, to: colorAdded)
+            } else if meals.contains(.snack1) && index == 1 {
+                Animation.animateColorChange(view, to: colorAdded)
+            } else if meals.contains(.lunch) && index == 2 {
+                Animation.animateColorChange(view, to: colorAdded)
+            }  else if meals.contains(.snack2) && index == 3 {
+                Animation.animateColorChange(view, to: colorAdded)
+            } else if meals.contains(.afternoonSnack) && index == 4 {
+                Animation.animateColorChange(view, to: colorAdded)
+            } else if meals.contains(.dinner) && index == 5 {
+                Animation.animateColorChange(view, to: colorAdded)
+            }
         }
     }
     

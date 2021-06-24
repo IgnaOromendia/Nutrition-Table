@@ -85,6 +85,10 @@ class HomeController: UIViewController {
         HomeViewModel.setTodayViews(containerViews, circleViews, lbl_meals)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        HomeViewModel.reloadTodayView(circleViews)
+    }
+    
     
     @IBAction func export(_ sender: Any) {
         // go to export

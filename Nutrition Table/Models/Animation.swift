@@ -23,4 +23,10 @@ class Animation {
             view.alpha = alpha
         }
     }
+    
+    static func animateColorChange(_ view: UIView,to color: UIColor) {
+        UIView.animate(withDuration: 0.2) {
+            view.backgroundColor = color
+        }
+    }
 }
