@@ -22,6 +22,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar(title: foodDay.rawValue, color: .white)
         AddFoodViewModel.setViewSwitch(view_switch,foodType_switch)
         AddFoodViewModel.setDoneButton(btn_addFood)
         AddFoodViewModel.setTextView(food_textView)

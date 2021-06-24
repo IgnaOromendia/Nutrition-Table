@@ -208,11 +208,11 @@
 		70044F0B2678D16700226544 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				70C5A138267B73C20004B23F /* WeekController.swift */,
+				7027B3BE2682D214005C6CF8 /* HomeController.swift */,
 				70044F2A26798ADE00226544 /* ChooseFoodController.swift */,
+				70C5A138267B73C20004B23F /* WeekController.swift */,
 				701B0677267A6FD5003CACF3 /* AddFoodController.swift */,
 				70BE9DA6267CC24A0002E2BC /* DayController.swift */,
-				7027B3BE2682D214005C6CF8 /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,11 +241,11 @@
 		70044F3226798DD400226544 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */,
 				70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */,
 				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
 				70C5A13A267B73E60004B23F /* WeekViewModel.swift */,
 				C54168FE267ED5B700493634 /* DayViewModel.swift */,
-				7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

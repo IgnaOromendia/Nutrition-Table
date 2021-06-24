@@ -11,9 +11,5 @@ import UIKit
 
 class WeekViewModel {
     
-    static func setCustomNavigation(_ nav: UINavigationController?) {
-        nav?.navigationBar.shadowImage = UIImage()
-        
-    }
     
 }

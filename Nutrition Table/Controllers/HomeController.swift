@@ -79,10 +79,47 @@ class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationTransparent()
         HomeViewModel.setView(views)
         HomeViewModel.setLabels(lables)
         HomeViewModel.setImages(images)
+        HomeViewModel.setTodayViews(containerViews, circleViews, lbl_meals)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setNavigationTransparent()
+        HomeViewModel.reloadTodayView(circleViews)
+    }
+    
+    
+    @IBAction func export(_ sender: Any) {
+        // go to export
+    }
+    
+    @IBAction func add(_ sender: Any) {
+        transition(to: chooseid)
+    }
+    
+    @IBAction func addRecommended(_ sender: Any) {
+        // Food type already set in ViewModel
+        transition(to: addFoodid)
+    }
+    
+    @IBAction func today(_ sender: Any) {
+        selectedDay = Week.getDay(from: Date()) ?? Day()
+        transition(to: dayId)
+    }
+    
+    @IBAction func week(_ sender: Any) {
+        transition(to: weekid)
+    }
+    
+    @IBAction func config(_ sender: Any) {
+        // go to config
+    }
+    
+    @IBAction func calendar(_ sender: Any) {
+        // go to calendar
+    }
 }
 

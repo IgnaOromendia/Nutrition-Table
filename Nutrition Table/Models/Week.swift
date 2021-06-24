@@ -50,7 +50,8 @@ class Week {
         }
     }
     
-    static func setDay(from weekDay:Date) -> Day? {
+    // Returns today
+    static func getDay(from weekDay:Date) -> Day? {
         for day in week.days {
             if (day.getDate().comparableDate == weekDay.comparableDate) {
                 return day
