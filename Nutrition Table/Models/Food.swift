@@ -77,4 +77,20 @@ class Meal: Equatable {
         }
     }
     
+    func deleteFood(_ food: Food) {
+        for (index,item) in foods.enumerated() {
+            if item == food {
+                foods.remove(at: index)
+            }
+        }
+    }
+    
+    func deleteAllFoods() {
+        foods.removeAll()
+    }
+    
+    func deleteLastFood() {
+        foods.removeLast()
+    }
+    
 }

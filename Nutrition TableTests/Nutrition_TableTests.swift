@@ -49,10 +49,8 @@ class Nutrition_TableTests: XCTestCase {
         let mealExcpected2 = Meal(foods: [foodExcpected2], drink: nil)
         let day = Day(breakfast: mealExcpected2, snaks: nil, lunch: mealExcpected, dinner: nil, afternoonSnak: nil, date: Date())
         let meal = day.getMeal(tipo: .lunch)
-        let meals = day.getAllMeals()
         
         XCTAssertEqual(mealExcpected, meal)
-        XCTAssertEqual([.lunch:mealExcpected,.breakfast:mealExcpected2], meals!)
     }
     
     func test_getNilFood() {
@@ -64,7 +62,7 @@ class Nutrition_TableTests: XCTestCase {
         XCTAssertNil(meals)
     }
     
-    func test_addMeal_validCase() {
+    func test_addMeal_valid_case() {
         let food = Food(name: "Carne", type: .protein)
         let meal = Meal(foods: [food], drink: nil)
         let day = Day()
@@ -86,6 +84,32 @@ class Nutrition_TableTests: XCTestCase {
         }
         
         XCTAssertEqual(error, excpectedError)
+    }
+    
+    func test_add_food_empty_meal() {
+        var error: AddMealWarning?
+        let excpectedError = AddMealWarning.foodArrayEmpty
+        let weekT = Week()
+        
+        XCTAssertThrowsError(try weekT.addMealToday(Meal(), in: .lunch)) { thrownError in
+            error = thrownError as? AddMealWarning
+        }
+        
+        XCTAssertEqual(error, excpectedError)
+    }
+    
+    // MARK: - DAY VIEW MODEL
+    
+    func test_delete_food_valid_case() {
+        let food = Food(name: "Carne", type: .protein)
+        let meal = Meal(foods: [food], drink: nil)
+        let day = Day(breakfast: nil, snaks: nil, lunch: meal, dinner: nil, afternoonSnak: nil, date: Date())
+        let excpectedDay = Day()
+        
+        day.getMeal(tipo: .lunch)?.deleteFood(food)
+        
+        XCTAssertEqual(day, excpectedDay)
+        
     }
     
 }

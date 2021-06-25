@@ -9,7 +9,7 @@ import Foundation
 
 // A dat contains 6 meals and a date
 
-class Day: CustomStringConvertible {
+class Day: CustomStringConvertible, Equatable {
     private var date: Date
     private var breakfast: Meal?
     private var snacks: Snaks?
@@ -39,6 +39,10 @@ class Day: CustomStringConvertible {
     
     convenience init(date:Date = Date()) {
         self.init(breakfast:nil, snaks:nil,lunch:nil,dinner:nil, afternoonSnak:nil, date: date)
+    }
+    
+    static func == (lhs: Day, rhs: Day) -> Bool {
+        return lhs.date.comparableDate == rhs.date.comparableDate
     }
     
     func getDate() -> Date {

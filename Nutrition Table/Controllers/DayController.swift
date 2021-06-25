@@ -34,7 +34,13 @@ class DayController: UITableViewController  {
         return allMeals?[section].meal.getFoodArray().count ?? 0
     }
     
-    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let food = allMeals?[indexPath.section].meal.getFoodArray()[indexPath.row]
+            let type = allMeals?[indexPath.section].type
+            DayViewModel.deleteFood(selectedDay.getDate(), type, food)
+        }
+    }
     
 
 }

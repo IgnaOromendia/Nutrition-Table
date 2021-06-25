@@ -93,7 +93,7 @@ class HomeController: UIViewController {
     
     
     @IBAction func export(_ sender: Any) {
-        // go to export
+        transition(to: exportid)
     }
     
     @IBAction func add(_ sender: Any) {

@@ -533,21 +533,37 @@
             </objects>
             <point key="canvasLocation" x="765" y="1427"/>
         </scene>
-        <!--View Controller-->
+        <!--Export Controller-->
         <scene sceneID="Drt-6n-KjS">
             <objects>
-                <viewController storyboardIdentifier="exportid" id="bVO-vF-nWR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exportid" id="bVO-vF-nWR" customClass="ExportController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6OG-pg-5eg">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zte-fB-Sjo" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DcF-jo-fbw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="onV-Ca-n9i"/>
+                    <navigationItem key="navigationItem" id="onV-Ca-n9i">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="DYC-s7-1f4">
+                            <connections>
+                                <action selector="share:" destination="bVO-vF-nWR" id="cMT-VD-tg4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pdfView" destination="zte-fB-Sjo" id="K6k-qu-vF6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mLe-YA-CvN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="1427"/>
+            <point key="canvasLocation" x="1467.6923076923076" y="1426.7772511848341"/>
         </scene>
         <!--Day-->
         <scene sceneID="1z6-ZC-LfT">

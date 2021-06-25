@@ -42,6 +42,7 @@ class Week {
     func addMealToday(_ meal: Meal, in moment:DayFoodType) throws {
         let index = self.todayIndex
         guard index != nil else { throw AddMealWarning.todayError }
+        guard !meal.getFoodArray().isEmpty else {throw AddMealWarning.foodArrayEmpty}
         do {
             try self.days[index!].addMeal(meal, to: moment)
             print("se agrego con exito")
