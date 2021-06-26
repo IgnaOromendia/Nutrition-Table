@@ -17,8 +17,8 @@ enum FoodType {
 enum DayFoodType: String {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
-    case snack1 = "Pre lunch snack"
-    case snack2 = "Post lunch snack"
+    case snack1 = "Snack1"
+    case snack2 = "Snack2"
     case afternoonSnack = "Afternoon snack"
     case dinner = "Dinner"
 }
@@ -37,7 +37,7 @@ enum AddFoodWarning: LocalizedError {
 typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
 typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
 typealias WeekDay = (date: Date, dateDay: String)
-typealias TypeAndMeal = (type:DayFoodType, meal: Meal)
+//typealias TypeAndMeal = (type:DayFoodType, meal: Meal)
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
                               UIImage(named: "chips.png"),

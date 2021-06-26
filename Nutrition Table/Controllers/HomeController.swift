@@ -75,6 +75,10 @@ class HomeController: UIViewController {
         return [im_addRecommended,im_export,im_add,im_congif,im_calendar]
     }()
     
+    lazy var circleViewsReference: [String:UIView] = {
+        return ["Breakfast":circleViews[0], "Snack1":circleViews[1], "Lunch":circleViews[2], "Snack2":circleViews[3], "Afternoon snack":circleViews[4], "Dinner":circleViews[5]]
+    }()
+    
     // Controller
 
     override func viewDidLoad() {
@@ -83,12 +87,12 @@ class HomeController: UIViewController {
         HomeViewModel.setView(views)
         HomeViewModel.setLabels(lables)
         HomeViewModel.setImages(images)
-        HomeViewModel.setTodayViews(containerViews, circleViews, lbl_meals)
+        HomeViewModel.setTodayViews(containerViews, circleViewsReference, lbl_meals)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setNavigationTransparent()
-        HomeViewModel.reloadTodayView(circleViews)
+        HomeViewModel.reloadTodayView(circleViewsReference)
     }
     
     

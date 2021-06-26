@@ -46,7 +46,7 @@ class Table {
         self.columns = columns
         self.table = table
         self.rowContent = []
-        createContent(week: week)
+        //createContent(week: week)
     }
     
     convenience init(week: Week) {
@@ -124,24 +124,6 @@ class Table {
         self.table += rowsText
     }
     
-    private func createContent(week:Week) {
-        let day = week.days.first
-        if let day = day {
-            self.addColumn(day.getDate().dayMonthDate)
-            let meals = day.getAllMeals()
-            if let meals = meals {
-                var mealsArray: [String] = []
-                for meal in meals {
-                    mealsArray.append(meal.meal.getFoodNames())
-                }
-                self.rowContent.append(mealsArray)
-                // Falta los q no existen, poner N/A
-            }
-        }
-        //for day in week.days {
-            
-        //}
-    }
     
     
 }
