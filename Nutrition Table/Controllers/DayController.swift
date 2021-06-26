@@ -9,7 +9,21 @@ import UIKit
 
 class DayController: UITableViewController  {
     
-    let allMeals: [TypeAndMeal]? = selectedDay.getAllMeals()
+    let allMeals = selectedDay.getAllMealsWithoutNil()
+    
+    lazy var onlyMeals: [Meal] = {
+        return Array(allMeals.values)
+    }()
+    
+    lazy var onlyTypes: [DayFoodType] = {
+        var result: [DayFoodType] = []
+        for key in allMeals.keys {
+            if let item = DayFoodType(rawValue: key) {
+                result.append(item)
+            }
+        }
+        return result
+    }()
     
     override func viewDidLoad() {
         setNavigationBar(title: selectedDay.getDate().dayMonthDate, color: .white)
@@ -18,26 +32,26 @@ class DayController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
-        cell.textLabel?.text = allMeals?[indexPath.section].meal.getFoodArray()[indexPath.row].getName()
+        cell.textLabel?.text = onlyMeals[indexPath.section].getFoodArray()[indexPath.row].getName()
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return allMeals?[section].type.rawValue ?? "Error"
+        return onlyTypes[section].rawValue
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return allMeals?.count ?? 0
+        return allMeals.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allMeals?[section].meal.getFoodArray().count ?? 0
+        return onlyMeals[section].getFoodArray().count
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let food = allMeals?[indexPath.section].meal.getFoodArray()[indexPath.row]
-            let type = allMeals?[indexPath.section].type
+            let food = onlyMeals[indexPath.section].getFoodArray()[indexPath.row]
+            let type = onlyTypes[indexPath.section]
             DayViewModel.deleteFood(selectedDay.getDate(), type, food)
             tableView.reloadData()
         }
