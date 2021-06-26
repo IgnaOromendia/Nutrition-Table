@@ -31,7 +31,7 @@ class HomeViewModel {
     private static let im_export = UIImage(systemName: "square.and.arrow.up")
     
     private static var texts = ["Name's day","Date","Add recommended",
-                                "Export","Add","Week","Calenar"]
+                                "Export","Add","Week","Calendar"]
     
     private static let images = [im_addRecommended,im_export,im_add,
                                  im_gear,im_calendar]

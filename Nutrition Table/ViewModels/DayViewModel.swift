@@ -16,6 +16,7 @@ class DayViewModel {
                 for day in week.days {
                     if day.getDate().comparableDate == date.comparableDate {
                         day.getMeal(tipo: type)?.deleteFood(food)
+                        
                     }
                 }
             } else {

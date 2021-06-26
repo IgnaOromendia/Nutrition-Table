@@ -16,7 +16,7 @@ enum FoodType {
 
 enum DayFoodType: String {
     case breakfast = "Breakfast"
-    case lunch = "Launch"
+    case lunch = "Lunch"
     case snack1 = "Pre lunch snack"
     case snack2 = "Post lunch snack"
     case afternoonSnack = "Afternoon snack"
@@ -34,7 +34,6 @@ enum AddFoodWarning: LocalizedError {
     case alreadyContainsFood
 }
 
-typealias Snaks = (s1:Meal, s2: Meal)
 typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
 typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
 typealias WeekDay = (date: Date, dateDay: String)

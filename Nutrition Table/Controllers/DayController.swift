@@ -39,6 +39,7 @@ class DayController: UITableViewController  {
             let food = allMeals?[indexPath.section].meal.getFoodArray()[indexPath.row]
             let type = allMeals?[indexPath.section].type
             DayViewModel.deleteFood(selectedDay.getDate(), type, food)
+            tableView.reloadData()
         }
     }
     

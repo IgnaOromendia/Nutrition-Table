@@ -47,8 +47,10 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
             print("ya lo tiene")
         } catch AddMealWarning.todayError {
             print("ketamina")
+        } catch AddMealWarning.foodArrayEmpty {
+            print("keta x array vacio")
         } catch {
-            print("keta x 2")
+            print("todo mal, no sabemos el error keta")
         }
         
         navigationController?.popViewController(animated: true)
