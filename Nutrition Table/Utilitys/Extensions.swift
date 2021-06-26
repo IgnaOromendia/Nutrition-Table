@@ -193,3 +193,21 @@ extension UITextView {
         self.textColor = .black
     }
 }
+
+
+extension Data {
+    
+    func dataToFile(fileName:String, filePath: String) -> URL? {
+        let data = self
+        
+        do {
+            try data.write(to: URL(fileURLWithPath: filePath))
+            return URL(fileURLWithPath: filePath)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return nil
+    }
+    
+}

@@ -12,17 +12,20 @@ class ExportController: UIViewController {
     
     @IBOutlet weak var pdfView: PDFView!
     
-    let pdfCreator = PDFCreator()
-    var pdfData: Data?
+    let csvManager = CSVManager()
+    //let pdfCreator = PDFCreator()
+    //var pdfData: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pdfData = pdfCreator.createDocument()
-        pdfCreator.showDocument(pdfData, in: pdfView)
+        pdfView.isHidden = true
+        //pdfData = pdfCreator.createDocument()
+        //pdfCreator.showDocument(pdfData, in: pdfView)
     }
 
     @IBAction func share(_ sender: Any) {
-        pdfCreator.shareDocument(pdfData, in: self)
+        csvManager.createFileAndShare(fileName: "Test7", week: week , self)
+        //pdfCreator.shareDocument(pdfData, in: self)
     }
     
 }
