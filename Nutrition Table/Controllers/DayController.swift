@@ -9,16 +9,16 @@ import UIKit
 
 class DayController: UITableViewController  {
     
-    let allMeals = selectedDay.getAllMealsWithoutNil()
+    let allMeals = selectedDay.getMealsSorted(complete: false)
     
-    lazy var onlyMeals: [Meal] = {
-        return Array(allMeals.values)
+    lazy var onlyMeals: [Meal?] = {
+        return allMeals.meal
     }()
     
     lazy var onlyTypes: [DayFoodType] = {
         var result: [DayFoodType] = []
-        for key in allMeals.keys {
-            if let item = DayFoodType(rawValue: key) {
+        for ref in allMeals.ref {
+            if let item = DayFoodType(rawValue: ref) {
                 result.append(item)
             }
         }
@@ -32,7 +32,7 @@ class DayController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
-        cell.textLabel?.text = onlyMeals[indexPath.section].getFoodArray()[indexPath.row].getName()
+        cell.textLabel?.text = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName()
         return cell
     }
     
@@ -41,16 +41,16 @@ class DayController: UITableViewController  {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return allMeals.count
+        return allMeals.meal.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return onlyMeals[section].getFoodArray().count
+        return onlyMeals[section]?.getFoodArray().count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let food = onlyMeals[indexPath.section].getFoodArray()[indexPath.row]
+            let food = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row]
             let type = onlyTypes[indexPath.section]
             DayViewModel.deleteFood(selectedDay.getDate(), type, food)
             tableView.reloadData()

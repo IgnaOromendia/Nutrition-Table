@@ -35,6 +35,8 @@ class Day: CustomStringConvertible, Equatable {
         return lhs.date.comparableDate == rhs.date.comparableDate
     }
     
+    // Get
+    
     func getDate() -> Date {
         return self.date
     }
@@ -45,11 +47,12 @@ class Day: CustomStringConvertible, Equatable {
         return meal
     }
     
-    // Get all the meals
+    // Get all meals
     func getAllMeals() -> [String:Meal?] {
         return dayMeals
     }
     
+    // Get all meals added
     func getAllMealsWithoutNil() -> [String:Meal] {
         var meals: [String:Meal] = [:]
         for (key,value) in self.dayMeals {
@@ -60,11 +63,63 @@ class Day: CustomStringConvertible, Equatable {
         return meals
     }
     
+    /// Get all meals sorted by the moment
+    /// - Parameter complete: if true then the array will containg nil elements
+    /// - Returns: if complete is true then will return 6 meals with nils included in case meals no exists
+    func getMealsSorted(complete: Bool) -> (ref: [String],meal: [Meal?]) {
+        return self.momentSort(complete: complete)
+    }
+    
+    // Set
+    
     // Add a spceific meal
     func addMeal(_ meal:Meal, to moment:DayFoodType) throws {
         guard self.dayMeals[moment.rawValue] != meal else { throw AddMealWarning.alreadyContainsMeal}
         self.dayMeals.updateValue(meal, forKey: moment.rawValue)
     }
     
+    // Others
+    
+    private func momentSort(complete: Bool) -> (ref: [String],meal: [Meal?]) {
+        var sortedMeals: (ref: [String],meal: [Meal?]) = (Array(repeating: "", count: 6),Array(repeating: nil, count: 6))
+        for (key,value) in self.dayMeals {
+            switch key {
+            case "Breakfast":
+                sortedMeals.ref[0] = key
+                sortedMeals.meal[0] = value
+            case "Snack1":
+                sortedMeals.ref[1] = key
+                sortedMeals.meal[1] = value
+            case "Lunch":
+                sortedMeals.ref[2] = key
+                sortedMeals.meal[2] = value
+            case "Snack2":
+                sortedMeals.ref[3] = key
+                sortedMeals.meal[3] = value
+            case "Afternoon snack":
+                sortedMeals.ref[4] = key
+                sortedMeals.meal[4] = value
+            case "Dinner":
+                sortedMeals.ref[5] = key
+                sortedMeals.meal[5] = value
+            default:
+                print("Error moment sort")
+            }
+        }
+        
+        return complete ? sortedMeals : cleanMeals(sortedMeals)
+    }
+    
+    private func cleanMeals(_ meals: (ref: [String],meal: [Meal?])) ->(ref: [String],meal: [Meal]) {
+        var newMeals: (ref: [String],meal: [Meal]) = ([],[])
+        for i in 0...meals.ref.count - 1 {
+            if let meal = meals.meal[i] {
+                newMeals.meal.append(meal)
+                newMeals.ref.append(meals.ref[i])
+            }
+            
+        }
+        return newMeals
+    }
     
 }

@@ -77,6 +77,8 @@ class Meal: Equatable {
         }
     }
     
+    // Delete
+    
     func deleteFood(_ food: Food) {
         for (index,item) in foods.enumerated() {
             if item == food {

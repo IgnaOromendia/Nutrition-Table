@@ -29,7 +29,6 @@ class Week {
     private func generateWeek() -> [Day] {
         let distanceMonday = Date().getDistanceMonday()
         var days: [Day] = []
-        
         for i in 0..<distanceMonday {
             let day = Day(date: Date() - TimeInterval((84600 * i)))
             days.append(day)

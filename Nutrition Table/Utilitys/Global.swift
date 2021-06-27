@@ -19,7 +19,6 @@ var selectedDay = Day()
 // letra de lbl euphemia 22
 
 // TO DO
-// Ver el orden del dictionary
 // Ver scroll view
 // Ver Constraints
 // Reever diseño de la parte de agregar, el teclado tapa el segment control

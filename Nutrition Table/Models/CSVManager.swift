@@ -46,10 +46,10 @@ class Table {
     
     func createTable(week: Week) {
         for day in week.days {
-            let meals = Array(day.getAllMeals().values)
+            let meals = day.getMealsSorted(complete: true)
             matrix[0].append(day.getDate().dayMonthDate)
-            for i in 0...(meals.count - 1) {
-                matrix[i+1].append(meals[i]?.getFoodNames() ?? "N/A")
+            for i in 0...(meals.meal.count - 1) {
+                matrix[i+1].append(meals.meal[i]?.getFoodNames() ?? "N/A")
             }
         }
     }

@@ -126,7 +126,8 @@ extension Date {
     func getDistanceMonday() -> Int {
         let date = Calendar.current.dateComponents([.weekday], from: self)
         let firstweekDay = Calendar.current.firstWeekday
-        return abs((date.weekday?.distance(to: firstweekDay) ?? 0))
+        let distance = abs((date.weekday?.distance(to: firstweekDay) ?? 0))
+        return distance == 0 ? 1 : distance
     }
     
     func getNameDay(day: Date) -> String {

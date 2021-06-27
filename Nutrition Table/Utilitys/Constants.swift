@@ -37,7 +37,6 @@ enum AddFoodWarning: LocalizedError {
 typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
 typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
 typealias WeekDay = (date: Date, dateDay: String)
-//typealias TypeAndMeal = (type:DayFoodType, meal: Meal)
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
                               UIImage(named: "chips.png"),
