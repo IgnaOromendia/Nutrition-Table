@@ -88,6 +88,7 @@ class HomeController: UIViewController {
         HomeViewModel.setLabels(lables)
         HomeViewModel.setImages(images)
         HomeViewModel.setTodayViews(containerViews, circleViewsReference, lbl_meals)
+        HomeViewModel.setAdjustableFontSize([lbl_titleWeek, lbl_titleAddRecommended])
     }
     
     override func viewDidAppear(_ animated: Bool) {

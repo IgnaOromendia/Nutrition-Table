@@ -134,6 +134,12 @@ class HomeViewModel {
         }
     }
     
+    static func setAdjustableFontSize(_ labels: [UILabel]) {
+        for label in labels {
+            label.adjustsFontSizeToFitWidth = true
+        }
+    }
+    
     
 }
 
