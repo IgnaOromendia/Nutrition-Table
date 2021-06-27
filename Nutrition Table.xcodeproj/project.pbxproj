@@ -244,8 +244,8 @@
 				70C5A144267C196A0004B23F /* Week.swift */,
 				70345409267A545500322503 /* Animation.swift */,
 				70744C142685672400947AEE /* PDFCreator.swift */,
-				70744C182685713300947AEE /* Alerts.swift */,
 				70744C1A26857A5B00947AEE /* CSVManager.swift */,
+				70744C182685713300947AEE /* Alerts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

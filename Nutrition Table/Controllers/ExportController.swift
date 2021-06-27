@@ -24,7 +24,7 @@ class ExportController: UIViewController {
     }
 
     @IBAction func share(_ sender: Any) {
-        csvManager.createFileAndShare(fileName: "Test7", week: week , self)
+        csvManager.createFileAndShare(fileName: "Test", week: week , self)
         //pdfCreator.shareDocument(pdfData, in: self)
     }
     

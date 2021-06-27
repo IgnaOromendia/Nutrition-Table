@@ -26,104 +26,43 @@ class CSVManager {
     }
     
     private func tableFormat(week: Week) -> String {
-        let tableFormat = Table(week: week)
-        
-        print(tableFormat.getTable())
-        
-        return tableFormat.getTable()
+        let tableFormat = Table()
+        tableFormat.createTable(week: week)
+        return tableFormat.getTableCSV()
     }
 }
 
 class Table {
-    private var table: String
-    private var rows: [String]
-    private var columns: [String]
-    private var rowContent: [[String]]
+    
+    private var matrix: [[String]]
     private let rowTitle = ["Fecha","D","C","A","C","M","C"]
     
-    init(table: String, rows:[String], columns: [String], week: Week) {
-        self.rows = rows
-        self.columns = columns
-        self.table = table
-        self.rowContent = []
-        //createContent(week: week)
-    }
-    
-    convenience init(week: Week) {
-        self.init(table:"", rows:[], columns: [], week: week)
-    }
-    
-    // Set
-    
-    func addRow(_ text: String) {
-        self.rows.append(text + ",")
-    }
-    
-    func insertRow(_ text: String, at index:Int) {
-        self.rows.insert(text + ",", at: index)
-    }
-    
-    func addColumn(_ text: String) {
-        self.columns.append(text)
-    }
-    
-    func insertColumn(_ text: String, at index:Int) {
-        self.columns.insert(text, at: index)
-    }
-    
-    func addToRow(_ text: String, at index:Int) {
-        if index < self.rows.count {
-            self.rows[index] += "\(text),"
-        }
-    }
-    
-    // Get
-    
-    func getRow(at index:Int) -> String? {
-        guard index < rows.count else { return nil }
-        return self.rows[index]
-    }
-    
-    func getAllRows() -> [String] {
-        return rows
-    }
-    
-    func getColumn(at index:Int) -> String? {
-        guard index < columns.count else { return nil }
-        return self.columns[index]
-    }
-    
-    func getAllColumns() -> [String] {
-        return columns
-    }
-    
-    func getTable() -> String {
-        createTable()
-        return table
-    }
-    
-    // Create
-    
-    private func createTable() {
+    init() {
+        self.matrix = []
         for row in self.rowTitle {
-            addRow(row)
+            self.matrix.append([row])
         }
-        
-        for column in self.columns {
-            addToRow(column, at: 0)
-        }
-        
-        var rowsText: String {
-            var text = ""
-            for row in self.rows {
-                text += "\(row) \n"
-            }
-            return text
-        }
-        
-        self.table += rowsText
     }
     
+    func createTable(week: Week) {
+        for day in week.days {
+            let meals = Array(day.getAllMeals().values)
+            matrix[0].append(day.getDate().dayMonthDate)
+            for i in 0...(meals.count - 1) {
+                matrix[i+1].append(meals[i]?.getFoodNames() ?? "N/A")
+            }
+        }
+    }
     
+    func getTableCSV() -> String {
+        var text = ""
+        for row in matrix {
+            for column in row {
+                text.append(column + ",")
+            }
+            text.append("\n")
+        }
+        return text
+    }
     
 }
