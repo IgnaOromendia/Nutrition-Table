@@ -104,7 +104,7 @@ class HomeController: UIViewController {
     }
     
     @IBAction func addRecommended(_ sender: Any) {
-        // Food type already set in ViewModel
+        HomeViewModel.setDayFoodType()
         transition(to: addFoodid)
     }
     
@@ -126,5 +126,5 @@ class HomeController: UIViewController {
     }
 }
 
-#warning("Ponerle sonidito y vibración")
+#warning("Ponerle sonidito")
 

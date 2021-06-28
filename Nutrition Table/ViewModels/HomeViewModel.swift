@@ -146,6 +146,27 @@ class HomeViewModel {
         }
     }
     
+    static func setDayFoodType() {
+        switch Date().hour {
+            case 0..<5:
+                foodDay = .dinner
+            case 5..<11:
+                foodDay = .breakfast
+            case 11..<12:
+                foodDay = .snack1
+            case 12..<15:
+                foodDay = .lunch
+            case 15..<16:
+                foodDay = .snack2
+            case 16..<19:
+                foodDay = .afternoonSnack
+            case 19..<24:
+                foodDay = .dinner
+            default:
+                print("Error hour day food type")
+        }
+    }
+    
     
 }
 

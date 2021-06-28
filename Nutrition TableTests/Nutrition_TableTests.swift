@@ -44,10 +44,8 @@ class Nutrition_TableTests: XCTestCase {
     
     func test_getMeal_validCase() {
         let foodExcpected = Food(name: "Carne", type: .protein)
-        let foodExcpected2 = Food(name: "Pasta", type: .carbohydrates)
         let mealExcpected = Meal(foods: [foodExcpected], drink: nil)
-        let mealExcpected2 = Meal(foods: [foodExcpected2], drink: nil)
-        let day = Day(breakfast: mealExcpected2, snack1: nil, snack2: nil, lunch: mealExcpected, dinner: nil, afternoonSnak: nil, date: Date())
+        let day = Day(dayMeals: ["Lunch":mealExcpected], date: Date())
         let meal = day.getMeal(tipo: .lunch)
         
         XCTAssertEqual(mealExcpected, meal)
@@ -56,17 +54,17 @@ class Nutrition_TableTests: XCTestCase {
     func test_getNilFood() {
         let day = Day()
         let meal = day.getMeal(tipo: .lunch)
-        let meals = day.getAllMeals()
+        let meals = day.getAllMealsWithoutNil()
         
         XCTAssertNil(meal)
-        XCTAssertNil(meals)
+        XCTAssertNotNil(meals)
     }
     
     func test_addMeal_valid_case() {
         let food = Food(name: "Carne", type: .protein)
         let meal = Meal(foods: [food], drink: nil)
         let day = Day()
-        let excpectedDay = Day(breakfast: nil, snack1: nil, snack2: nil, lunch: meal, dinner: nil, afternoonSnak: nil, date: Date())
+        let excpectedDay = Day(dayMeals: ["Lunch": meal], date: Date())
         
         XCTAssertNoThrow(try day.addMeal(meal, to: .lunch))
         XCTAssertEqual(excpectedDay.getMeal(tipo: .lunch), day.getMeal(tipo: .lunch))
@@ -77,7 +75,7 @@ class Nutrition_TableTests: XCTestCase {
         let excpectedError = AddMealWarning.alreadyContainsMeal
         let food = Food(name: "Carne", type: .protein)
         let meal = Meal(foods: [food], drink: nil)
-        let day = Day(breakfast: nil, snack1: nil, snack2: nil, lunch: meal, dinner: nil, afternoonSnak: nil, date: Date())
+        let day = Day(dayMeals: ["Lunch": meal], date: Date())
         
         XCTAssertThrowsError(try day.addMeal(meal, to: .lunch)) { thrownError in
             error = thrownError as? AddMealWarning
@@ -103,7 +101,7 @@ class Nutrition_TableTests: XCTestCase {
     func test_delete_food_valid_case() {
         let food = Food(name: "Carne", type: .protein)
         let meal = Meal(foods: [food], drink: nil)
-        let day = Day(breakfast: nil, snack1: nil, snack2: nil, lunch: meal, dinner: nil, afternoonSnak: nil, date: Date())
+        let day = Day(dayMeals: ["Lunch": meal], date: Date())
         let excpectedDay = Day()
         
         day.getMeal(tipo: .lunch)?.deleteFood(food)

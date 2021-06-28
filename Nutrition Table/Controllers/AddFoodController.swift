@@ -28,7 +28,6 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         AddFoodViewModel.setDoneButton(btn_addFood)
         AddFoodViewModel.setTextView(food_textView)
         AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
-        AddFoodViewModel.setDayFoodType()
         foodType = nil
     }
     
