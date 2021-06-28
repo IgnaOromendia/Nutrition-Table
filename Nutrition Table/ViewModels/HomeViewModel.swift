@@ -101,14 +101,16 @@ class HomeViewModel {
         }
     }
 
-    private static func setCircleView(_ circleViews: [String:UIView]) {
+    private static func setCircleView(_ circleViews: [String:UIView?]) {
         for (key,value) in circleViews {
-            value.circle = true
-            value.backgroundColor = Week.getDay(from: Date())?.getAllMeals()[key] == nil ? colorNotAdded : colorAdded
+            if let value = value {
+                value.circle = true
+                value.backgroundColor = Week.getDay(from: Date())?.getAllMeals()[key] == nil ? colorNotAdded : colorAdded
+            }
         }
     }
     
-    static func setTodayViews(_ views: [UIView], _ circleViews: [String:UIView], _ labels: [UILabel]) {
+    static func setTodayViews(_ views: [UIView], _ circleViews: [String:UIView?], _ labels: [UILabel]) {
         for (index,view) in views.enumerated() {
             view.cornerRadius(de: 11)
             view.backgroundColor = colorViewMeal
@@ -117,17 +119,21 @@ class HomeViewModel {
         setCircleView(circleViews)
     }
 
-    static func reloadTodayView(_ circles: [String:UIView]) {
+    static func reloadTodayView(_ circles: [String:UIView?]) {
         let today = Week.getDay(from: Date())?.getAllMeals()
         if let today = today {
             for (key, value) in today {
                 if value != nil {
-                    if let circle = circles[key] {
-                        Animation.animateColorChange(circle, to: colorAdded)
+                    if let circle = circles[key] { // Optional from dictionary
+                        if let circle = circle { // Optional from UIView?
+                            Animation.animateColorChange(circle, to: colorAdded)
+                        }
                     }
                 } else {
                     if let circle = circles[key] {
-                        Animation.animateColorChange(circle, to: colorNotAdded)
+                        if let circle = circle {
+                            Animation.animateColorChange(circle, to: colorNotAdded)
+                        }
                     }
                 }
             }

@@ -16,9 +16,6 @@ class WeekController: UITableViewController {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         setViewsColors()
-        
-        //setNavigationTransparent()
-        //WeekViewModel.setCustomNavigation(navigationController)
     }
     
     override func viewDidAppear(_ animated: Bool) {

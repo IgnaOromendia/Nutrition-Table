@@ -64,7 +64,7 @@ class Meal: Equatable {
         return self.foods
     }
     
-    // Get all the food's names and return a string
+    /// Get all the food's names and return a string
     func getFoodNames() -> String {
         if self.foods.count < 2 {
             return foods[0].getName()
@@ -77,8 +77,29 @@ class Meal: Equatable {
         }
     }
     
+    /// Get the predominant food type
+    func getMajorFoodType() -> FoodType? {
+        var foodTypes: (p:Int,c:Int,v:Int) = (0,0,0)
+        
+        for food in foods {
+            switch food.getType() {
+            case .protein:
+                foodTypes.p += 1
+            case .carbohydrates:
+                foodTypes.c += 1
+            case .vegetables:
+                foodTypes.v += 1
+            case .none:
+                continue
+            }
+        }
+        
+        return getMaxFoodType(foodTypes)
+    }
+    
     // Delete
     
+    /// Delete single food
     func deleteFood(_ food: Food) {
         for (index,item) in foods.enumerated() {
             if item == food {
@@ -87,12 +108,31 @@ class Meal: Equatable {
         }
     }
     
+    /// Delete all foods
     func deleteAllFoods() {
         foods.removeAll()
     }
     
+    /// Delete last food
     func deleteLastFood() {
         foods.removeLast()
+    }
+    
+    
+    // Others
+    
+    private func getMaxFoodType(_ cantTypes: (p:Int,c:Int,v:Int)) -> FoodType? {
+        let max = max(cantTypes.p, cantTypes.c, cantTypes.v)
+        if max > 0 {
+            if max == cantTypes.p {
+                return .protein
+            } else if max == cantTypes.c {
+                return .carbohydrates
+            } else if max == cantTypes.v {
+                return .vegetables
+            }
+        }
+        return nil
     }
     
 }

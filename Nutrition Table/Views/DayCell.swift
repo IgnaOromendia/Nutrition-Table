@@ -26,8 +26,7 @@ class DayCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    #warning("No implementation of circleView_FoodType")
-    // Cell genereated in the week view
+    /// Cell genereated in the week view
     func setCell(with weekDay:WeekDay, _ color: UIColor?) {
         self.selectionStyle = .none
         view_day.cornerRadius(de: 25)
@@ -36,6 +35,7 @@ class DayCell: UITableViewCell {
         setFoodLabels(weekDay)
         setImages()
         lbl_day.text = weekDay.dateDay + ", " + weekDay.date.dayMonthDate
+        setCircleViewColor(weekDay)
     }
 
     private func setImages() {
@@ -73,6 +73,23 @@ class DayCell: UITableViewCell {
         lbl_lunch.text = "No lunch added"
         lbl_dinner.text = "No dinner added"
         circleView_FoodType.alpha = 0;
+    }
+    
+    private func setCircleViewColor(_ weekDay: WeekDay) {
+        if let day = Week.getDay(from: weekDay.date) {
+            if let predominantType = day.getPredominantMealFoodType() {
+                switch predominantType {
+                case .protein:
+                    circleView_FoodType.backgroundColor = .orangeC
+                case .carbohydrates:
+                    circleView_FoodType.backgroundColor = .yellow
+                case .vegetables:
+                    circleView_FoodType.backgroundColor = .greenC
+                }
+            } else {
+                circleView_FoodType.backgroundColor = .white
+            }
+        }
     }
 
 }

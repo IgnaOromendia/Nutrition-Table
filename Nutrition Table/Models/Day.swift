@@ -35,24 +35,24 @@ class Day: CustomStringConvertible, Equatable {
         return lhs.date.comparableDate == rhs.date.comparableDate
     }
     
-    // Get
+    // MARK: - GET
     
     func getDate() -> Date {
         return self.date
     }
     
-    // Get a specific meal
+    /// Get a specific meal
     func getMeal(tipo: DayFoodType) -> Meal? {
         guard let meal = self.dayMeals[tipo.rawValue] else { return nil }
         return meal
     }
     
-    // Get all meals
+    /// Get all meals
     func getAllMeals() -> [String:Meal?] {
         return dayMeals
     }
     
-    // Get all meals added
+    /// Get all meals added
     func getAllMealsWithoutNil() -> [String:Meal] {
         var meals: [String:Meal] = [:]
         for (key,value) in self.dayMeals {
@@ -70,15 +70,36 @@ class Day: CustomStringConvertible, Equatable {
         return self.momentSort(complete: complete)
     }
     
-    // Set
+    /// Get the predominant food type
+    func getPredominantMealFoodType() -> FoodType? {
+        var foodTypes: (p:Int,c:Int,v:Int) = (0,0,0)
+        
+        for meal in self.dayMeals {
+            let foodType = meal.value?.getMajorFoodType()
+            switch foodType {
+            case .protein:
+                foodTypes.p += 1
+            case .carbohydrates:
+                foodTypes.c += 1
+            case .vegetables:
+                foodTypes.v += 1
+            case .none:
+                continue
+            }
+        }
+        
+        return getMaxFoodType(foodTypes)
+    }
     
-    // Add a spceific meal
+    // MARK: - SET
+    
+    /// Add a spceific meal
     func addMeal(_ meal:Meal, to moment:DayFoodType) throws {
         guard self.dayMeals[moment.rawValue] != meal else { throw AddMealWarning.alreadyContainsMeal}
         self.dayMeals.updateValue(meal, forKey: moment.rawValue)
     }
     
-    // Others
+    // MARK: - OTHERS
     
     private func momentSort(complete: Bool) -> (ref: [String],meal: [Meal?]) {
         var sortedMeals: (ref: [String],meal: [Meal?]) = (Array(repeating: "", count: 6),Array(repeating: nil, count: 6))
@@ -120,6 +141,20 @@ class Day: CustomStringConvertible, Equatable {
             
         }
         return newMeals
+    }
+    
+    private func getMaxFoodType(_ cantTypes: (p:Int,c:Int,v:Int)) -> FoodType? {
+        let max = max(cantTypes.p, cantTypes.c, cantTypes.v)
+        if max > 0 {
+            if max == cantTypes.p {
+                return .protein
+            } else if max == cantTypes.c {
+                return .carbohydrates
+            } else if max == cantTypes.v {
+                return .vegetables
+            }
+        }
+        return nil
     }
     
 }

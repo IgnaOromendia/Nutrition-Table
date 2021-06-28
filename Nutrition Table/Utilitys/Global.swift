@@ -19,4 +19,8 @@ var selectedDay = Day()
 // letra de lbl euphemia 22
 
 // TO DO
+// Hacer que aparezca subrayado
 // Reever diseño de la parte de agregar, el teclado tapa el segment control
+// Hacer alertas
+// Conectar con base de datos
+// Poder guardar indormacion

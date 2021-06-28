@@ -25,7 +25,6 @@ class ChooseFoodController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationTransparent()
         view.backgroundColor = .orangeC
         ChooseFoodViewModel.setViews([view_Breakfast,view_snack1,view_lunch,view_snak2,view_afternoon,view_dinner])
         ChooseFoodViewModel.setImages([im_breakfast,im_snack1,im_lunch,im_snak2,im_afternoon,im_dinner])

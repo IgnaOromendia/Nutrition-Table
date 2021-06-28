@@ -26,9 +26,8 @@ class DayController: UITableViewController  {
     }()
     
     override func viewDidLoad() {
-        setNavigationBar(title: selectedDay.getDate().dayMonthDate, color: .white)
+        //setNavigationBar(title: selectedDay.getDate().dayMonthDate, color: .white)
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)

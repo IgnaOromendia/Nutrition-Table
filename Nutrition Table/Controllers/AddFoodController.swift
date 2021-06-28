@@ -19,30 +19,33 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     
     private var meal = Meal()
     private var foodType: FoodType? = nil
+    private let generator1 = UISelectionFeedbackGenerator()
+    private let generator2 = UINotificationFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar(title: foodDay.rawValue, color: .white)
         AddFoodViewModel.setViewSwitch(view_switch,foodType_switch)
         AddFoodViewModel.setDoneButton(btn_addFood)
         AddFoodViewModel.setTextView(food_textView)
         AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
+        AddFoodViewModel.setDayFoodType()
         foodType = nil
-        // puede q este de mas
     }
     
     @IBAction func switch_foodType(_ sender: UISwitch) {
-        foodType = AddFoodViewModel.setFoodType(typeFood_segmentedControl.selectedSegmentIndex)
+        foodType = sender.isOn ? AddFoodViewModel.setFoodType(typeFood_segmentedControl.selectedSegmentIndex) : nil
         Animation.animateAlpha(typeFood_segmentedControl, sender.isOn)
     }
     
     @IBAction func changeFoodType(_ sender: UISegmentedControl) {
+        generator1.selectionChanged()
         AddFoodViewModel.setSegmentedControl(sender, &foodType)
     }
     
     @IBAction func confirmMeal(_ sender: Any) {
         do {
             try week.addMealToday(meal, in: foodDay)
+            generator2.notificationOccurred(.success)
         } catch AddMealWarning.alreadyContainsMeal{
             print("ya lo tiene")
         } catch AddMealWarning.todayError {

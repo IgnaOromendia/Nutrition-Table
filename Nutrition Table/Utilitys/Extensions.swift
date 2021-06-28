@@ -51,6 +51,17 @@ extension UIView {
     }
 }
 
+extension Array where Element == UIView {
+    func withTag(_ index: Int) -> UIView? {
+        for view in self {
+            if view.tag == index {
+                return view
+            }
+        }
+        return nil
+    }
+}
+
 extension UIViewController {
     /// Para modificar el navigation bar desde el codigo y mas rapido
     /// - Parameters:
