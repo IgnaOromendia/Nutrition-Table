@@ -768,14 +768,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zte-fB-Sjo" customClass="PDFView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zte-fB-Sjo" customClass="PDFView">
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DcF-jo-fbw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zte-fB-Sjo" firstAttribute="trailing" secondItem="DcF-jo-fbw" secondAttribute="trailing" id="WPQ-5d-XAv"/>
+                            <constraint firstItem="zte-fB-Sjo" firstAttribute="leading" secondItem="DcF-jo-fbw" secondAttribute="leading" id="bXh-Xm-Ozo"/>
+                            <constraint firstItem="zte-fB-Sjo" firstAttribute="top" secondItem="DcF-jo-fbw" secondAttribute="top" id="mnp-0M-a8r"/>
+                            <constraint firstItem="zte-fB-Sjo" firstAttribute="bottom" secondItem="DcF-jo-fbw" secondAttribute="bottom" id="zBX-VQ-bJO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="onV-Ca-n9i">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="DYC-s7-1f4">

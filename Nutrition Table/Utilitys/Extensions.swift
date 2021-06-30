@@ -51,17 +51,6 @@ extension UIView {
     }
 }
 
-extension Array where Element == UIView {
-    func withTag(_ index: Int) -> UIView? {
-        for view in self {
-            if view.tag == index {
-                return view
-            }
-        }
-        return nil
-    }
-}
-
 extension UIViewController {
     /// Para modificar el navigation bar desde el codigo y mas rapido
     /// - Parameters:
@@ -194,6 +183,7 @@ extension UIColor {
 }
 
 extension UITextView {
+    
     //Placeholders
     func makePlaceholder(_ text: String) {
         self.textColor = .darkGray
@@ -222,4 +212,24 @@ extension Data {
         return nil
     }
     
+}
+
+extension String {
+    
+    func background(_ color:UIColor) -> NSAttributedString {
+        let attribute = [NSAttributedString.Key.backgroundColor:color]
+        return NSAttributedString(string: self, attributes: attribute)
+    }
+    
+}
+
+extension Array where Element == UIView {
+    func withTag(_ index: Int) -> UIView? {
+        for view in self {
+            if view.tag == index {
+                return view
+            }
+        }
+        return nil
+    }
 }

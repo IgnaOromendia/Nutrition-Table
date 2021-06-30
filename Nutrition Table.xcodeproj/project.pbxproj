@@ -48,10 +48,10 @@
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
-		70744C152685672400947AEE /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C142685672400947AEE /* PDFCreator.swift */; };
+		70744C152685672400947AEE /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C142685672400947AEE /* PDFManager.swift */; };
 		70744C1726856C0F00947AEE /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1626856C0F00947AEE /* ExportController.swift */; };
 		70744C192685713300947AEE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C182685713300947AEE /* Alerts.swift */; };
-		70744C1B26857A5B00947AEE /* CSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1A26857A5B00947AEE /* CSVManager.swift */; };
+		70744C1B26857A5B00947AEE /* RTFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1A26857A5B00947AEE /* RTFManager.swift */; };
 		70BE9DA7267CC24A0002E2BC /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE9DA6267CC24A0002E2BC /* DayController.swift */; };
 		70C5A139267B73C20004B23F /* WeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A138267B73C20004B23F /* WeekController.swift */; };
 		70C5A13B267B73E60004B23F /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A13A267B73E60004B23F /* WeekViewModel.swift */; };
@@ -111,10 +111,10 @@
 		7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7027B3BE2682D214005C6CF8 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		70744C142685672400947AEE /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
+		70744C142685672400947AEE /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		70744C1626856C0F00947AEE /* ExportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportController.swift; sourceTree = "<group>"; };
 		70744C182685713300947AEE /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		70744C1A26857A5B00947AEE /* CSVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVManager.swift; sourceTree = "<group>"; };
+		70744C1A26857A5B00947AEE /* RTFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTFManager.swift; sourceTree = "<group>"; };
 		70BE9DA6267CC24A0002E2BC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
 		70C5A13A267B73E60004B23F /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 				70044F122678D3FC00226544 /* Day.swift */,
 				70C5A144267C196A0004B23F /* Week.swift */,
 				70345409267A545500322503 /* Animation.swift */,
-				70744C142685672400947AEE /* PDFCreator.swift */,
-				70744C1A26857A5B00947AEE /* CSVManager.swift */,
+				70744C142685672400947AEE /* PDFManager.swift */,
+				70744C1A26857A5B00947AEE /* RTFManager.swift */,
 				70744C182685713300947AEE /* Alerts.swift */,
 			);
 			path = Models;
@@ -403,7 +403,7 @@
 			files = (
 				7034540A267A545500322503 /* Animation.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
-				70744C152685672400947AEE /* PDFCreator.swift in Sources */,
+				70744C152685672400947AEE /* PDFManager.swift in Sources */,
 				7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */,
 				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */,
@@ -420,7 +420,7 @@
 				70044EE22678D0DD00226544 /* Nutrition_Table.xcdatamodeld in Sources */,
 				701B067D267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
 				70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
-				70744C1B26857A5B00947AEE /* CSVManager.swift in Sources */,
+				70744C1B26857A5B00947AEE /* RTFManager.swift in Sources */,
 				70044F2F26798B5C00226544 /* Extensions.swift in Sources */,
 				7027B3BD2682D1FB005C6CF8 /* HomeViewModel.swift in Sources */,
 				70044F0F2678D3BF00226544 /* Food.swift in Sources */,

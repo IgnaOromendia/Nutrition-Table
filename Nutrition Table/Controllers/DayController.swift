@@ -31,7 +31,8 @@ class DayController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
-        cell.textLabel?.text = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName()
+        let text = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName()
+        cell.textLabel?.text = text
         return cell
     }
     
