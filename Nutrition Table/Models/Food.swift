@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // Meal contains foods
 
@@ -37,6 +38,23 @@ class Food: CustomStringConvertible, Equatable, Comparable {
     func getType() -> FoodType? {
         return type
     }
+    
+    func getNameWithBackgorund() -> NSAttributedString {
+        return name.background(colorDependingType(type))
+    }
+    
+    private func colorDependingType(_ type:FoodType?) -> UIColor? {
+        switch type {
+        case .protein:
+            return .orangeC
+        case .carbohydrates:
+            return .yellow
+        case .vegetables:
+            return .greenC
+        case .none:
+            return nil
+        }
+    }
 }
 
 class Meal: Equatable {
@@ -64,7 +82,7 @@ class Meal: Equatable {
         return self.foods
     }
     
-    /// Get all the food's names and return a string
+    /// Get all food names and return a string
     func getFoodNames() -> String {
         if self.foods.count < 2 {
             return foods[0].getName()
@@ -72,6 +90,24 @@ class Meal: Equatable {
             var result: String = ""
             for food in foods {
                 result += food == foods.last! ? "\(food)" : "\(food), "
+            }
+            return result
+        }
+    }
+    
+    /// Get all food names with their corresponding background as
+    func getFoodNamesWithBackground() -> NSMutableAttributedString {
+        if self.foods.count < 2 {
+            let foodName = foods[0].getNameWithBackgorund()
+            return NSMutableAttributedString(attributedString: foodName)
+        } else {
+            let result = NSMutableAttributedString()
+            for food in foods {
+                let name = NSMutableAttributedString(attributedString: food.getNameWithBackgorund())
+                if food != foods.last! {
+                    name.append(NSAttributedString(string: ", "))
+                }
+                result.append(name)
             }
             return result
         }

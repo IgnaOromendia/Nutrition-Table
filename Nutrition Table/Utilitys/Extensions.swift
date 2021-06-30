@@ -126,7 +126,7 @@ extension Date {
     func getDistanceMonday() -> Int {
         let date = Calendar.current.dateComponents([.weekday], from: self)
         let firstweekDay = Calendar.current.firstWeekday
-        let distance = abs((date.weekday?.distance(to: firstweekDay) ?? 0))
+        let distance = abs((date.weekday?.distance(to: firstweekDay) ?? 0)) + 1
         return distance == 0 ? 1 : distance
     }
     
@@ -216,9 +216,14 @@ extension Data {
 
 extension String {
     
-    func background(_ color:UIColor) -> NSAttributedString {
-        let attribute = [NSAttributedString.Key.backgroundColor:color]
-        return NSAttributedString(string: self, attributes: attribute)
+    func background(_ color:UIColor?) -> NSMutableAttributedString {
+        if let color = color {
+            let attribute = [NSMutableAttributedString.Key.backgroundColor:color]
+            return NSMutableAttributedString(string: self, attributes: attribute)
+        } else {
+            return NSMutableAttributedString(string: self)
+        }
+        
     }
     
 }

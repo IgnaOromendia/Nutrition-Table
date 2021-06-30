@@ -52,8 +52,15 @@ class DayController: UITableViewController  {
         if editingStyle == .delete {
             let food = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row]
             let type = onlyTypes[indexPath.section]
-            DayViewModel.deleteFood(selectedDay.getDate(), type, food)
-            tableView.reloadData()
+            if let food = food {
+                let title = deleteFoodTitle + food.getName()
+                let message = deleteFoodMessage + food.getName()
+                Alert.deletePopOver(title: title, message: message, in: self) {
+                    DayViewModel.deleteFood(selectedDay.getDate(), type, food)
+                    tableView.reloadData()
+                }
+            }
+            
         }
     }
     

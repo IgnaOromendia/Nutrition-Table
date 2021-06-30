@@ -22,6 +22,9 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     private let generator1 = UISelectionFeedbackGenerator()
     private let generator2 = UINotificationFeedbackGenerator()
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         AddFoodViewModel.setViewSwitch(view_switch,foodType_switch)
@@ -46,13 +49,13 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
             try week.addMealToday(meal, in: foodDay)
             generator2.notificationOccurred(.success)
         } catch AddMealWarning.alreadyContainsMeal{
-            print("ya lo tiene")
+            Alert.simplePopOver(title: alreadyContainsTitle, message: alreadyContainsMessage, in: self)
         } catch AddMealWarning.todayError {
             print("ketamina")
         } catch AddMealWarning.foodArrayEmpty {
-            print("keta x array vacio")
+            Alert.simplePopOver(title: noFoodAddedTitle, message: noFoodAddedMessage, in: self)
         } catch {
-            print("todo mal, no sabemos el error keta")
+            Alert.simplePopOver(title: unknownErrorTitle, message: unknownErrorMessage, in: self)
         }
         
         navigationController?.popViewController(animated: true)
@@ -72,11 +75,11 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
                 food_tableView.reloadData()
                 textView.makePlaceholder(textViewAddFoodPlaceHolder)
             } catch AddFoodWarning.foodTextEmpty{
-                print("vacio")
+                Alert.simplePopOver(title: textFieldEmptyTitle, message: textFieldEmptyMessage, in: self)
             } catch AddFoodWarning.alreadyContainsFood {
-                print("ya lo tieneee")
+                Alert.simplePopOver(title: alreadyContainsTitle, message: alreadyContainsMessage, in: self)
             } catch {
-                print("ke")
+                Alert.simplePopOver(title: unknownErrorTitle, message: unknownErrorMessage, in: self)
             }
             textView.resignFirstResponder()
             return false

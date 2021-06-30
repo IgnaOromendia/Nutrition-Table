@@ -61,4 +61,18 @@ let dayId = "dayid"
 let configid = "configid"
 let exportid = "exportid"
 
-//
+// Alerts titles
+
+let alreadyContainsTitle = "Already added"
+let noFoodAddedTitle = "No food added"
+let unknownErrorTitle = "Unknown error"
+let textFieldEmptyTitle = "Text field empty"
+let deleteFoodTitle = "Deleting "
+
+// Alerts messages
+
+let alreadyContainsMessage = "An item that has been added, can't be added again"
+let noFoodAddedMessage = "Can't add an empty meal"
+let unknownErrorMessage = "Please report in feedback"
+let textFieldEmptyMessage = "Cant't add an empty food"
+let deleteFoodMessage = "Are you sure you want to delete "

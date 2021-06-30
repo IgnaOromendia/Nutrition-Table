@@ -99,6 +99,12 @@ class Day: CustomStringConvertible, Equatable {
         self.dayMeals.updateValue(meal, forKey: moment.rawValue)
     }
     
+    // MARK: - DELETE
+    
+    func deleteMeal(_ moment:DayFoodType) {
+        self.dayMeals.removeValue(forKey: moment.rawValue)
+    }
+    
     // MARK: - OTHERS
     
     private func momentSort(complete: Bool) -> (ref: [String],meal: [Meal?]) {

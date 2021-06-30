@@ -125,6 +125,3 @@ class HomeController: UIViewController {
         // go to calendar
     }
 }
-
-#warning("Ponerle sonidito")
-
