@@ -1135,12 +1135,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-sp-LQ9">
-                                <rect key="frame" x="0.0" y="88" width="390" height="288"/>
-                                <color key="backgroundColor" red="0.60594260710000003" green="0.735045175" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <segmentedControl opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yLP-cR-Jfd">
+                                <rect key="frame" x="16" y="176" width="358" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="288" id="9en-py-pW4"/>
+                                    <constraint firstAttribute="height" constant="31" id="CiY-kB-Rfm"/>
                                 </constraints>
+                                <segments>
+                                    <segment title="Protein"/>
+                                    <segment title="Carbohydrates"/>
+                                    <segment title="Vegetables"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeFoodType:" destination="UFI-IZ-6cg" eventType="valueChanged" id="1YL-nk-xtx"/>
+                                </connections>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write down your food here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="23U-ET-XZf">
+                                <rect key="frame" x="16" y="227" width="358" height="107"/>
+                                <color key="backgroundColor" red="0.7034568011400999" green="0.83373797109468883" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="wz6-5g-pfq"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UFI-IZ-6cg" id="joD-oM-itD"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZc-ly-XT3">
+                                <rect key="frame" x="90" y="737" width="210" height="52"/>
+                                <color key="backgroundColor" red="0.15753775710000001" green="0.54142572659999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="lUH-XC-LSb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmMeal:" destination="UFI-IZ-6cg" eventType="touchUpInside" id="TYg-OR-pJf"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctz-Zq-zaX">
+                                <rect key="frame" x="16" y="110" width="358" height="46"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FLj-7r-1pi">
+                                        <rect key="frame" x="276" y="8" width="49" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="WY5-O8-LnP"/>
+                                            <constraint firstAttribute="width" constant="47" id="ibP-Rw-c4R"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="switch_foodType:" destination="UFI-IZ-6cg" eventType="valueChanged" id="wQQ-5z-biL"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable food type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-YF-ivq">
+                                        <rect key="frame" x="22" y="6" width="128.66666666666666" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="8eQ-Rv-dEw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.53225168312853444" green="0.43738888031275824" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FLj-7r-1pi" secondAttribute="trailing" constant="35" id="62K-f5-sSU"/>
+                                    <constraint firstItem="Wy6-YF-ivq" firstAttribute="leading" secondItem="ctz-Zq-zaX" secondAttribute="leading" constant="22" id="C0W-jT-mff"/>
+                                    <constraint firstItem="FLj-7r-1pi" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="top" constant="8" id="Fxd-uT-Ybe"/>
+                                    <constraint firstItem="Wy6-YF-ivq" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="top" constant="6" id="Rzb-cU-eZp"/>
+                                    <constraint firstAttribute="height" constant="46" id="skM-PA-mIz"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-sp-LQ9">
+                                <rect key="frame" x="0.0" y="380" width="390" height="318"/>
+                                <color key="backgroundColor" red="0.60594260710000003" green="0.735045175" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addFoodCellid" rowHeight="56" id="4Yg-1a-3Sg" customClass="AddFoodCell" customModule="Nutrition_Table" customModuleProvider="target">
                                         <rect key="frame" x="20" y="49" width="350" height="56"/>
@@ -1167,99 +1237,26 @@
                                     <outlet property="delegate" destination="UFI-IZ-6cg" id="cqX-8k-8FI"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yLP-cR-Jfd">
-                                <rect key="frame" x="16" y="630" width="358" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="Sxc-aR-pe1"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Protein"/>
-                                    <segment title="Carbohydrates"/>
-                                    <segment title="Vegetables"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeFoodType:" destination="UFI-IZ-6cg" eventType="valueChanged" id="1YL-nk-xtx"/>
-                                </connections>
-                            </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write down your food here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="23U-ET-XZf">
-                                <rect key="frame" x="16" y="400" width="358" height="119"/>
-                                <color key="backgroundColor" red="0.7034568011400999" green="0.83373797109468883" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="70" id="VCg-BI-LSg"/>
-                                </constraints>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="UFI-IZ-6cg" id="joD-oM-itD"/>
-                                </connections>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZc-ly-XT3">
-                                <rect key="frame" x="90" y="688" width="210" height="52"/>
-                                <color key="backgroundColor" red="0.15753775710000001" green="0.54142572659999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="dNf-zR-UH6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmMeal:" destination="UFI-IZ-6cg" eventType="touchUpInside" id="TYg-OR-pJf"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctz-Zq-zaX">
-                                <rect key="frame" x="16" y="559" width="358" height="46"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FLj-7r-1pi">
-                                        <rect key="frame" x="276" y="8" width="49" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="WY5-O8-LnP"/>
-                                            <constraint firstAttribute="width" constant="47" id="ibP-Rw-c4R"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="switch_foodType:" destination="UFI-IZ-6cg" eventType="valueChanged" id="wQQ-5z-biL"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable food type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-YF-ivq">
-                                        <rect key="frame" x="22" y="6" width="128.66666666666666" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="8eQ-Rv-dEw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.53225168312853444" green="0.43738888031275824" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="CTN-u4-eCn"/>
-                                    <constraint firstAttribute="trailing" secondItem="FLj-7r-1pi" secondAttribute="trailing" constant="35" id="M9y-jR-All"/>
-                                    <constraint firstItem="Wy6-YF-ivq" firstAttribute="leading" secondItem="ctz-Zq-zaX" secondAttribute="leading" constant="22" id="XFV-It-HZA"/>
-                                    <constraint firstItem="Wy6-YF-ivq" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="top" constant="6" id="h4x-t9-0Jx"/>
-                                    <constraint firstItem="FLj-7r-1pi" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="top" constant="8" id="hWC-87-gxg"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fTS-eI-YuJ"/>
                         <color key="backgroundColor" red="0.60594260713754466" green="0.73504517501898659" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yLP-cR-Jfd" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="bottom" constant="25" id="0gJ-zL-bRM"/>
-                            <constraint firstItem="23U-ET-XZf" firstAttribute="top" secondItem="LCy-sp-LQ9" secondAttribute="bottom" constant="24" id="6LW-ig-ryi"/>
-                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="yLP-cR-Jfd" secondAttribute="trailing" constant="16" id="7xq-Os-HLz"/>
-                            <constraint firstItem="ctz-Zq-zaX" firstAttribute="top" secondItem="23U-ET-XZf" secondAttribute="bottom" constant="40" id="I1d-Xd-BmD"/>
-                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="pZc-ly-XT3" secondAttribute="trailing" constant="90" id="Lfe-h2-ICr"/>
-                            <constraint firstItem="yLP-cR-Jfd" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="Mfz-8E-tw4"/>
-                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" id="N41-gj-k0C"/>
-                            <constraint firstItem="pZc-ly-XT3" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="90" id="OU6-Ey-ITM"/>
-                            <constraint firstItem="23U-ET-XZf" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="SHQ-wF-35a"/>
-                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="bottom" secondItem="pZc-ly-XT3" secondAttribute="bottom" priority="500" constant="70" id="edE-fq-mXV"/>
-                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="top" secondItem="fTS-eI-YuJ" secondAttribute="top" id="fkK-qk-tSa"/>
-                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="23U-ET-XZf" secondAttribute="trailing" constant="16" id="mVN-jX-eh6"/>
-                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="ctz-Zq-zaX" secondAttribute="trailing" constant="16" id="oPe-7R-89S"/>
-                            <constraint firstItem="ctz-Zq-zaX" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="rvz-ef-Crk"/>
-                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="trailing" secondItem="fTS-eI-YuJ" secondAttribute="trailing" id="wI3-6K-Lhg"/>
-                            <constraint firstItem="pZc-ly-XT3" firstAttribute="top" secondItem="yLP-cR-Jfd" secondAttribute="bottom" constant="27" id="yfW-AV-4mv"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="yLP-cR-Jfd" secondAttribute="trailing" constant="16" id="0Lf-ch-sUZ"/>
+                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="top" secondItem="23U-ET-XZf" secondAttribute="bottom" constant="46" id="31T-0U-V2Z"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="bottom" secondItem="pZc-ly-XT3" secondAttribute="bottom" constant="21" id="3G5-nD-bbV"/>
+                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="trailing" secondItem="fTS-eI-YuJ" secondAttribute="trailing" id="Amt-Ot-eC9"/>
+                            <constraint firstItem="pZc-ly-XT3" firstAttribute="top" secondItem="LCy-sp-LQ9" secondAttribute="bottom" constant="39" id="BSf-va-CQV"/>
+                            <constraint firstItem="23U-ET-XZf" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="Ehw-O4-rjd"/>
+                            <constraint firstItem="23U-ET-XZf" firstAttribute="top" secondItem="yLP-cR-Jfd" secondAttribute="bottom" constant="20" id="N5N-AT-YT8"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="23U-ET-XZf" secondAttribute="trailing" constant="16" id="Oau-VV-alZ"/>
+                            <constraint firstItem="yLP-cR-Jfd" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="bottom" constant="20" id="U2K-Q1-iYZ"/>
+                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" id="W8l-mI-Wx4"/>
+                            <constraint firstItem="ctz-Zq-zaX" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="X5b-ca-vKY"/>
+                            <constraint firstItem="yLP-cR-Jfd" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="Z2U-b7-IcW"/>
+                            <constraint firstItem="pZc-ly-XT3" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="90" id="fQ7-yx-qod"/>
+                            <constraint firstItem="ctz-Zq-zaX" firstAttribute="top" secondItem="fTS-eI-YuJ" secondAttribute="top" constant="22" id="k86-Wf-gVQ"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="ctz-Zq-zaX" secondAttribute="trailing" constant="16" id="mTV-wf-k9d"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="pZc-ly-XT3" secondAttribute="trailing" constant="90" id="teI-Vm-cD8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rZF-Ed-hli"/>

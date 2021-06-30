@@ -176,8 +176,8 @@
 				70044F3226798DD400226544 /* ViewModels */,
 				70044F0B2678D16700226544 /* Controllers */,
 				70044EDD2678D0DD00226544 /* Main.storyboard */,
-				70044EE32678D0E000226544 /* Assets.xcassets */,
 				70044EE52678D0E000226544 /* LaunchScreen.storyboard */,
+				70044EE32678D0E000226544 /* Assets.xcassets */,
 				70044EE82678D0E000226544 /* Info.plist */,
 				70044EE02678D0DD00226544 /* Nutrition_Table.xcdatamodeld */,
 			);

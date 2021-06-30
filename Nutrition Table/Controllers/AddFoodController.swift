@@ -22,9 +22,6 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     private let generator1 = UISelectionFeedbackGenerator()
     private let generator2 = UINotificationFeedbackGenerator()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         AddFoodViewModel.setViewSwitch(view_switch,foodType_switch)
@@ -51,7 +48,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         } catch AddMealWarning.alreadyContainsMeal{
             Alert.simplePopOver(title: alreadyContainsTitle, message: alreadyContainsMessage, in: self)
         } catch AddMealWarning.todayError {
-            print("ketamina")
+            print("ketamina") 
         } catch AddMealWarning.foodArrayEmpty {
             Alert.simplePopOver(title: noFoodAddedTitle, message: noFoodAddedMessage, in: self)
         } catch {
@@ -102,5 +99,14 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return addFoodCellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Alert.deletePopOver(title: deleteFoodTitle, message: deleteFoodMessage, in: self) {
+                self.meal.deleteFoodAt(indexPath.row)
+                tableView.reloadData()
+            }
+        }
     }
 }

@@ -19,6 +19,6 @@ var selectedDay = Day()
 // letra de lbl euphemia 22
 
 // TO DO
-// Reever diseño de la parte de agregar, el teclado tapa el segment control
+// Poder editar en el day controller y en el add controller
 // Conectar con base de datos
 // Poder guardar indormacion

@@ -45,7 +45,7 @@ class DayController: UITableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return onlyMeals[section]?.getFoodArray().count ?? 0
+        return (onlyMeals[section]?.getFoodArray().count ?? 0) + 1
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -60,7 +60,6 @@ class DayController: UITableViewController  {
                     tableView.reloadData()
                 }
             }
-            
         }
     }
     

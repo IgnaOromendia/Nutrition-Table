@@ -189,8 +189,6 @@ fileprivate class Table {
         }
     }
     
-    
-    //#warning("Cmabiar estructura, hacer como si fuese una lista pero de costado")
     func createTable(week: Week) {
         for day in week.days {
             let meals = day.getMealsSorted(complete: true)

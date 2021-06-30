@@ -144,6 +144,10 @@ class Meal: Equatable {
         }
     }
     
+    func deleteFoodAt(_ i:Int) {
+        foods.remove(at: i)
+    }
+ 
     /// Delete all foods
     func deleteAllFoods() {
         foods.removeAll()
