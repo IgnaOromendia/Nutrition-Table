@@ -102,7 +102,7 @@ class Day: CustomStringConvertible, Equatable {
     // MARK: - DELETE
     
     func deleteMeal(_ moment:DayFoodType) {
-        self.dayMeals.removeValue(forKey: moment.rawValue)
+        self.dayMeals.updateValue(nil, forKey: moment.rawValue)
     }
     
     // MARK: - OTHERS
