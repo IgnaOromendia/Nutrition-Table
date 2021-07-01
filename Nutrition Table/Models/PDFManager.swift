@@ -14,8 +14,12 @@ import PDFKit
 class PDFCreator: NSObject {
     private let tableData = Table()
     private let pdfDrawer = PDFDraws()
+    
     private let fontSizeTitleColumn: CGFloat = 32
-    private let fontSizeContent: CGFloat = 14
+    private let fontSizeContent: CGFloat     = 14
+    private let numberOfRow                  = 7
+    private let numberOfColumns              = 7
+    private let distanceFromOrigin: CGFloat  = 10
     
     func createDocument() -> Data {
         let pdfMetaData = [kCGPDFContextAuthor : "Ignacio Oromendia"]
@@ -27,7 +31,7 @@ class PDFCreator: NSObject {
         let weekData = tableData.getTable()
         let firstColumnTitle  = tableData.getFirstColumnTitle()
         
-        // US letter size
+        // A4 horizontal size
         let pageWidth = 10.25 * 72.0
         let pageHeight = 7.75 * 72.0
         let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
@@ -38,10 +42,9 @@ class PDFCreator: NSObject {
         
         let data = renderer.pdfData { context in
             context.beginPage()
-            let distanceFromOrigin: CGFloat = 10
             let cgContext = context.cgContext
-            let rowSize = rowSize(for: 7, in: pageRect, offset: distanceFromOrigin)
-            let columnSize = columnSize(for: 7, in: pageRect, offset: distanceFromOrigin)
+            let rowSize = rowSize(for: numberOfRow, in: pageRect, offset: distanceFromOrigin)
+            let columnSize = columnSize(for: numberOfColumns, in: pageRect, offset: distanceFromOrigin)
             let cellSize = CGSize(width: columnSize, height: rowSize)
             
             let firstCellPoint = CGPoint(x: distanceFromOrigin / 4, y: distanceFromOrigin)
@@ -53,8 +56,8 @@ class PDFCreator: NSObject {
             
             // Drawing Bounds
             pdfDrawer.drawBorderLines(cgContext, pageRect: pageRect, distanceFromOrigin: distanceFromOrigin)
-            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: rowSize, numberOfLines: 6, distanceFromOrigin: distanceFromOrigin, .horizontal)
-            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: columnSize, numberOfLines: 6, distanceFromOrigin: distanceFromOrigin, .vertical)
+            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: rowSize, numberOfLines: numberOfRow - 1, distanceFromOrigin: distanceFromOrigin, .horizontal)
+            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: columnSize, numberOfLines: numberOfColumns - 1, distanceFromOrigin: distanceFromOrigin, .vertical)
             
             // Drawing Content
             pdfDrawer.drawFirstColumn(cgContext, pageRect: pageRect, texts: firstColumnTitle, separation: rowSize, at: firstCellRect, fontSize: fontSizeTitleColumn)
@@ -95,7 +98,6 @@ class PDFCreator: NSObject {
         let size = (pageRect.width - (2 * offset)) / CGFloat(items)
         return size
     }
-    
 }
 
 // MARK: - PDFDRAWS
@@ -129,12 +131,6 @@ class PDFDraws {
         drawContext.restoreGState()
     }
     
-    func drawLines(_ drawContext: CGContext, pageRect: CGRect, separation: CGFloat, numberOfLines:Int, distanceFromOrigin: CGFloat, _ orientation: Orientation) {
-        for n in 1..<numberOfLines + 1 {
-            drawLine(drawContext, pageRect: pageRect, offset: CGFloat(n) * separation, distanceFromOrigin: distanceFromOrigin, orientation)
-        }
-    }
-    
     private func drawCellText(_ drawContext: CGContext, pageRect: CGRect, text: NSMutableAttributedString, at point: CGRect) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -142,6 +138,28 @@ class PDFDraws {
         
         text.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, text.length))
         text.draw(in: point)
+    }
+    
+    func drawBorderLines(_ drawContext: CGContext, pageRect: CGRect, distanceFromOrigin: CGFloat) {
+        let offset = distanceFromOrigin
+        drawLine(drawContext, pageRect: pageRect, offset: offset, distanceFromOrigin: distanceFromOrigin, .vertical)
+        drawLine(drawContext, pageRect: pageRect, offset: pageRect.width - offset, distanceFromOrigin: distanceFromOrigin, .vertical)
+        drawLine(drawContext, pageRect: pageRect, offset: offset, distanceFromOrigin: distanceFromOrigin, .horizontal)
+        drawLine(drawContext, pageRect: pageRect, offset: pageRect.height - offset, distanceFromOrigin: distanceFromOrigin, .horizontal)
+    }
+    
+    func drawLines(_ drawContext: CGContext, pageRect: CGRect, separation: CGFloat, numberOfLines:Int, distanceFromOrigin: CGFloat, _ orientation: Orientation) {
+        for n in 1..<numberOfLines + 1 {
+            drawLine(drawContext, pageRect: pageRect, offset: CGFloat(n) * separation, distanceFromOrigin: distanceFromOrigin, orientation)
+        }
+    }
+    
+    func drawFirstColumn(_ drawContext: CGContext, pageRect: CGRect, texts: [NSMutableAttributedString], separation: CGFloat, at point:CGRect, fontSize: CGFloat) {
+        for (index,text) in texts.enumerated() {
+            text.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSMakeRange(0, text.length))
+            let py = point.origin.y + (separation * CGFloat(index))
+            drawCellText(drawContext, pageRect: pageRect, text: text, at: CGRect(x: point.origin.x, y: py, width: point.width, height: point.height))
+        }
     }
     
     func drawContnet(_ drawContext: CGContext, pageRect: CGRect, texts: [[NSMutableAttributedString]], separation: CGPoint, beginsIn point: CGRect, fontSize: CGFloat) {
@@ -155,22 +173,6 @@ class PDFDraws {
                 }
             }
         }
-    }
-    
-    func drawFirstColumn(_ drawContext: CGContext, pageRect: CGRect, texts: [NSMutableAttributedString], separation: CGFloat, at point:CGRect, fontSize: CGFloat) {
-        for (index,text) in texts.enumerated() {
-            text.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSMakeRange(0, text.length))
-            let py = point.origin.y + (separation * CGFloat(index))
-            drawCellText(drawContext, pageRect: pageRect, text: text, at: CGRect(x: point.origin.x, y: py, width: point.width, height: point.height))
-        }
-    }
-    
-    func drawBorderLines(_ drawContext: CGContext, pageRect: CGRect, distanceFromOrigin: CGFloat) {
-        let offset = distanceFromOrigin
-        drawLine(drawContext, pageRect: pageRect, offset: offset, distanceFromOrigin: distanceFromOrigin, .vertical)
-        drawLine(drawContext, pageRect: pageRect, offset: pageRect.width - offset, distanceFromOrigin: distanceFromOrigin, .vertical)
-        drawLine(drawContext, pageRect: pageRect, offset: offset, distanceFromOrigin: distanceFromOrigin, .horizontal)
-        drawLine(drawContext, pageRect: pageRect, offset: pageRect.height - offset, distanceFromOrigin: distanceFromOrigin, .horizontal)
     }
     
 }
@@ -212,16 +214,4 @@ fileprivate class Table {
         }
         return result
     }
-
-    func getTableCSV() -> String {
-        var text = ""
-        for row in matrix {
-            for column in row {
-                text.append("\(column),")
-            }
-            text.append("\n")
-        }
-        return text
-    }
-    
 }
