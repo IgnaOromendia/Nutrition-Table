@@ -11,6 +11,13 @@ class Week: Codable {
     var days: [Day]
     
     private var id: String = ""
+    
+    var today: Day? {
+        get {
+            return Week.getDay(from: Date())
+        }
+    }
+    
     private var todayIndex: Int? {
         get {
             for (i,day) in days.enumerated() {
@@ -49,17 +56,12 @@ class Week: Codable {
         return days
     }
     
-    /// Add meal today
-    func addMealToday(_ meal: Meal, in moment:DayFoodType) throws {
-        let index = self.todayIndex
-        guard index != nil else { throw AddMealWarning.todayError }
+    /// Add meal
+    func addMeal(_ meal: Meal, in moment:DayFoodType, to date: Date) throws {
+        guard let day = Week.getDay(from: date) else {throw AddMealWarning.dayError}
+        guard let dayIndex = Week.dayIndex(day) else {throw AddMealWarning.indexError}
         guard !meal.getFoodArray().isEmpty else {throw AddMealWarning.foodArrayEmpty}
-        do {
-            try self.days[index!].addMeal(meal, to: moment)
-            print("se agrego con exito")
-        } catch {
-            throw AddMealWarning.alreadyContainsMeal
-        }
+        self.days[dayIndex].addMeal(meal, to: moment)
     }
     
     /// Returns today
@@ -72,4 +74,12 @@ class Week: Codable {
         return nil
     }
     
+    private static func dayIndex(_ dayI:Day) -> Int? {
+        for (index,day) in week.days.enumerated() {
+            if day.getDate().comparableDate == dayI.getDate().comparableDate {
+                return index
+            }
+        }
+        return nil
+    }
 }

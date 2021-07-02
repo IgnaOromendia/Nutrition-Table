@@ -14,23 +14,22 @@ class DayController: UITableViewController  {
     let stManager = StorgareManager()
     var allMeals = selectedDay.getMealsSorted(complete: false)
     
+    
     lazy var onlyMeals: [Meal?] = {
-        return allMeals.meal
+        return updateMeals()
     }()
     
     lazy var onlyTypes: [DayFoodType] = {
-        var result: [DayFoodType] = []
-        for ref in allMeals.ref {
-            if let item = DayFoodType(rawValue: ref) {
-                result.append(item)
-            }
-        }
-        return result
+        return updateTypes()
     }()
     
     override func viewDidLoad() {
         DayViewModel.setDeleteAllBtn(btn_deleteAll, allMeals.meal.count)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateAllValues()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,5 +82,31 @@ class DayController: UITableViewController  {
         tableView.reloadData()
     }
     
-
+    @IBAction func addMeal(_ sender: Any) {
+        transition(to: chooseid)
+    }
+    
+    
+    private func updateAllValues() {
+        allMeals = selectedDay.getMealsSorted(complete: false)
+        onlyMeals = updateMeals()
+        onlyTypes = updateTypes()
+    }
+    
+    private func updateMeals() -> [Meal?] {
+        return allMeals.meal
+    }
+    
+    private func updateTypes() -> [DayFoodType] {
+        var result: [DayFoodType] = []
+        for ref in allMeals.ref {
+            if let item = DayFoodType(rawValue: ref) {
+                result.append(item)
+            }
+        }
+        return result
+    }
+    
+    
+    
 }

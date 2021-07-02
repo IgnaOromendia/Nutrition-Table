@@ -25,7 +25,8 @@ enum DayFoodType: String {
 
 enum AddMealWarning: LocalizedError {
     case alreadyContainsMeal
-    case todayError
+    case dayError
+    case indexError
     case foodArrayEmpty
 }
 

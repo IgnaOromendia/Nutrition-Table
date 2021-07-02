@@ -902,14 +902,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Day" id="sGB-bP-9BD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ZcY-Ik-0od">
-                            <connections>
-                                <action selector="deleteAll:" destination="adg-cc-XYn" id="WcR-8J-Afx"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="trash" id="ZcY-Ik-0od">
+                                <connections>
+                                    <action selector="deleteAll:" destination="adg-cc-XYn" id="WcR-8J-Afx"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="X47-Ha-vnh">
+                                <connections>
+                                    <action selector="addMeal:" destination="adg-cc-XYn" id="ko3-n0-QGK"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="btn_deleteAll" destination="ZcY-Ik-0od" id="LYE-cl-SrU"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="5S4-zZ-UZD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkv-Ba-abF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1365,6 +1373,9 @@
             <point key="canvasLocation" x="1467.6923076923076" y="89.5734597156398"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5S4-zZ-UZD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">

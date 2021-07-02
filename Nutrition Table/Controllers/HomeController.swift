@@ -104,16 +104,18 @@ class HomeController: UIViewController {
     }
     
     @IBAction func add(_ sender: Any) {
+        selectedDay = week.today ?? Day()
         transition(to: chooseid)
     }
     
     @IBAction func addRecommended(_ sender: Any) {
+        selectedDay = week.today ?? Day()
         HomeViewModel.setDayFoodType()
         transition(to: addFoodid)
     }
     
     @IBAction func today(_ sender: Any) {
-        selectedDay = Week.getDay(from: Date()) ?? Day()
+        selectedDay = week.today ?? Day()
         transition(to: dayId)
     }
     

@@ -66,7 +66,7 @@ class AddFoodViewModel {
     }
     
     static func editExistingMeal(_ meal: inout Meal, moment: DayFoodType) {
-        let day = Week.getDay(from: Date())
+        let day = week.today
         if let existingMeal = day?.getMeal(tipo: moment) {
             meal = existingMeal
         }
