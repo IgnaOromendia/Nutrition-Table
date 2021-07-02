@@ -46,8 +46,6 @@
 		7027B3BD2682D1FB005C6CF8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */; };
 		7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BE2682D214005C6CF8 /* HomeController.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
-		7034540B267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
-		7034540C267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		704971F5268E563B00F92AC7 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704971F4268E563B00F92AC7 /* Meal.swift */; };
 		70744C152685672400947AEE /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C142685672400947AEE /* PDFManager.swift */; };
 		70744C1726856C0F00947AEE /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1626856C0F00947AEE /* ExportController.swift */; };
@@ -246,9 +244,6 @@
 				704971F4268E563B00F92AC7 /* Meal.swift */,
 				70044F122678D3FC00226544 /* Day.swift */,
 				70C5A144267C196A0004B23F /* Week.swift */,
-				70345409267A545500322503 /* Animation.swift */,
-				70744C142685672400947AEE /* PDFManager.swift */,
-				70744C182685713300947AEE /* Alerts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +272,9 @@
 		704971E0268E081600F92AC7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				70345409267A545500322503 /* Animation.swift */,
+				70744C142685672400947AEE /* PDFManager.swift */,
+				70744C182685713300947AEE /* Alerts.swift */,
 				70B5403E268EA7FA001C0279 /* StorageManager.swift */,
 			);
 			path = Services;
@@ -458,7 +456,6 @@
 				70C5A146267C196A0004B23F /* Week.swift in Sources */,
 				70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */,
 				701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
-				7034540B267A545500322503 /* Animation.swift in Sources */,
 				70044F142678D3FC00226544 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +476,6 @@
 				70C5A147267C196A0004B23F /* Week.swift in Sources */,
 				70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */,
 				701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
-				7034540C267A545500322503 /* Animation.swift in Sources */,
 				70044F152678D3FC00226544 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
