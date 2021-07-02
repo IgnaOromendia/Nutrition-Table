@@ -7,8 +7,10 @@
 
 import Foundation
 
-class Week {
+class Week: Codable {
     var days: [Day]
+    
+    private var id: String = ""
     private var todayIndex: Int? {
         get {
             for (i,day) in days.enumerated() {
@@ -23,6 +25,16 @@ class Week {
     init(days: [Day] = []) {
         self.days = []
         self.days = days.count > 0 ? days : generateWeek()
+        generateID()
+    }
+    
+    private func generateID() {
+        guard let lastDay = self.days.last else {return}
+        self.id = lastDay.getDate().storageDate + "-Monday"
+    }
+    
+    func getID() -> String {
+        return self.id
     }
     
     /// Generate a week form today to monday from the same week

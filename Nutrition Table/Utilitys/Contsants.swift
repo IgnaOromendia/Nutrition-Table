@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum FoodType: Int {
+enum FoodType: Int, Codable {
     case protein = 1
     case carbohydrates = 2
     case vegetables = 3
@@ -77,6 +77,3 @@ let unknownErrorMessage = "Please report in feedback"
 let textFieldEmptyMessage = "Cant't add an empty food"
 let deleteFoodMessage = "Are you sure you want to delete "
 
-// Protocols
-
-Protocol TrnasformObject

@@ -80,6 +80,8 @@ class HomeController: UIViewController {
     }()
     
     // Controller
+    
+    let stManager = StorgareManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +90,8 @@ class HomeController: UIViewController {
         HomeViewModel.setImages(images)
         HomeViewModel.setTodayViews(containerViews, circleViewsReference, lbl_meals)
         HomeViewModel.setAdjustableFontSize([lbl_titleWeek, lbl_titleAddRecommended])
+        let id = "\(Date().getWeekMondayDate().storageDate)-Monday"
+        week = stManager.readWeekData(id: id)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -113,7 +117,7 @@ class HomeController: UIViewController {
         transition(to: dayId)
     }
     
-    @IBAction func week(_ sender: Any) {
+    @IBAction func weekA(_ sender: Any) {
         transition(to: weekid)
     }
     
@@ -124,4 +128,5 @@ class HomeController: UIViewController {
     @IBAction func calendar(_ sender: Any) {
         // go to calendar
     }
+    
 }

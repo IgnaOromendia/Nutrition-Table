@@ -21,6 +21,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     private var foodType: FoodType? = nil
     private let generator1 = UISelectionFeedbackGenerator()
     private let generator2 = UINotificationFeedbackGenerator()
+    private let stManager = StorgareManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         AddFoodViewModel.setDoneButton(btn_addFood)
         AddFoodViewModel.setTextView(food_textView)
         AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
+        AddFoodViewModel.editExistingMeal(&meal, moment: selectedFoodMoment)
         foodType = nil
     }
     
@@ -43,8 +45,9 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     
     @IBAction func confirmMeal(_ sender: Any) {
         do {
-            try week.addMealToday(meal, in: foodDay)
+            try week.addMealToday(meal, in: selectedFoodMoment)
             generator2.notificationOccurred(.success)
+            stManager.saveWeekData(week: week)
         } catch AddMealWarning.alreadyContainsMeal{
             Alert.simplePopOver(title: alreadyContainsTitle, message: alreadyContainsMessage, in: self)
         } catch AddMealWarning.todayError {
@@ -67,7 +70,8 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             do {
-                let food = try AddFoodViewModel.addFood(name: textView.text, type: foodType, meal.getFoodArray())
+                let text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+                let food = try AddFoodViewModel.addFood(name: text, type: foodType, meal.getFoodArray())
                 meal.addFood(food)
                 food_tableView.reloadData()
                 textView.makePlaceholder(textViewAddFoodPlaceHolder)

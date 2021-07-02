@@ -89,14 +89,12 @@ class PDFCreator: NSObject {
     
     /// Row size
     private func rowSize(for items: Int , in pageRect: CGRect, offset: CGFloat) -> CGFloat {
-        let size = (pageRect.height - (2.0 * offset)) / CGFloat(items)
-        return size
+        return (pageRect.height - (2.0 * offset)) / CGFloat(items)
     }
     
     /// Column size
     private func columnSize(for items:Int, in pageRect: CGRect, offset: CGFloat) -> CGFloat {
-        let size = (pageRect.width - (2 * offset)) / CGFloat(items)
-        return size
+        return (pageRect.width - (2 * offset)) / CGFloat(items)
     }
 }
 

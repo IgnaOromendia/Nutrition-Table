@@ -91,7 +91,7 @@ extension UIViewController {
 
 extension Date {
     
-    // Get hour
+    /// Get hour
     var hour: Int {
         get {
             let date = Calendar.current.dateComponents([.hour], from: self)
@@ -99,7 +99,7 @@ extension Date {
         }
     }
     
-    // Get a string date 12/12/2021 with this fomrat
+    /// Get a string date 12/12/2021 with this fomrat
     var comparableDate: String {
         get {
             let date = Calendar.current.dateComponents([.day,.month,.year], from: self)
@@ -107,7 +107,15 @@ extension Date {
         }
     }
     
-    // Get string date 26/3
+    var storageDate: String {
+        get {
+            let date = Calendar.current.dateComponents([.day,.month,.year], from: self)
+            return "\(date.day ?? -1)-\(date.month ?? -1)-\(date.year ?? -1)"
+        }
+    }
+    
+    
+    /// Get string date 26/3
     var dayMonthDate: String {
         get {
             let date = Calendar.current.dateComponents([.day,.month], from: self)
@@ -115,19 +123,24 @@ extension Date {
         }
     }
     
-    // Get today comparable day
+    /// Get today comparable day
     static var today: String {
         get {
             return Date().comparableDate
         }
     }
     
-    // Get the distance between today and Monday from the current week
+    /// Get the distance between today and Monday from the current week
     func getDistanceMonday() -> Int {
         let date = Calendar.current.dateComponents([.weekday], from: self)
         let firstweekDay = Calendar.current.firstWeekday
         let distance = abs((date.weekday?.distance(to: firstweekDay) ?? 0)) + 1
         return distance == 0 ? 1 : distance
+    }
+    
+    func getWeekMondayDate() -> Date {
+        let distanceMonday = getDistanceMonday() - 1
+        return self - TimeInterval(86400 * distanceMonday)
     }
     
     func getNameDay(day: Date) -> String {

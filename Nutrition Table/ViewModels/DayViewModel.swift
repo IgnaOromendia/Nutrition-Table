@@ -11,6 +11,10 @@ import UIKit
 
 class DayViewModel {
     
+    static func setDeleteAllBtn(_ btn:UIBarButtonItem, _ count:Int) {
+        btn.isEnabled = count > 0
+    }
+    
     static func deleteFood(_ date:Date,_ type: DayFoodType?, _ food: Food?) {
         guard let type = type else { return }
         guard let food = food else { return }
@@ -23,6 +27,14 @@ class DayViewModel {
                         day.deleteMeal(type)
                     }
                 }
+            }
+        }
+    }
+    
+    static func deleteAll(_ date:Date) {
+        for day in week.days {
+            if day.getDate().comparableDate == date.comparableDate {
+                day.deleteAllMeals()
             }
         }
     }

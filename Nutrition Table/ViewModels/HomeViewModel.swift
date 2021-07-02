@@ -48,25 +48,25 @@ class HomeViewModel {
         // Estaria bueno q vaya aprendiendo los horarios del usuario
         switch Date().hour {
             case 0..<5:
-                foodDay = .dinner
+                selectedFoodMoment = .dinner
                 return "Add Dinner"
             case 5..<11:
-                foodDay = .breakfast
+                selectedFoodMoment = .breakfast
                 return "Add Breakfast"
             case 11..<12:
-                foodDay = .snack1
+                selectedFoodMoment = .snack1
                 return "Add Snack"
             case 12..<15:
-                foodDay = .lunch
+                selectedFoodMoment = .lunch
                 return "Add Lunch"
             case 15..<16:
-                foodDay = .snack2
+                selectedFoodMoment = .snack2
                 return "Add Snack"
             case 16..<19:
-                foodDay = .afternoonSnack
+                selectedFoodMoment = .afternoonSnack
                 return "Add Afternoon Snack"
             case 19..<24:
-                foodDay = .dinner
+                selectedFoodMoment = .dinner
                 return "Add Dinner"
             default:
                 return ""
@@ -149,19 +149,19 @@ class HomeViewModel {
     static func setDayFoodType() {
         switch Date().hour {
             case 0..<5:
-                foodDay = .dinner
+                selectedFoodMoment = .dinner
             case 5..<11:
-                foodDay = .breakfast
+                selectedFoodMoment = .breakfast
             case 11..<12:
-                foodDay = .snack1
+                selectedFoodMoment = .snack1
             case 12..<15:
-                foodDay = .lunch
+                selectedFoodMoment = .lunch
             case 15..<16:
-                foodDay = .snack2
+                selectedFoodMoment = .snack2
             case 16..<19:
-                foodDay = .afternoonSnack
+                selectedFoodMoment = .afternoonSnack
             case 19..<24:
-                foodDay = .dinner
+                selectedFoodMoment = .dinner
             default:
                 print("Error hour day food type")
         }

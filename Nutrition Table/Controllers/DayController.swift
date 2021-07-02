@@ -9,7 +9,10 @@ import UIKit
 
 class DayController: UITableViewController  {
     
-    let allMeals = selectedDay.getMealsSorted(complete: false)
+    @IBOutlet weak var btn_deleteAll: UIBarButtonItem!
+    
+    let stManager = StorgareManager()
+    var allMeals = selectedDay.getMealsSorted(complete: false)
     
     lazy var onlyMeals: [Meal?] = {
         return allMeals.meal
@@ -26,7 +29,8 @@ class DayController: UITableViewController  {
     }()
     
     override func viewDidLoad() {
-        //setNavigationBar(title: selectedDay.getDate().dayMonthDate, color: .white)
+        DayViewModel.setDeleteAllBtn(btn_deleteAll, allMeals.meal.count)
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,10 +61,26 @@ class DayController: UITableViewController  {
                 let message = deleteFoodMessage + food.getName()
                 Alert.deletePopOver(title: title, message: message, in: self) {
                     DayViewModel.deleteFood(selectedDay.getDate(), type, food)
-                    tableView.reloadData()
+                    DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
+                    self.allMeals = selectedDay.getMealsSorted(complete: false)
+                    self.tableView.reloadData()
+                    self.stManager.saveWeekData(week: week)
                 }
             }
         }
+    }
+    
+    @IBAction func deleteAll(_ sender: Any) {
+        let title = deleteFoodTitle + "all meals"
+        let message = deleteFoodMessage + "all meals"
+        Alert.deletePopOver(title: title, message: message, in: self) {
+            DayViewModel.deleteAll(selectedDay.getDate())
+            DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
+            self.allMeals = selectedDay.getMealsSorted(complete: false)
+            self.tableView.reloadData()
+            self.stManager.saveWeekData(week: week)
+        }
+        tableView.reloadData()
     }
     
 

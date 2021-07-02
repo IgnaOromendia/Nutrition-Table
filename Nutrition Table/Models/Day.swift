@@ -9,7 +9,7 @@ import Foundation
 
 // A dat contains 6 meals and a date
 
-class Day: CustomStringConvertible, Equatable {
+class Day: CustomStringConvertible, Equatable, Codable {
     
     private var date: Date
     private var dayMeals: [String:Meal?]
@@ -94,8 +94,9 @@ class Day: CustomStringConvertible, Equatable {
     // MARK: - SET
     
     /// Add a spceific meal
-    func addMeal(_ meal:Meal, to moment:DayFoodType) throws {
-        guard self.dayMeals[moment.rawValue] != meal else { throw AddMealWarning.alreadyContainsMeal}
+    func addMeal(_ meal:Meal, to moment:DayFoodType) {
+        //Nunca llega a este guard
+        //guard self.dayMeals[moment.rawValue] != meal else { throw AddMealWarning.alreadyContainsMeal}
         self.dayMeals.updateValue(meal, forKey: moment.rawValue)
     }
     
@@ -103,6 +104,12 @@ class Day: CustomStringConvertible, Equatable {
     
     func deleteMeal(_ moment:DayFoodType) {
         self.dayMeals.updateValue(nil, forKey: moment.rawValue)
+    }
+    
+    func deleteAllMeals() {
+        for (key,_) in self.dayMeals {
+            self.dayMeals.updateValue(nil, forKey: key)
+        }
     }
     
     // MARK: - OTHERS

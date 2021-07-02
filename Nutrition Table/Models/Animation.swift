@@ -16,7 +16,7 @@ class Animation {
         case out_
     }
     
-    //Animation of alhpa
+    ///Animation of alhpa
     static func animateAlpha(_ view:UIView, _ type:Bool) {
         let alpha: CGFloat = type ? 1 : 0
         UIView.animate(withDuration: 0.4) {
