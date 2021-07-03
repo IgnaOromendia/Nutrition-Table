@@ -74,6 +74,30 @@ extension UIViewController {
         let destino = storyboard.instantiateViewController(identifier: id)
         navigationController?.pushViewController(destino, animated: true)
     }
+    
+    /// Set a search bar in the navigation controller
+    func setSearchBar(for searchBarController: UISearchController,hides:Bool, obscure:Bool, placeholder:String) {
+        searchBarController.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchBarController.obscuresBackgroundDuringPresentation = obscure
+        searchBarController.searchBar.placeholder = placeholder
+        navigationItem.searchController = searchBarController
+        navigationItem.hidesSearchBarWhenScrolling = hides
+        definesPresentationContext = true
+    }
+    
+}
+
+extension UISearchController {
+    
+    /// Get if the search bar is empty
+    var isSearchBarEmpty: Bool {
+        return self.searchBar.text?.isEmpty ?? true
+    }
+    
+    /// Get if someone is using the search bar
+    var isFiltering: Bool {
+        return self.isActive && !isSearchBarEmpty
+    }
 }
 
 extension Date {
@@ -94,6 +118,7 @@ extension Date {
         }
     }
     
+    /// Get a date for a file name, 9-12-18
     var storageDate: String {
         get {
             let date = Calendar.current.dateComponents([.day,.month,.year], from: self)
@@ -101,12 +126,28 @@ extension Date {
         }
     }
     
-    
-    /// Get string date 26/3
+    /// Get string date 26/03
     var dayMonthDate: String {
         get {
             let date = Calendar.current.dateComponents([.day,.month], from: self)
-            return "\(date.day ?? -1)/\(date.month ?? -1)"
+            if let day = date.day, let month = date.month {
+                let finalDay = day < 10 ? "0\(day)/" : "\(day)/"
+                let finalMonth = month < 10 ? "0\(month)" : "\(month)"
+                return finalDay + finalMonth
+            }
+            return "Error"
+        }
+    }
+    
+    var prettyDate: String {
+        get {
+            if self.comparableDate == Date().comparableDate {
+                return "Today"
+            } else if self.comparableDate == (Date() - TimeInterval(86400)).comparableDate {
+                return "Yesterady"
+            } else {
+                return self.dayMonthDate
+            }
         }
     }
     

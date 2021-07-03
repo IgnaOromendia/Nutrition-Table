@@ -34,7 +34,7 @@ class HomeViewModel {
     private static let im_sports = UIImage(named: "running.png")
     
     private static var texts = ["Name's day","Date","Add recommended",
-                                "Export","Add","Week","Calendar","Sports"]
+                                "Export","Add","Week","Calendar","Add sports"]
     
     private static let images = [im_addRecommended,im_export,im_add,
                                  im_gear,im_calendar,im_sports]

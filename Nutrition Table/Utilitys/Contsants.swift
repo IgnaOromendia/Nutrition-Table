@@ -37,6 +37,7 @@ enum AddFoodWarning: LocalizedError {
 
 typealias UITableViewMethdos = UITableViewDelegate & UITableViewDataSource
 typealias UICollectionViewMethods = UICollectionViewDelegate & UICollectionViewDataSource
+typealias UISearchBarMethdos = UISearchResultsUpdating & UISearchBarDelegate
 typealias WeekDay = (date: Date, dateDay: String)
 
 var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
@@ -49,6 +50,7 @@ var imagesMenu: [UIImage?] = [UIImage(named: "cafecito.png"),
 let textViewAddFoodPlaceHolder = "Write down your food here"
 
 // Row Heights
+
 let addFoodCellHeight: CGFloat = 56
 let weekCellHeight: CGFloat = 204
 
@@ -69,7 +71,8 @@ let alreadyContainsTitle = "Already added"
 let noFoodAddedTitle = "No food added"
 let unknownErrorTitle = "Unknown error"
 let textFieldEmptyTitle = "Text field empty"
-let deleteFoodTitle = "Deleting "
+let deleteTitle = "Deleting "
+let addTitle = "Add "
 
 // Alerts messages
 
@@ -77,5 +80,6 @@ let alreadyContainsMessage = "An item that has been added, can't be added again"
 let noFoodAddedMessage = "Can't add an empty meal"
 let unknownErrorMessage = "Please report in feedback"
 let textFieldEmptyMessage = "Cant't add an empty food"
-let deleteFoodMessage = "Are you sure you want to delete "
+let deleteMessage = "Are you sure you want to delete "
+let addMessage = "Are you sure you want to add "
 

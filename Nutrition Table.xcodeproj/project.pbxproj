@@ -50,6 +50,9 @@
 		70744C152685672400947AEE /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C142685672400947AEE /* PDFManager.swift */; };
 		70744C1726856C0F00947AEE /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1626856C0F00947AEE /* ExportController.swift */; };
 		70744C192685713300947AEE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C182685713300947AEE /* Alerts.swift */; };
+		7079C1F826909D7E00A034A7 /* SportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C1F726909D7E00A034A7 /* SportsController.swift */; };
+		7079C1FA2690B64500A034A7 /* SportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C1F92690B64500A034A7 /* SportsViewModel.swift */; };
+		7079C1FD2690B97000A034A7 /* sports.json in Resources */ = {isa = PBXBuildFile; fileRef = 7079C1FC2690B97000A034A7 /* sports.json */; };
 		70B5403F268EA7FA001C0279 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5403E268EA7FA001C0279 /* StorageManager.swift */; };
 		70BE9DA7267CC24A0002E2BC /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE9DA6267CC24A0002E2BC /* DayController.swift */; };
 		70C5A139267B73C20004B23F /* WeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A138267B73C20004B23F /* WeekController.swift */; };
@@ -111,6 +114,9 @@
 		70744C142685672400947AEE /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		70744C1626856C0F00947AEE /* ExportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportController.swift; sourceTree = "<group>"; };
 		70744C182685713300947AEE /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		7079C1F726909D7E00A034A7 /* SportsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsController.swift; sourceTree = "<group>"; };
+		7079C1F92690B64500A034A7 /* SportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewModel.swift; sourceTree = "<group>"; };
+		7079C1FC2690B97000A034A7 /* sports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sports.json; sourceTree = "<group>"; };
 		70B5403E268EA7FA001C0279 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		70BE9DA6267CC24A0002E2BC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 				70044F3226798DD400226544 /* ViewModels */,
 				70044F0B2678D16700226544 /* Controllers */,
 				704971E0268E081600F92AC7 /* Services */,
+				7079C1FB2690B95600A034A7 /* Resources */,
 				70044EDD2678D0DD00226544 /* Main.storyboard */,
 				70044EE52678D0E000226544 /* LaunchScreen.storyboard */,
 				70044EE32678D0E000226544 /* Assets.xcassets */,
@@ -219,6 +226,7 @@
 				701B0677267A6FD5003CACF3 /* AddFoodController.swift */,
 				70BE9DA6267CC24A0002E2BC /* DayController.swift */,
 				70744C1626856C0F00947AEE /* ExportController.swift */,
+				7079C1F726909D7E00A034A7 /* SportsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 				70044F3326798DEC00226544 /* ChooseFoodViewModel.swift */,
 				701B0679267A9FF8003CACF3 /* AddFoodViewModel.swift */,
 				C54168FE267ED5B700493634 /* DayViewModel.swift */,
+				7079C1F92690B64500A034A7 /* SportsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -273,6 +282,14 @@
 				70B5403E268EA7FA001C0279 /* StorageManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		7079C1FB2690B95600A034A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7079C1FC2690B97000A034A7 /* sports.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +397,7 @@
 			files = (
 				70044EE72678D0E000226544 /* LaunchScreen.storyboard in Resources */,
 				70044EE42678D0E000226544 /* Assets.xcassets in Resources */,
+				7079C1FD2690B97000A034A7 /* sports.json in Resources */,
 				70044EDF2678D0DD00226544 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +425,7 @@
 			files = (
 				7034540A267A545500322503 /* Animation.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
+				7079C1F826909D7E00A034A7 /* SportsController.swift in Sources */,
 				70744C152685672400947AEE /* PDFManager.swift in Sources */,
 				7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */,
 				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
@@ -415,6 +434,7 @@
 				70044F132678D3FC00226544 /* Day.swift in Sources */,
 				70744C1726856C0F00947AEE /* ExportController.swift in Sources */,
 				70C5A145267C196A0004B23F /* Week.swift in Sources */,
+				7079C1FA2690B64500A034A7 /* SportsViewModel.swift in Sources */,
 				70C5A139267B73C20004B23F /* WeekController.swift in Sources */,
 				C54168FF267ED5B700493634 /* DayViewModel.swift in Sources */,
 				70744C192685713300947AEE /* Alerts.swift in Sources */,

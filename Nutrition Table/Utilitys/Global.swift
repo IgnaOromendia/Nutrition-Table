@@ -14,7 +14,6 @@ var selectedDay = Day()
 // letra de lbl euphemia 22
 
 // TO DO
-// Hacer la parte de Sports
 // Conectar con base de datos
 // Diseño
 // Hacer que la primer fila sea mas chica

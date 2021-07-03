@@ -16,7 +16,7 @@ class PDFCreator: NSObject {
     private let pdfDrawer = PDFDraws()
     
     private let fontSizeTitleColumn: CGFloat = 25
-    private let fontSizeContent: CGFloat     = 12
+    private let fontSizeContent: CGFloat     = 10
     private let numberOfRow                  = 7
     private let numberOfColumns              = 8
     private let distanceFromOrigin: CGFloat  = 10

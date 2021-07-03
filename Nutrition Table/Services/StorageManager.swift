@@ -42,7 +42,6 @@ class StorgareManager {
             let jsonURL = fileURL(fileName: fileName, in: documentDirectory)
             let savedData = try Data(contentsOf: jsonURL)
             week = try jsonDecoder.decode(Week.self, from: savedData)
-            print(week.getAllDays().count)
         } catch {
             print(error.localizedDescription)
         }

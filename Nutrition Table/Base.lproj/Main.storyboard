@@ -610,7 +610,7 @@
                         <segue destination="WpT-MJ-aEY" kind="show" id="dmL-vE-TEe"/>
                         <segue destination="bVO-vF-nWR" kind="show" id="rBk-ec-OQJ"/>
                         <segue destination="Vun-p6-N6K" kind="show" id="SXP-6S-9Nw"/>
-                        <segue destination="RWG-rR-rLB" kind="show" id="7TL-TA-CEl"/>
+                        <segue destination="YbY-1c-ZL9" kind="show" id="J3K-d6-W48"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFH-cw-TBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1421,19 +1421,32 @@
             </objects>
             <point key="canvasLocation" x="1467.6923076923076" y="89.5734597156398"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="mgR-cb-1OK">
+        <!--Sports Controller-->
+        <scene sceneID="0xc-cR-afm">
             <objects>
-                <viewController storyboardIdentifier="sportsid" id="RWG-rR-rLB" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kkj-ta-xX6">
+                <tableViewController storyboardIdentifier="sportsid" id="YbY-1c-ZL9" customClass="SportsController" customModule="Nutrition_Table" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bEb-cK-KlJ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="uvL-lu-Ocf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="0vo-gs-eRw"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B1n-HQ-YnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sportCellid" id="xop-WK-OIw">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xop-WK-OIw" id="J6J-tu-t0B">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YbY-1c-ZL9" id="a5h-M0-OVM"/>
+                            <outlet property="delegate" destination="YbY-1c-ZL9" id="GLy-bF-jYF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="w00-5I-RAC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vm-Vp-fa9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2174" y="90"/>
         </scene>

@@ -93,6 +93,25 @@ class Week: Codable {
         }
     }
     
+    /// Add sport to specific day
+    func addSport(_ sport: String, to daySport: Date) {
+        for day in self.days {
+            if day.getDate().comparableDate == daySport.comparableDate {
+                day.addSport(sport)
+            }
+        }
+    }
+    
+    // MARK: - DELETE
+    
+    func deleteSport(_ sport:String, to daySport: Date) {
+        for day in self.days {
+            if day.getDate().comparableDate == daySport.comparableDate {
+                day.deleteSport(withName: sport)
+            }
+        }
+    }
+    
     // MARK: - OTHERS
     
     /// Generate a week form today to monday from the same week

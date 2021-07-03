@@ -13,7 +13,7 @@ class Day: CustomStringConvertible, Equatable, Codable {
     
     private var date: Date
     private var dayMeals: [String:Meal?]
-    private var sports: [String]?
+    private var sports: [String]
     
     var description: String {
         var text = String()
@@ -23,14 +23,14 @@ class Day: CustomStringConvertible, Equatable, Codable {
         return text
     }
     
-    init(dayMeals:[String:Meal?], date:Date, sports:[String]?) {
+    init(dayMeals:[String:Meal?], date:Date, sports:[String]) {
         self.dayMeals = dayMeals
         self.date = date
         self.sports = sports
     }
     
     convenience init(date:Date = Date()) {
-        self.init(dayMeals: ["Breakfast":nil, "Snack1":nil, "Lunch":nil, "Snack2":nil, "Afternoon snack":nil, "Dinner":nil], date: date, sports: nil)
+        self.init(dayMeals: ["Breakfast":nil, "Snack1":nil, "Lunch":nil, "Snack2":nil, "Afternoon snack":nil, "Dinner":nil], date: date, sports: ["Add sports"])
     }
     
     static func == (lhs: Day, rhs: Day) -> Bool {
@@ -95,7 +95,7 @@ class Day: CustomStringConvertible, Equatable, Codable {
     }
     
     /// Get sports
-    func getSports() -> [String]? {
+    func getSports() -> [String] {
         return self.sports
     }
     
@@ -138,7 +138,7 @@ class Day: CustomStringConvertible, Equatable, Codable {
     
     /// Add sport
     func addSport(_ sport:String) {
-        self.sports?.append(sport)
+        self.sports.append(sport)
     }
     
     // MARK: - DELETE
@@ -157,12 +157,21 @@ class Day: CustomStringConvertible, Equatable, Codable {
     
     /// Delete sport at index
     func deleteSport(at index:Int) {
-        self.sports?.remove(at: index)
+        self.sports.remove(at: index)
     }
     
     /// Delete all sports
     func deleteAllSports() {
-        self.sports?.removeAll()
+        self.sports.removeAll()
+    }
+    
+    /// Delete the sport with the given name
+    func deleteSport(withName sportToDelete: String) {
+        for (index,sport) in sports.enumerated() {
+            if sport == sportToDelete {
+                deleteSport(at: index)
+            }
+        }
     }
     
     // MARK: - OTHERS

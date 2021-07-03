@@ -141,6 +141,7 @@ class HomeController: UIViewController {
     }
     
     @IBAction func sports(_ sender: Any) {
+        selectedDay = week.today ?? Day()
         transition(to: sportsid)
     }
     

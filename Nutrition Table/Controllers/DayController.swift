@@ -32,23 +32,36 @@ class DayController: UITableViewController  {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
-        let text = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName()
-        cell.textLabel?.text = text
-        return cell
-    }
+    // MARK: - TABLEVIEW
+    
+    // SECTION
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return onlyTypes[section].rawValue
+        return section == allMeals.meal.count ? "Day's sports" : onlyTypes[section].rawValue
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return allMeals.meal.count
+        return allMeals.meal.count + 1
     }
     
+    // ROW
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return onlyMeals[section]?.getFoodArray().count ?? 0
+        return section != allMeals.meal.count ? onlyMeals[section]?.getFoodArray().count ?? 0 : selectedDay.getSports().count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
+        let text = indexPath.section != allMeals.meal.count ? onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName() : selectedDay.getSports()[indexPath.row]
+        cell.textLabel?.text = text
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    // EDITING
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section != allMeals.meal.count
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -56,8 +69,8 @@ class DayController: UITableViewController  {
             let food = onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row]
             let type = onlyTypes[indexPath.section]
             if let food = food {
-                let title = deleteFoodTitle + food.getName()
-                let message = deleteFoodMessage + food.getName()
+                let title = deleteTitle + food.getName()
+                let message = deleteMessage + food.getName()
                 Alert.deletePopOver(title: title, message: message, in: self) {
                     DayViewModel.deleteFood(selectedDay.getDate(), type, food)
                     DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
@@ -69,9 +82,19 @@ class DayController: UITableViewController  {
         }
     }
     
+    // SELECTION
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == allMeals.meal.count {
+            transition(to: sportsid)
+        }
+    }
+    
+    // MARK: - ACTIONS
+    
     @IBAction func deleteAll(_ sender: Any) {
-        let title = deleteFoodTitle + "all meals"
-        let message = deleteFoodMessage + "all meals"
+        let title = deleteTitle + "all meals"
+        let message = deleteMessage + "all meals"
         Alert.deletePopOver(title: title, message: message, in: self) {
             DayViewModel.deleteAll(selectedDay.getDate())
             DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
@@ -86,6 +109,7 @@ class DayController: UITableViewController  {
         transition(to: chooseid)
     }
     
+    // MARK: - OTHERS
     
     private func updateAllValues() {
         allMeals = selectedDay.getMealsSorted(complete: false)

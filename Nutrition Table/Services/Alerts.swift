@@ -41,4 +41,25 @@ class Alert: Show {
         show(alert, in: vc)
     }
     
+    static func addPopOver(title: String, message: String, in vc: UIViewController, handler: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(cancelAction)
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
+            handler()
+        }))
+        show(alert, in: vc)
+    }
+    
+    static func addTextFieldPopOver(title: String, message: String, in vc: UIViewController, handler: @escaping (String?) -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(cancelAction)
+        alert.addTextField { textfield in
+            textfield.placeholder = "Training duration"
+        }
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
+            handler(alert.textFields?.first?.text)
+        }))
+        show(alert, in: vc)
+    }
+    
 }
