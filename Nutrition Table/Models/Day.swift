@@ -13,6 +13,7 @@ class Day: CustomStringConvertible, Equatable, Codable {
     
     private var date: Date
     private var dayMeals: [String:Meal?]
+    private var sports: [String]?
     
     var description: String {
         var text = String()
@@ -22,13 +23,14 @@ class Day: CustomStringConvertible, Equatable, Codable {
         return text
     }
     
-    init(dayMeals:[String:Meal?], date:Date) {
+    init(dayMeals:[String:Meal?], date:Date, sports:[String]?) {
         self.dayMeals = dayMeals
         self.date = date
+        self.sports = sports
     }
     
     convenience init(date:Date = Date()) {
-        self.init(dayMeals: ["Breakfast":nil, "Snack1":nil, "Lunch":nil, "Snack2":nil, "Afternoon snack":nil, "Dinner":nil], date: date)
+        self.init(dayMeals: ["Breakfast":nil, "Snack1":nil, "Lunch":nil, "Snack2":nil, "Afternoon snack":nil, "Dinner":nil], date: date, sports: nil)
     }
     
     static func == (lhs: Day, rhs: Day) -> Bool {
@@ -37,6 +39,7 @@ class Day: CustomStringConvertible, Equatable, Codable {
     
     // MARK: - GET
     
+    /// Get date
     func getDate() -> Date {
         return self.date
     }
@@ -91,6 +94,39 @@ class Day: CustomStringConvertible, Equatable, Codable {
         return getMaxFoodType(foodTypes)
     }
     
+    /// Get sports
+    func getSports() -> [String]? {
+        return self.sports
+    }
+    
+    /// Get only meals that contain some food
+    private func cleanMeals(_ meals: (ref: [String],meal: [Meal?])) ->(ref: [String],meal: [Meal]) {
+        var newMeals: (ref: [String],meal: [Meal]) = ([],[])
+        for i in 0...meals.ref.count - 1 {
+            if let meal = meals.meal[i] {
+                newMeals.meal.append(meal)
+                newMeals.ref.append(meals.ref[i])
+            }
+            
+        }
+        return newMeals
+    }
+    
+    /// Get maximum of food types
+    private func getMaxFoodType(_ cantTypes: (p:Int,c:Int,v:Int)) -> FoodType? {
+        let max = max(cantTypes.p, cantTypes.c, cantTypes.v)
+        if max > 0 {
+            if max == cantTypes.p {
+                return .protein
+            } else if max == cantTypes.c {
+                return .carbohydrates
+            } else if max == cantTypes.v {
+                return .vegetables
+            }
+        }
+        return nil
+    }
+    
     // MARK: - SET
     
     /// Add a spceific meal
@@ -100,20 +136,38 @@ class Day: CustomStringConvertible, Equatable, Codable {
         self.dayMeals.updateValue(meal, forKey: moment.rawValue)
     }
     
+    /// Add sport
+    func addSport(_ sport:String) {
+        self.sports?.append(sport)
+    }
+    
     // MARK: - DELETE
     
+    /// Delete meal at moment
     func deleteMeal(_ moment:DayFoodType) {
         self.dayMeals.updateValue(nil, forKey: moment.rawValue)
     }
     
+    /// Delete all meals
     func deleteAllMeals() {
         for (key,_) in self.dayMeals {
             self.dayMeals.updateValue(nil, forKey: key)
         }
     }
     
+    /// Delete sport at index
+    func deleteSport(at index:Int) {
+        self.sports?.remove(at: index)
+    }
+    
+    /// Delete all sports
+    func deleteAllSports() {
+        self.sports?.removeAll()
+    }
+    
     // MARK: - OTHERS
     
+    /// Sort from breakfast to dinner
     private func momentSort(complete: Bool) -> (ref: [String],meal: [Meal?]) {
         var sortedMeals: (ref: [String],meal: [Meal?]) = (Array(repeating: "", count: 6),Array(repeating: nil, count: 6))
         for (key,value) in self.dayMeals {
@@ -142,32 +196,6 @@ class Day: CustomStringConvertible, Equatable, Codable {
         }
         
         return complete ? sortedMeals : cleanMeals(sortedMeals)
-    }
-    
-    private func cleanMeals(_ meals: (ref: [String],meal: [Meal?])) ->(ref: [String],meal: [Meal]) {
-        var newMeals: (ref: [String],meal: [Meal]) = ([],[])
-        for i in 0...meals.ref.count - 1 {
-            if let meal = meals.meal[i] {
-                newMeals.meal.append(meal)
-                newMeals.ref.append(meals.ref[i])
-            }
-            
-        }
-        return newMeals
-    }
-    
-    private func getMaxFoodType(_ cantTypes: (p:Int,c:Int,v:Int)) -> FoodType? {
-        let max = max(cantTypes.p, cantTypes.c, cantTypes.v)
-        if max > 0 {
-            if max == cantTypes.p {
-                return .protein
-            } else if max == cantTypes.c {
-                return .carbohydrates
-            } else if max == cantTypes.v {
-                return .vegetables
-            }
-        }
-        return nil
     }
     
 }

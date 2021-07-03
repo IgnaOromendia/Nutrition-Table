@@ -17,24 +17,27 @@ class HomeViewModel {
     private static let colorViewWeek = UIColor.rgbColor(r: 117, g: 175, b: 90)
     private static let colorViewConfig = UIColor.rgbColor(r: 245, g: 245, b: 245)
     private static let colorViewCalendar = UIColor.rgbColor(r: 128, g: 106, b: 192)
+    private static let colorViewSports = UIColor.rgbColor(r: 91, g: 188, b: 255)
     private static let colorViewMeal = UIColor.rgbColor(r: 149, g: 191, b: 255)
     private static let colorAdded = UIColor.rgbColor(r: 123, g: 214, b: 33)
     private static let colorNotAdded = UIColor.rgbColor(r: 234, g: 72, b: 72)
     
     private static let colors = [colorViewToady,colorViewAddRecommended,colorViewExport,
-                                 colorViewAdd,colorViewWeek,colorViewConfig,colorViewCalendar]
+                                 colorViewAdd,colorViewWeek,colorViewConfig,colorViewCalendar, colorViewSports]
     
     private static let im_addRecommended = UIImage(named: "addRecommended.png")
     private static let im_add = UIImage(systemName: "plus")
     private static let im_gear = UIImage(systemName: "gear")
     private static let im_calendar = UIImage(systemName: "calendar")
     private static let im_export = UIImage(systemName: "square.and.arrow.up")
+    //private static let im_sports = UIImage(systemName: "figure.walk") walking
+    private static let im_sports = UIImage(named: "running.png")
     
     private static var texts = ["Name's day","Date","Add recommended",
-                                "Export","Add","Week","Calendar"]
+                                "Export","Add","Week","Calendar","Sports"]
     
     private static let images = [im_addRecommended,im_export,im_add,
-                                 im_gear,im_calendar]
+                                 im_gear,im_calendar,im_sports]
   
     static func setView(_ views: [UIView]) {
         for (index,view) in views.enumerated() {
@@ -44,7 +47,7 @@ class HomeViewModel {
         }
     }
     
-    private static func labelAddName() -> String {
+    static func labelAddName() -> String {
         // Estaria bueno q vaya aprendiendo los horarios del usuario
         switch Date().hour {
             case 0..<5:
@@ -92,7 +95,7 @@ class HomeViewModel {
     static func setImages(_ imageViews: [UIImageView]) {
         for (index,imageView) in imageViews.enumerated() {
             imageView.image = images[index]
-            if index != images.count - 2 {
+            if index != images.count - 3 {
                 imageView.tintColor = .white
             } else {
                 imageView.tintColor = .black

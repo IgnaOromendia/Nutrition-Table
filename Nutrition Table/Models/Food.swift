@@ -31,18 +31,22 @@ class Food: CustomStringConvertible, Equatable, Comparable, Codable {
         return lhs.name < rhs.name
     }
     
+    /// Get name
     func getName() -> String {
         return name
     }
     
+    /// Get type
     func getType() -> FoodType? {
         return type
     }
     
+    /// Get the name with the background color depending on the type
     func getNameWithBackgorund() -> NSAttributedString {
         return name.background(colorDependingType(type))
     }
     
+    /// Get the color depending fo the type
     private func colorDependingType(_ type:FoodType?) -> UIColor? {
         switch type {
         case .protein:

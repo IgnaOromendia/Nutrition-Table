@@ -29,7 +29,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         AddFoodViewModel.setDoneButton(btn_addFood)
         AddFoodViewModel.setTextView(food_textView)
         AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
-        AddFoodViewModel.editExistingMeal(&meal, moment: selectedFoodMoment)
+        AddFoodViewModel.editExistingMeal(&meal, moment: selectedFoodMoment, in: selectedDay.getDate())
         foodType = nil
     }
     
@@ -104,7 +104,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             Alert.deletePopOver(title: deleteFoodTitle, message: deleteFoodMessage, in: self) {
-                self.meal.deleteFoodAt(indexPath.row)
+                self.meal.deleteFoodAt(self.meal.getFoodArray().count - 1 - indexPath.row) // Becuase is reversed
                 tableView.reloadData()
             }
         }

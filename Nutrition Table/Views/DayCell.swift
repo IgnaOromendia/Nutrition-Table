@@ -38,12 +38,14 @@ class DayCell: UITableViewCell {
         setCircleViewColor(weekDay)
     }
 
+    /// Set images
     private func setImages() {
         im_lunch.image = UIImage(named: "Sun2.png")
         im_dinner.image = UIImage(named: "Moon2.png")
         im_breakfast.image = UIImage(named: "Sunrise2.png")
     }
-
+    
+    /// Set labes contiaining foods
     private func setFoodLabels(_ weekDay:WeekDay) {
         if let day = Week.getDay(from: weekDay.date) {
             if let breakfast = day.getMeal(tipo: .breakfast) {
@@ -68,6 +70,7 @@ class DayCell: UITableViewCell {
         }
     }
 
+    /// Set default values
     private func setDefaultValues() {
         lbl_breakfast.text = "No breakfast added"
         lbl_lunch.text = "No lunch added"
@@ -75,6 +78,7 @@ class DayCell: UITableViewCell {
         circleView_FoodType.alpha = 0;
     }
     
+    /// Set circle view color
     private func setCircleViewColor(_ weekDay: WeekDay) {
         if let day = Week.getDay(from: weekDay.date) {
             if let predominantType = day.getPredominantMealFoodType() {

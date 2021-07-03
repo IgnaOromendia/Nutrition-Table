@@ -21,14 +21,9 @@ class Meal: Equatable, Codable {
         return lhs.foods == rhs.foods
     }
     
-    func addFood(_ food:Food){
-        self.foods.append(food)
-    }
+    // MARK: - GET
     
-    func addDrink(_ drink:String?) {
-        self.drink = drink
-    }
-    
+    /// Get an array of Food
     func getFoodArray() -> [Food] {
         return self.foods
     }
@@ -84,34 +79,7 @@ class Meal: Equatable, Codable {
         return getMaxFoodType(foodTypes)
     }
     
-    // Delete
-    
-    /// Delete single food
-    func deleteFood(_ food: Food) {
-        for (index,item) in foods.enumerated() {
-            if item == food {
-                foods.remove(at: index)
-            }
-        }
-    }
-    
-    func deleteFoodAt(_ i:Int) {
-        foods.remove(at: i)
-    }
- 
-    /// Delete all foods
-    func deleteAllFoods() {
-        foods.removeAll()
-    }
-    
-    /// Delete last food
-    func deleteLastFood() {
-        foods.removeLast()
-    }
-    
-    
-    // Others
-    
+    /// Get maximum of food types
     private func getMaxFoodType(_ cantTypes: (p:Int,c:Int,v:Int)) -> FoodType? {
         let max = max(cantTypes.p, cantTypes.c, cantTypes.v)
         if max > 0 {
@@ -124,6 +92,44 @@ class Meal: Equatable, Codable {
             }
         }
         return nil
+    }
+    
+    // MARK: - SET
+    
+    /// Add a single food
+    func addFood(_ food:Food){
+        self.foods.append(food)
+    }
+    
+    /// Add a drink
+    func addDrink(_ drink:String?) {
+        self.drink = drink
+    }
+    
+    // MARK: - DELETE
+    
+    /// Delete single food
+    func deleteFood(_ food: Food) {
+        for (index,item) in foods.enumerated() {
+            if item == food {
+                foods.remove(at: index)
+            }
+        }
+    }
+    
+    /// Delete food at index
+    func deleteFoodAt(_ i:Int) {
+        foods.remove(at: i)
+    }
+ 
+    /// Delete all foods
+    func deleteAllFoods() {
+        foods.removeAll()
+    }
+    
+    /// Delete last food
+    func deleteLastFood() {
+        foods.removeLast()
     }
     
 }

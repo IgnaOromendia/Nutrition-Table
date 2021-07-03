@@ -61,6 +61,7 @@ let calendarid = "calendarid"
 let dayId = "dayid"
 let configid = "configid"
 let exportid = "exportid"
+let sportsid = "sportsid"
 
 // Alerts titles
 

@@ -16,7 +16,7 @@ class AddFoodCell: UITableViewCell {
     }
     
     #warning("Mejorar el diseño")
-    // Cell genreated if you add food
+    /// Cell genreated if you add food
     func setCell(text:String, type: FoodType?) {
         selectionStyle = .none
         textLabel?.text = text

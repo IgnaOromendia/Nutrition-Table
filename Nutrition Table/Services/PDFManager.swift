@@ -15,10 +15,10 @@ class PDFCreator: NSObject {
     private let tableData = Table()
     private let pdfDrawer = PDFDraws()
     
-    private let fontSizeTitleColumn: CGFloat = 32
-    private let fontSizeContent: CGFloat     = 14
+    private let fontSizeTitleColumn: CGFloat = 25
+    private let fontSizeContent: CGFloat     = 12
     private let numberOfRow                  = 7
-    private let numberOfColumns              = 7
+    private let numberOfColumns              = 8
     private let distanceFromOrigin: CGFloat  = 10
     
     func createDocument() -> Data {
@@ -36,7 +36,6 @@ class PDFCreator: NSObject {
         let pageHeight = 7.75 * 72.0
         let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
 
-        
         // Renders the pdf
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
         
@@ -45,13 +44,12 @@ class PDFCreator: NSObject {
             let cgContext = context.cgContext
             let rowSize = rowSize(for: numberOfRow, in: pageRect, offset: distanceFromOrigin)
             let columnSize = columnSize(for: numberOfColumns, in: pageRect, offset: distanceFromOrigin)
-            let cellSize = CGSize(width: columnSize, height: rowSize)
+            let cellSize = CGSize(width: columnSize - 8, height: rowSize)
             
             let firstCellPoint = CGPoint(x: distanceFromOrigin / 4, y: distanceFromOrigin)
             let firstCellRect = CGRect(origin: firstCellPoint, size: cellSize)
-            
 
-            let firstContentCellPoint = CGPoint(x: columnSize, y: distanceFromOrigin)
+            let firstContentCellPoint = CGPoint(x: columnSize + 5, y: distanceFromOrigin)
             let firstContentCellRect = CGRect(origin: firstContentCellPoint, size: cellSize )
             
             // Drawing Bounds
@@ -190,7 +188,7 @@ fileprivate class Table {
     }
     
     func createTable(week: Week) {
-        for day in week.days {
+        for day in week.getAllDays() {
             let meals = day.getMealsSorted(complete: true)
             let day = day.getDate().dayMonthDate
             matrix[0].append(NSMutableAttributedString(string: day))

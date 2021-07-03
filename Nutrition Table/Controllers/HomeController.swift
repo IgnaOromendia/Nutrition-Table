@@ -59,20 +59,29 @@ class HomeController: UIViewController {
     @IBOutlet weak var view_config: UIView!
     @IBOutlet weak var im_congif: UIImageView!
     
+    // VIEW SPORTS
+    
+    @IBOutlet weak var view_sports: UIView!
+    @IBOutlet weak var lbl_sports: UILabel!
+    @IBOutlet weak var im_sports: UIImageView!
+    
+    
     // Vars
     
     lazy var views: [UIView] = {
         return [view_today,view_addRecommended,view_export,
-                view_add,view_week,view_config,view_calendar]
+                view_add,view_week,view_config,view_calendar,
+                view_sports]
     }()
     
     lazy var lables: [UILabel] = {
         return [lbl_titleToday,lbl_date,lbl_titleAddRecommended,
-                lbl_titleExport,lbl_titleAdd,lbl_titleWeek,lbl_titleCalendar]
+                lbl_titleExport,lbl_titleAdd,lbl_titleWeek,lbl_titleCalendar,
+                lbl_sports]
     }()
     
     lazy var images: [UIImageView] = {
-        return [im_addRecommended,im_export,im_add,im_congif,im_calendar]
+        return [im_addRecommended,im_export,im_add,im_congif,im_calendar,im_sports]
     }()
     
     lazy var circleViewsReference: [String:UIView?] = {
@@ -81,7 +90,7 @@ class HomeController: UIViewController {
     
     // Controller
     
-    let stManager = StorgareManager()
+    private let stManager = StorgareManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,12 +99,12 @@ class HomeController: UIViewController {
         HomeViewModel.setImages(images)
         HomeViewModel.setTodayViews(containerViews, circleViewsReference, lbl_meals)
         HomeViewModel.setAdjustableFontSize([lbl_titleWeek, lbl_titleAddRecommended])
-        let id = "\(Date().getWeekMondayDate().storageDate)-Monday"
-        week = stManager.readWeekData(id: id)
+        readAndUpdateWeekData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         HomeViewModel.reloadTodayView(circleViewsReference)
+        lbl_titleAddRecommended.text = HomeViewModel.labelAddName()
     }
     
     
@@ -124,11 +133,20 @@ class HomeController: UIViewController {
     }
     
     @IBAction func config(_ sender: Any) {
-        // go to config
+        transition(to: configid)
     }
     
     @IBAction func calendar(_ sender: Any) {
         // go to calendar
+    }
+    
+    @IBAction func sports(_ sender: Any) {
+        transition(to: sportsid)
+    }
+    
+    private func readAndUpdateWeekData() {
+        let id = "\(Date().getWeekMondayDate().storageDate)-Monday"
+        week.updateValues(with: stManager.readWeekData(id: id))
     }
     
 }

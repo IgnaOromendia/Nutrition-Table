@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-    /// Ejemplo: miView.sombra = true
+    /// Set a default shadow
     var shadow: Bool {
         get {
             if self.layer.shadowRadius > 0 {
@@ -31,7 +31,7 @@ extension UIView {
         }
     }
     
-    // Circle view
+    /// Circle view
     var circle: Bool {
         get {
             if self.layer.cornerRadius > 0 {
@@ -45,28 +45,15 @@ extension UIView {
         }
     }
     
-    // Corner Radius
+    /// Set corner radius
     func cornerRadius(de numero:CGFloat) {
         self.layer.cornerRadius = numero
     }
 }
 
 extension UIViewController {
-    /// Para modificar el navigation bar desde el codigo y mas rapido
-    /// - Parameters:
-    ///   - titulo: Titulo del navigation
-    ///   - color: Color de las letras
-    ///   - largeTitle: Para hacerlo Large  (predeterminado chico)
-//    func setNavigationBar(titulo:String? = nil, color:UIColor? = nil, largeTitle: Bool = false) {
-//        navigationItem.title = titulo
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.prefersLargeTitles = largeTitle
-//        if let color = color {
-//            navigationController?.navigationBar.tintColor = color
-//            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:color]
-//        }
-//    }
     
+    /// Set a navigation bar
     func setNavigationBar(title: String?, color: UIColor?) {
         navigationItem.title = title
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -74,14 +61,14 @@ extension UIViewController {
         
     }
     
-    // Set the navigation trnasparent
+    /// Set the navigation trnasparent
     func setNavigationTransparent(title: String? = nil) {
         navigationItem.title = title
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    // Transifiton from vc to vc
+    /// Transifiton from vc to vc
     func transition(to id:String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let destino = storyboard.instantiateViewController(identifier: id)
@@ -138,18 +125,20 @@ extension Date {
         return distance == 0 ? 1 : distance
     }
     
+    /// Get date from monday of current week
     func getWeekMondayDate() -> Date {
         let distanceMonday = getDistanceMonday() - 1
         return self - TimeInterval(86400 * distanceMonday)
     }
     
+    /// Get name day from date
     func getNameDay(day: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from:day)
     }
     
-    // Get all the days between today and Monday from the current week
+    /// Get all the days between today and Monday from the current week
     func getWeekDays() -> [WeekDay] {
         var days: [WeekDay] = []
         let dayDistance = getDistanceMonday()
@@ -165,12 +154,12 @@ extension Date {
 }
 
 extension UIColor {
-    // Set a RGB color
+    /// Set a RGB color
     static func rgbColor(r:Int, g:Int, b:Int) -> UIColor {
         return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
     }
     
-    // Colos
+    // Colors
     static var darkRedC:         UIColor {return rgbColor(r: 184, g: 23, b: 18)}
     static var lightRedC:        UIColor {return rgbColor(r: 255, g: 119, b: 111)}
     static var lightPurpleC:     UIColor {return rgbColor(r: 125, g: 86, b: 198) }
@@ -188,7 +177,7 @@ extension UIColor {
     static var purpleWhiteC:     UIColor {return rgbColor(r:68, g:66, b:153)}
     static var redWhiteC:        UIColor {return rgbColor(r:216, g:75, b:83)}
     
-    // choose random color from predefined array
+    /// choose random color from predefined array
     static func randomColor() -> UIColor? {
         let colors: [UIColor] = [greenC,blueC,orangeC, purpleWhiteC, redWhiteC, lightOrangeC]
         return colors.randomElement()
@@ -197,38 +186,22 @@ extension UIColor {
 
 extension UITextView {
     
-    //Placeholders
+    /// Set placeholder
     func makePlaceholder(_ text: String) {
         self.textColor = .darkGray
         self.text = text
     }
     
+    /// Remove placeholder
     func removePlaceholder() {
         self.text = ""
         self.textColor = .black
     }
 }
 
-
-extension Data {
-    
-    func dataToFile(fileName:String, filePath: String) -> URL? {
-        let data = self
-        
-        do {
-            try data.write(to: URL(fileURLWithPath: filePath))
-            return URL(fileURLWithPath: filePath)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        return nil
-    }
-    
-}
-
 extension String {
     
+    /// Set a background color to a String
     func background(_ color:UIColor?) -> NSMutableAttributedString {
         if let color = color {
             let attribute = [NSMutableAttributedString.Key.backgroundColor:color]
@@ -242,6 +215,8 @@ extension String {
 }
 
 extension Array where Element == UIView {
+    
+    /// Get the tag of a UIView in an array of it
     func withTag(_ index: Int) -> UIView? {
         for view in self {
             if view.tag == index {
@@ -250,4 +225,5 @@ extension Array where Element == UIView {
         }
         return nil
     }
+    
 }

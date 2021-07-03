@@ -11,8 +11,8 @@ class DayController: UITableViewController  {
     
     @IBOutlet weak var btn_deleteAll: UIBarButtonItem!
     
-    let stManager = StorgareManager()
-    var allMeals = selectedDay.getMealsSorted(complete: false)
+    private let stManager = StorgareManager()
+    private var allMeals = selectedDay.getMealsSorted(complete: false)
     
     
     lazy var onlyMeals: [Meal?] = {

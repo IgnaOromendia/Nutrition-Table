@@ -19,7 +19,7 @@ class DayViewModel {
         guard let type = type else { return }
         guard let food = food else { return }
         
-        for day in week.days {
+        for day in week.getAllDays() {
             if day.getDate().comparableDate == date.comparableDate {
                 day.getMeal(tipo: type)?.deleteFood(food)
                 if let meal = day.getMeal(tipo: type) {
@@ -32,7 +32,7 @@ class DayViewModel {
     }
     
     static func deleteAll(_ date:Date) {
-        for day in week.days {
+        for day in week.getAllDays() {
             if day.getDate().comparableDate == date.comparableDate {
                 day.deleteAllMeals()
             }
