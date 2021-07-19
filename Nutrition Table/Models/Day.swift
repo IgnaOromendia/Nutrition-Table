@@ -30,7 +30,7 @@ class Day: CustomStringConvertible, Equatable, Codable {
     }
     
     convenience init(date:Date = Date()) {
-        self.init(dayMeals: ["Breakfast":nil, "Snack1":nil, "Lunch":nil, "Snack2":nil, "Afternoon snack":nil, "Dinner":nil], date: date, sports: ["Add sports"])
+        self.init(dayMeals: ["Breakfast":nil, "Snack1":nil, "Lunch":nil, "Snack2":nil, "Afternoon snack":nil, "Dinner":nil], date: date, sports: [])
     }
     
     static func == (lhs: Day, rhs: Day) -> Bool {

@@ -160,10 +160,17 @@ extension Date {
     
     /// Get the distance between today and Monday from the current week
     func getDistanceMonday() -> Int {
-        let date = Calendar.current.dateComponents([.weekday], from: self)
-        let firstweekDay = Calendar.current.firstWeekday
-        let distance = abs((date.weekday?.distance(to: firstweekDay) ?? 0)) + 1
-        return distance == 0 ? 1 : distance
+        var i = 0
+        var day = self
+        if getNameDay(day: day) == "Monday" {
+            return 1
+        } else {
+            while i < 7 && "Monday" != getNameDay(day: day) {
+                day = self - TimeInterval(86400 * i)
+                i += 1
+            }
+        }
+        return i
     }
     
     /// Get date from monday of current week
@@ -250,7 +257,21 @@ extension String {
         } else {
             return NSMutableAttributedString(string: self)
         }
-        
+    }
+    
+    /// Split the string depending on the character
+    func splitBy(char:Character) -> [String] {
+        var result = [String]()
+        var word = String()
+        for c in self {
+            if c != char {
+                word.append(c)
+            } else {
+                result.append(word)
+                word.removeAll()
+            }
+        }
+        return result
     }
     
 }
@@ -268,3 +289,4 @@ extension Array where Element == UIView {
     }
     
 }
+

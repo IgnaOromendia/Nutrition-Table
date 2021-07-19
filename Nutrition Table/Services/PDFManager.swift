@@ -16,10 +16,12 @@ class PDFCreator: NSObject {
     private let pdfDrawer = PDFDraws()
     
     private let fontSizeTitleColumn: CGFloat = 25
+    private let fontSizeTitleRow: CGFloat    = 15
     private let fontSizeContent: CGFloat     = 10
-    private let numberOfRow                  = 7
+    private let numberOfRow                  = 6
     private let numberOfColumns              = 8
     private let distanceFromOrigin: CGFloat  = 10
+    private let titleRowSize: CGFloat        = 50
     
     func createDocument() -> Data {
         let pdfMetaData = [kCGPDFContextAuthor : "Ignacio Oromendia"]
@@ -29,8 +31,9 @@ class PDFCreator: NSObject {
         // Pdf table content
         tableData.createTable(week: week)
         let weekData = tableData.getTable()
-        let firstColumnTitle  = tableData.getFirstColumnTitle()
-        
+        let firstColumnTitles  = tableData.getFirstColumnTitle()
+        let firstRowTitles = tableData.getFirstRow()
+                
         // A4 horizontal size
         let pageWidth = 10.25 * 72.0
         let pageHeight = 7.75 * 72.0
@@ -42,23 +45,38 @@ class PDFCreator: NSObject {
         let data = renderer.pdfData { context in
             context.beginPage()
             let cgContext = context.cgContext
-            let rowSize = rowSize(for: numberOfRow, in: pageRect, offset: distanceFromOrigin)
+            
+            // Row and column sizes
+            
+            let rowSize = rowSize(for: numberOfRow, in: pageRect, offset: distanceFromOrigin, begining: titleRowSize)
             let columnSize = columnSize(for: numberOfColumns, in: pageRect, offset: distanceFromOrigin)
+            
+            let titleCellSize = CGSize(width: columnSize, height: titleRowSize)
             let cellSize = CGSize(width: columnSize - 8, height: rowSize)
             
-            let firstCellPoint = CGPoint(x: distanceFromOrigin / 4, y: distanceFromOrigin)
-            let firstCellRect = CGRect(origin: firstCellPoint, size: cellSize)
-
-            let firstContentCellPoint = CGPoint(x: columnSize + 5, y: distanceFromOrigin)
+            // Origin points
+            
+            let firstCellPoint = CGPoint(x: distanceFromOrigin / 4, y: distanceFromOrigin) // Cell (0,0)
+            let firstRowPoint = CGPoint(x: firstCellPoint.x + rowSize, y: distanceFromOrigin) // Cell (0,1)
+            let firstContentCellPoint = CGPoint(x: distanceFromOrigin + rowSize, y: firstCellPoint.y + titleRowSize)
+            
+            // Rects
+            
+            let firstRowCellRect = CGRect(origin: firstRowPoint, size: titleCellSize)
+            let firstColumnCellRect = CGRect(origin: firstCellPoint, size: titleCellSize)
             let firstContentCellRect = CGRect(origin: firstContentCellPoint, size: cellSize )
             
             // Drawing Bounds
+            
             pdfDrawer.drawBorderLines(cgContext, pageRect: pageRect, distanceFromOrigin: distanceFromOrigin)
-            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: rowSize, numberOfLines: numberOfRow - 1, distanceFromOrigin: distanceFromOrigin, .horizontal)
-            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: columnSize, numberOfLines: numberOfColumns - 1, distanceFromOrigin: distanceFromOrigin, .vertical)
+            pdfDrawer.drawLineFirstRow(cgContext, pageRect: pageRect, offset: titleRowSize, distanceFromOrigin: distanceFromOrigin, orinteation: .horizontal)
+            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: rowSize, numberOfLines: numberOfRow - 1, distanceFromOrigin: distanceFromOrigin, titleRowHeight: titleRowSize, .horizontal)
+            pdfDrawer.drawLines(cgContext, pageRect: pageRect, separation: columnSize, numberOfLines: numberOfColumns - 1, distanceFromOrigin: distanceFromOrigin, titleRowHeight: columnSize, .vertical)
             
             // Drawing Content
-            pdfDrawer.drawFirstColumn(cgContext, pageRect: pageRect, texts: firstColumnTitle, separation: rowSize, at: firstCellRect, fontSize: fontSizeTitleColumn)
+            
+            pdfDrawer.drawContentFirstRow(cgContext, pageRect: pageRect, texts: firstRowTitles, separation: rowSize, at: firstRowCellRect, fontSize: fontSizeTitleRow)
+            pdfDrawer.drawContentFirstColumn(cgContext, pageRect: pageRect, texts: firstColumnTitles, firstSep: titleRowSize, separation: rowSize, at: firstColumnCellRect, fontSize: fontSizeTitleColumn)
             pdfDrawer.drawContnet(cgContext, pageRect: pageRect, texts: weekData, separation: CGPoint(x: columnSize, y: rowSize), beginsIn: firstContentCellRect, fontSize: fontSizeContent)
         }
         
@@ -86,8 +104,8 @@ class PDFCreator: NSObject {
     // MARK: - OTHERS
     
     /// Row size
-    private func rowSize(for items: Int , in pageRect: CGRect, offset: CGFloat) -> CGFloat {
-        return (pageRect.height - (2.0 * offset)) / CGFloat(items)
+    private func rowSize(for items: Int , in pageRect: CGRect, offset: CGFloat, begining: CGFloat) -> CGFloat {
+        return (pageRect.height - (2.0 * offset) - begining) / CGFloat(items)
     }
     
     /// Column size
@@ -144,16 +162,40 @@ class PDFDraws {
         drawLine(drawContext, pageRect: pageRect, offset: pageRect.height - offset, distanceFromOrigin: distanceFromOrigin, .horizontal)
     }
     
-    func drawLines(_ drawContext: CGContext, pageRect: CGRect, separation: CGFloat, numberOfLines:Int, distanceFromOrigin: CGFloat, _ orientation: Orientation) {
-        for n in 1..<numberOfLines + 1 {
-            drawLine(drawContext, pageRect: pageRect, offset: CGFloat(n) * separation, distanceFromOrigin: distanceFromOrigin, orientation)
+    func drawLineFirstRow(_ drawContext: CGContext, pageRect: CGRect, offset: CGFloat , distanceFromOrigin: CGFloat, orinteation: Orientation) {
+        drawLine(drawContext, pageRect: pageRect, offset: offset, distanceFromOrigin: distanceFromOrigin, orinteation)
+    }
+    
+    func drawLines(_ drawContext: CGContext, pageRect: CGRect, separation: CGFloat, numberOfLines:Int, distanceFromOrigin: CGFloat, titleRowHeight: CGFloat, _ orientation: Orientation) {
+        if orientation == .horizontal {
+            for n in 1..<numberOfLines + 1 {
+                drawLine(drawContext, pageRect: pageRect, offset: titleRowHeight + CGFloat(n) * separation, distanceFromOrigin: distanceFromOrigin, orientation)
+            }
+        } else {
+            for n in 1..<numberOfLines + 1 {
+                drawLine(drawContext, pageRect: pageRect, offset: CGFloat(n) * separation, distanceFromOrigin: distanceFromOrigin, orientation)
+            }
+        }
+        
+    }
+    
+    func drawContentFirstRow(_ drawContext: CGContext, pageRect: CGRect, texts: [NSMutableAttributedString], separation: CGFloat, at point: CGRect, fontSize: CGFloat) {
+        for (index,text) in texts.enumerated() {
+            text.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSMakeRange(0, text.length))
+            let px = point.origin.x + (separation * CGFloat(index))
+            drawCellText(drawContext, pageRect: pageRect, text: text, at: CGRect(x: px, y: point.origin.y, width: point.width, height: point.height))
         }
     }
     
-    func drawFirstColumn(_ drawContext: CGContext, pageRect: CGRect, texts: [NSMutableAttributedString], separation: CGFloat, at point:CGRect, fontSize: CGFloat) {
+    func drawContentFirstColumn(_ drawContext: CGContext, pageRect: CGRect, texts: [NSMutableAttributedString], firstSep: CGFloat , separation: CGFloat, at point:CGRect, fontSize: CGFloat) {
         for (index,text) in texts.enumerated() {
             text.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize), range: NSMakeRange(0, text.length))
-            let py = point.origin.y + (separation * CGFloat(index))
+            var py = point.origin.y + (separation * CGFloat(index))
+            if index == 1 {
+                py = point.origin.y + firstSep
+            } else if index > 1 {
+                py -= (separation - firstSep)
+            }
             drawCellText(drawContext, pageRect: pageRect, text: text, at: CGRect(x: point.origin.x, y: py, width: point.width, height: point.height))
         }
     }
@@ -162,10 +204,12 @@ class PDFDraws {
         for (iR,textR) in texts.enumerated() {
             for (iC,textC) in textR.enumerated() {
                 if iC > 0 {
-                    textC.addAttributes([.font: UIFont.boldSystemFont(ofSize: fontSize)], range: NSMakeRange(0, textC.length))
-                    let px = point.origin.x + (separation.x * CGFloat(iC - 1))
-                    let py = point.origin.y + (separation.y * CGFloat(iR))
-                    drawCellText(drawContext, pageRect: pageRect, text: textC, at: CGRect(x: px, y: py, width: point.width, height: point.height))
+                    if iR > 0 {
+                        textC.addAttributes([.font: UIFont.boldSystemFont(ofSize: fontSize)], range: NSMakeRange(0, textC.length))
+                        let px = point.origin.x + (separation.x * CGFloat(iC - 1))
+                        let py = point.origin.y + (separation.y * CGFloat(iR - 1))
+                        drawCellText(drawContext, pageRect: pageRect, text: textC, at: CGRect(x: px, y: py, width: point.width, height: point.height))
+                    }
                 }
             }
         }
@@ -201,6 +245,15 @@ fileprivate class Table {
     
     func getTable() -> [[NSMutableAttributedString]] {
         return matrix
+    }
+    
+    func getFirstRow() -> [NSMutableAttributedString] {
+        var result = [NSMutableAttributedString]()
+        for text in matrix[0] {
+            result.append(text)
+        }
+        result.removeFirst()
+        return result
     }
     
     func getFirstColumnTitle() -> [NSMutableAttributedString] {

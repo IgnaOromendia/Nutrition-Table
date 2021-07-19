@@ -1444,7 +1444,13 @@
                             <outlet property="delegate" destination="YbY-1c-ZL9" id="GLy-bF-jYF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="w00-5I-RAC"/>
+                    <navigationItem key="navigationItem" id="w00-5I-RAC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="F3k-gp-aad">
+                            <connections>
+                                <action selector="addSport:" destination="YbY-1c-ZL9" id="TBQ-CM-15T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vm-Vp-fa9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

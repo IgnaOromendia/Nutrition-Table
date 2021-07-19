@@ -48,4 +48,29 @@ class StorgareManager {
         return week
     }
     
+    func saveSportsData(_ sports:[String]) {
+        do {
+            if let filePath = Bundle.main.path(forResource: "sports", ofType: "json") {
+                let jsonData = try jsonEncoder.encode(sports)
+                try jsonData.write(to: URL(fileURLWithPath: filePath))
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func readSportsData() -> [String] {
+        var result = [String]()
+        do {
+            if let filePath = Bundle.main.path(forResource: "sports", ofType: "json") {
+                let jsonData = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                result = try JSONDecoder().decode(Array<String>.self, from: jsonData)
+            }
+        } catch {
+            result = ["Error reading JSON"]
+            print(error.localizedDescription)
+        }
+        return result
+    }
+    
 }

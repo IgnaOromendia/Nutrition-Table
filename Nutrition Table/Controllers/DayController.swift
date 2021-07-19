@@ -14,17 +14,20 @@ class DayController: UITableViewController  {
     private let stManager = StorgareManager()
     private var allMeals = selectedDay.getMealsSorted(complete: false)
     
+    lazy private var daySports: [String] = {
+        return updateSports()
+    }()
     
-    lazy var onlyMeals: [Meal?] = {
+    lazy private var onlyMeals: [Meal?] = {
         return updateMeals()
     }()
     
-    lazy var onlyTypes: [DayFoodType] = {
+    lazy private var onlyTypes: [DayFoodType] = {
         return updateTypes()
     }()
     
     override func viewDidLoad() {
-        DayViewModel.setDeleteAllBtn(btn_deleteAll, allMeals.meal.count)
+        DayViewModel.setDeleteAllBtn(btn_deleteAll, allMeals.meal.count + daySports.count)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,12 +50,12 @@ class DayController: UITableViewController  {
     // ROW
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section != allMeals.meal.count ? onlyMeals[section]?.getFoodArray().count ?? 0 : selectedDay.getSports().count
+        return section != allMeals.meal.count ? onlyMeals[section]?.getFoodArray().count ?? 0 : daySports.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath)
-        let text = indexPath.section != allMeals.meal.count ? onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName() : selectedDay.getSports()[indexPath.row]
+        let text = indexPath.section != allMeals.meal.count ? onlyMeals[indexPath.section]?.getFoodArray()[indexPath.row].getName() : daySports[indexPath.row]
         cell.textLabel?.text = text
         cell.selectionStyle = .none
         return cell
@@ -113,6 +116,7 @@ class DayController: UITableViewController  {
     
     private func updateAllValues() {
         allMeals = selectedDay.getMealsSorted(complete: false)
+        daySports = updateSports()
         onlyMeals = updateMeals()
         onlyTypes = updateTypes()
     }
@@ -129,6 +133,10 @@ class DayController: UITableViewController  {
             }
         }
         return result
+    }
+    
+    private func updateSports() -> [String] {
+        return selectedDay.getSports().isEmpty ? ["Add Sport"] : selectedDay.getSports()
     }
     
     

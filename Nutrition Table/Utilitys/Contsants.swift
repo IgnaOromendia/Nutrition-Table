@@ -81,5 +81,5 @@ let noFoodAddedMessage = "Can't add an empty meal"
 let unknownErrorMessage = "Please report in feedback"
 let textFieldEmptyMessage = "Cant't add an empty food"
 let deleteMessage = "Are you sure you want to delete "
-let addMessage = "Are you sure you want to add "
-
+let addSportMessage = "Add the duration of "
+let addCustomSportMessage = "Add a custom sport"

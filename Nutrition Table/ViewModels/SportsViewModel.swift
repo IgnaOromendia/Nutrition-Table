@@ -12,20 +12,6 @@ class SportsViewModel {
     
     private static let stManager = StorgareManager()
     
-    static func getSports() -> [String] {
-        var result = [String]()
-        do {
-            if let filePath = Bundle.main.path(forResource: "sports", ofType: "json") {
-                let jsonData = try Data(contentsOf: URL(fileURLWithPath: filePath))
-                result = try JSONDecoder().decode(Array<String>.self, from: jsonData)
-            }
-        } catch {
-            result = ["Error reading JSON"]
-            print(error.localizedDescription)
-        }
-        return result
-    }
-    
     static func filterContentForSearchText(_ text:String, sports:[String], sportsAdded:[String]) -> [String] {
         return sports.filter({ return $0.lowercased().contains(text.lowercased()) && !sportsAdded.contains($0) })
     }

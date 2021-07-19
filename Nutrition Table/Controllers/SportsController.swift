@@ -9,16 +9,19 @@ import UIKit
 
 class SportsController: UITableViewController, UISearchBarMethdos {
     
-    private let searchBarController = UISearchController(searchResultsController: nil)
-    private let sectionTitles = ["\(selectedDay.getDate().prettyDate) sports", "Sports"]
+    private let stManager = StorgareManager()
     
-    private var sports = SportsViewModel.getSports()
+    private let searchBarController = UISearchController(searchResultsController: nil)
+    private let sectionTitles       = ["\(selectedDay.getDate().prettyDate) sports", "Sports"]
+    
+    private var sports         = [String]()
     private var sportsSelected = [String]()
     private var filteredSports = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setSearchBar(for: searchBarController, hides: false, obscure: false, placeholder: "Search your sport")
+        sports = stManager.readSportsData()
         sportsSelected = selectedDay.getSports()
     }
     
@@ -70,14 +73,14 @@ class SportsController: UITableViewController, UISearchBarMethdos {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 || (indexPath.section == 0 && sportsSelected.count == 0) {
             let title = searchBarController.isFiltering ? addTitle + filteredSports[indexPath.row] : addTitle + sports[indexPath.row]
-            let message = searchBarController.isFiltering ? addMessage + filteredSports[indexPath.row] : addMessage + sports[indexPath.row]
+            let message = searchBarController.isFiltering ? addSportMessage + filteredSports[indexPath.row] : addSportMessage + sports[indexPath.row]
             var trainingTime = String()
             Alert.addTextFieldPopOver(title: title, message: message, in: self) { text in
                 if let text = text {
                     trainingTime = text
                 }
                 let sport = self.searchBarController.isFiltering ? self.filteredSports[indexPath.row] : self.sports[indexPath.row]
-                let sportToAdd = "\(sport), (\(trainingTime))"
+                let sportToAdd = trainingTime.isEmpty ? sport : "\(sport), (\(trainingTime))"
                 self.sportsSelected.append(sportToAdd)
                 SportsViewModel.addToDaySports(sportToAdd, to: selectedDay.getDate())
                 tableView.reloadData()
@@ -88,9 +91,32 @@ class SportsController: UITableViewController, UISearchBarMethdos {
     // MARK: - SEARCH BAR
     
     func updateSearchResults(for searchController: UISearchController) {
-        filteredSports = SportsViewModel.filterContentForSearchText(searchController.searchBar.text!, sports: sports, sportsAdded: sportsSelected)
+        filteredSports = SportsViewModel.filterContentForSearchText(searchController.searchBar.text!, sports: sports, sportsAdded: onlySportName(sportsSelected))
         tableView.reloadData()
     }
     
+    // MARK: - ACTIONS
+    
+    @IBAction func addSport(_ sender: Any) {
+        Alert.addTextFieldPopOver(title: addTitle + "new sport", message: addCustomSportMessage, in: self) { text in
+            if let text = text {
+                self.sports.append(text)
+                self.stManager.saveSportsData(self.sports)
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
+    // MARK: - OTHERS
+    
+    private func onlySportName(_ sportsAdded:[String]) -> [String] {
+        var result = [String]()
+        for sport in sportsAdded {
+            let name = sport.splitBy(char: ",")
+            result.append(name.first ?? "error")
+        }
+        return result
+    }
 
 }
