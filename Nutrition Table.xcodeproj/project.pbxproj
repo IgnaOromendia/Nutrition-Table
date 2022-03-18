@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7001B8E226A6F7BB007A0C11 /* PDFManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7001B8E126A6F7BB007A0C11 /* PDFManger.swift */; };
+		7001B8E426A6FAFC007A0C11 /* PDFDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7001B8E326A6FAFC007A0C11 /* PDFDrawer.swift */; };
 		70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044ED72678D0DD00226544 /* AppDelegate.swift */; };
 		70044EDA2678D0DD00226544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044ED92678D0DD00226544 /* SceneDelegate.swift */; };
 		70044EDF2678D0DD00226544 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70044EDD2678D0DD00226544 /* Main.storyboard */; };
@@ -47,7 +49,6 @@
 		7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BE2682D214005C6CF8 /* HomeController.swift */; };
 		7034540A267A545500322503 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
 		704971F5268E563B00F92AC7 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704971F4268E563B00F92AC7 /* Meal.swift */; };
-		70744C152685672400947AEE /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C142685672400947AEE /* PDFManager.swift */; };
 		70744C1726856C0F00947AEE /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1626856C0F00947AEE /* ExportController.swift */; };
 		70744C192685713300947AEE /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C182685713300947AEE /* Alerts.swift */; };
 		7079C1F826909D7E00A034A7 /* SportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C1F726909D7E00A034A7 /* SportsController.swift */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7001B8E126A6F7BB007A0C11 /* PDFManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManger.swift; sourceTree = "<group>"; };
+		7001B8E326A6FAFC007A0C11 /* PDFDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDrawer.swift; sourceTree = "<group>"; };
 		70044ED42678D0DD00226544 /* Nutrition Table.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Table.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70044ED72678D0DD00226544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70044ED92678D0DD00226544 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		7027B3BE2682D214005C6CF8 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		70345409267A545500322503 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		704971F4268E563B00F92AC7 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
-		70744C142685672400947AEE /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		70744C1626856C0F00947AEE /* ExportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportController.swift; sourceTree = "<group>"; };
 		70744C182685713300947AEE /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		7079C1F726909D7E00A034A7 /* SportsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7001B8E026A6F79B007A0C11 /* PDFManger */ = {
+			isa = PBXGroup;
+			children = (
+				7001B8E126A6F7BB007A0C11 /* PDFManger.swift */,
+				7001B8E326A6FAFC007A0C11 /* PDFDrawer.swift */,
+			);
+			path = PDFManger;
+			sourceTree = "<group>";
+		};
 		70044ECB2678D0DD00226544 = {
 			isa = PBXGroup;
 			children = (
@@ -276,8 +287,8 @@
 		704971E0268E081600F92AC7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7001B8E026A6F79B007A0C11 /* PDFManger */,
 				70345409267A545500322503 /* Animation.swift */,
-				70744C142685672400947AEE /* PDFManager.swift */,
 				70744C182685713300947AEE /* Alerts.swift */,
 				70B5403E268EA7FA001C0279 /* StorageManager.swift */,
 			);
@@ -426,8 +437,8 @@
 				7034540A267A545500322503 /* Animation.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
 				7079C1F826909D7E00A034A7 /* SportsController.swift in Sources */,
-				70744C152685672400947AEE /* PDFManager.swift in Sources */,
 				7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */,
+				7001B8E226A6F7BB007A0C11 /* PDFManger.swift in Sources */,
 				70044F2B26798ADE00226544 /* ChooseFoodController.swift in Sources */,
 				701B0678267A6FD5003CACF3 /* AddFoodController.swift in Sources */,
 				704971F5268E563B00F92AC7 /* Meal.swift in Sources */,
@@ -446,6 +457,7 @@
 				70044F3426798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70044F2F26798B5C00226544 /* Extensions.swift in Sources */,
 				70B5403F268EA7FA001C0279 /* StorageManager.swift in Sources */,
+				7001B8E426A6FAFC007A0C11 /* PDFDrawer.swift in Sources */,
 				7027B3BD2682D1FB005C6CF8 /* HomeViewModel.swift in Sources */,
 				70044F0F2678D3BF00226544 /* Food.swift in Sources */,
 				701B067A267A9FF8003CACF3 /* AddFoodViewModel.swift in Sources */,
