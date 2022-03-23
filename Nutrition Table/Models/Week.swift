@@ -11,6 +11,7 @@ class Week: Codable {
     
     private var days: [Day]
     private var id: String
+    private var mondaysDate: Date
     
     /// Get today Day
     var today: Day? {
@@ -23,10 +24,17 @@ class Week: Codable {
         self.days = []
         self.days = days
         self.id = ""
+        self.mondaysDate = Date()
     }
     
     // MARK: - GET
     
+    /// Get the date of the first day of the week
+    func getMondaysDate() -> Date {
+        return self.mondaysDate
+    }
+    
+    /// Get the ID of the week
     func getID() -> String {
         return self.id
     }
@@ -121,6 +129,7 @@ class Week: Codable {
             let day = Day(date: Date() - TimeInterval((84600 * i)))
             self.days.append(day)
         }
+        self.mondaysDate = self.days[0].getDate()
     }
     
     /// Generates an id for storing

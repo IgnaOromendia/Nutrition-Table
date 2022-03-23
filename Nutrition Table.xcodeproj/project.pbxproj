@@ -56,7 +56,7 @@
 		7079C1FD2690B97000A034A7 /* sports.json in Resources */ = {isa = PBXBuildFile; fileRef = 7079C1FC2690B97000A034A7 /* sports.json */; };
 		708FD21727EB94C8004A0344 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21627EB94C8004A0344 /* CalendarController.swift */; };
 		708FD21927EB94E3004A0344 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21827EB94E3004A0344 /* CalendarViewModel.swift */; };
-		708FD21B27EB9648004A0344 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21A27EB9648004A0344 /* DataManager.swift */; };
+		708FD21D27EB992B004A0344 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21C27EB992B004A0344 /* DataManager.swift */; };
 		70B5403F268EA7FA001C0279 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5403E268EA7FA001C0279 /* StorageManager.swift */; };
 		70BE9DA7267CC24A0002E2BC /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE9DA6267CC24A0002E2BC /* DayController.swift */; };
 		70C5A139267B73C20004B23F /* WeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A138267B73C20004B23F /* WeekController.swift */; };
@@ -124,7 +124,7 @@
 		7079C1FC2690B97000A034A7 /* sports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sports.json; sourceTree = "<group>"; };
 		708FD21627EB94C8004A0344 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		708FD21827EB94E3004A0344 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
-		708FD21A27EB9648004A0344 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		708FD21C27EB992B004A0344 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		70B5403E268EA7FA001C0279 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		70BE9DA6267CC24A0002E2BC /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 		70C5A138267B73C20004B23F /* WeekController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekController.swift; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 				704971F4268E563B00F92AC7 /* Meal.swift */,
 				70044F122678D3FC00226544 /* Day.swift */,
 				70C5A144267C196A0004B23F /* Week.swift */,
-				708FD21A27EB9648004A0344 /* DataManager.swift */,
+				708FD21C27EB992B004A0344 /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7034540A267A545500322503 /* Animation.swift in Sources */,
-				708FD21B27EB9648004A0344 /* DataManager.swift in Sources */,
+				708FD21D27EB992B004A0344 /* DataManager.swift in Sources */,
 				70044ED82678D0DD00226544 /* AppDelegate.swift in Sources */,
 				7079C1F826909D7E00A034A7 /* SportsController.swift in Sources */,
 				7027B3BF2682D214005C6CF8 /* HomeController.swift in Sources */,

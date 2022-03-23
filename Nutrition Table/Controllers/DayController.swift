@@ -77,9 +77,10 @@ class DayController: UITableViewController  {
                 Alert.deletePopOver(title: title, message: message, in: self) {
                     DayViewModel.deleteFood(selectedDay.getDate(), type, food)
                     DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
+                    nutritionData.updateWeek(week: currentWeek)
                     self.allMeals = selectedDay.getMealsSorted(complete: false)
                     self.tableView.reloadData()
-                    self.stManager.saveWeekData(week: currentWeek)
+                    self.stManager.saveData(data: nutritionData)
                 }
             }
         }
@@ -101,9 +102,10 @@ class DayController: UITableViewController  {
         Alert.deletePopOver(title: title, message: message, in: self) {
             DayViewModel.deleteAll(selectedDay.getDate())
             DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
+            nutritionData.updateWeek(week: currentWeek)
             self.allMeals = selectedDay.getMealsSorted(complete: false)
             self.tableView.reloadData()
-            self.stManager.saveWeekData(week: currentWeek)
+            self.stManager.saveData(data: nutritionData)
         }
         tableView.reloadData()
     }

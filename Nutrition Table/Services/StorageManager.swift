@@ -20,32 +20,32 @@ class StorgareManager {
         return directory.appendingPathComponent(fileName)
     }
     
-    func saveWeekData(week: Week) {
-        let fileName = "\(week.getID()).json"
+    func saveData(data: DataManager) {
+        let fileName = "NutritionTableData.json"
         do {
             guard let documentDirectory = getDocumentDirectory() else { print("couldn't find directory"); return }
             try FileManager().createDirectory(at: documentDirectory, withIntermediateDirectories: true, attributes: nil)
             let jsonURL = fileURL(fileName: fileName, in: documentDirectory)
             jsonEncoder.outputFormatting = .prettyPrinted
-            let jsonData = try jsonEncoder.encode(week)
+            let jsonData = try jsonEncoder.encode(data)
             try jsonData.write(to: jsonURL)
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    func readWeekData(id: String) -> Week {
-        let fileName = "\(id).json"
-        var week = Week()
+    func readData() -> DataManager {
+        let fileName = "NutritionTableData.json"
+        var data = DataManager()
         do {
-            guard let documentDirectory = getDocumentDirectory() else { print("couldn't find directory"); return week }
+            guard let documentDirectory = getDocumentDirectory() else { print("couldn't find directory"); return data }
             let jsonURL = fileURL(fileName: fileName, in: documentDirectory)
             let savedData = try Data(contentsOf: jsonURL)
-            week = try jsonDecoder.decode(Week.self, from: savedData)
+            data = try jsonDecoder.decode(DataManager.self, from: savedData)
         } catch {
             print(error.localizedDescription)
         }
-        return week
+        return data
     }
     
     func saveSportsData(_ sports:[String]) {

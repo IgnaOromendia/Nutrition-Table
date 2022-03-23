@@ -99,7 +99,9 @@ class HomeController: UIViewController {
         HomeViewModel.setImages(images)
         HomeViewModel.setTodayViews(containerViews, circleViewsReference, lbl_meals)
         HomeViewModel.setAdjustableFontSize([lbl_titleWeek, lbl_titleAddRecommended])
-        readAndUpdateWeekData()
+        nutritionData = stManager.readData()
+        currentWeek = nutritionData.currentWeek
+        print(nutritionData.currentWeek)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,11 +145,6 @@ class HomeController: UIViewController {
     @IBAction func sports(_ sender: Any) {
         selectedDay = currentWeek.today ?? Day()
         transition(to: sportsid)
-    }
-    
-    private func readAndUpdateWeekData() {
-        let id = "\(Date().getWeekMondayDate().storageDate)-NT" // Example: 21-2-2022-NT
-        currentWeek.updateValues(with: stManager.readWeekData(id: id))
     }
     
 }

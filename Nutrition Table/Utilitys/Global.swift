@@ -7,6 +7,7 @@
 
 import Foundation
 
+var nutritionData = DataManager()
 var currentWeek = Week()
 var selectedFoodMoment: DayFoodType = .breakfast
 var selectedDay = Day()
