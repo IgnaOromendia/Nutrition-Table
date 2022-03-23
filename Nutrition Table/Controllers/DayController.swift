@@ -79,7 +79,7 @@ class DayController: UITableViewController  {
                     DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
                     self.allMeals = selectedDay.getMealsSorted(complete: false)
                     self.tableView.reloadData()
-                    self.stManager.saveWeekData(week: week)
+                    self.stManager.saveWeekData(week: currentWeek)
                 }
             }
         }
@@ -103,7 +103,7 @@ class DayController: UITableViewController  {
             DayViewModel.setDeleteAllBtn(self.btn_deleteAll, self.allMeals.meal.count)
             self.allMeals = selectedDay.getMealsSorted(complete: false)
             self.tableView.reloadData()
-            self.stManager.saveWeekData(week: week)
+            self.stManager.saveWeekData(week: currentWeek)
         }
         tableView.reloadData()
     }

@@ -38,7 +38,7 @@ class Week: Codable {
     
     /// Get specific day
     static func getDay(from weekDay:Date) -> Day? {
-        for day in week.days {
+        for day in currentWeek.days {
             if (day.getDate().comparableDate == weekDay.comparableDate) {
                 return day
             }
@@ -48,7 +48,7 @@ class Week: Codable {
     
     /// Get a day index
     private static func dayIndex(_ dayI:Day) -> Int? {
-        for (index,day) in week.days.enumerated() {
+        for (index,day) in currentWeek.days.enumerated() {
             if day == dayI {
                 return index
             }
@@ -78,13 +78,13 @@ class Week: Codable {
     
     /// Update all values from a week
     func updateValues(with savedWeek: Week) {
-        if week.days.count == savedWeek.days.count {
-            week = savedWeek
-        } else if week.days.count > savedWeek.days.count{
-            for (index,day) in week.days.enumerated() {
+        if currentWeek.days.count == savedWeek.days.count {
+            currentWeek = savedWeek
+        } else if currentWeek.days.count > savedWeek.days.count{
+            for (index,day) in currentWeek.days.enumerated() {
                 for sDay in savedWeek.days {
                     if day == sDay {
-                        week.setDay(at: index, sDay)
+                        currentWeek.setDay(at: index, sDay)
                     }
                 }
             }
@@ -126,6 +126,6 @@ class Week: Codable {
     /// Generates an id for storing
     func generateID() {
         guard let lastDay = self.days.last else {return}
-        self.id = lastDay.getDate().storageDate + "-Monday"
+        self.id = lastDay.getDate().storageDate + "-NT"
     }
 }

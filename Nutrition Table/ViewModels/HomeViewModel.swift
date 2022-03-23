@@ -108,7 +108,7 @@ class HomeViewModel {
         for (key,value) in circleViews {
             if let value = value {
                 value.circle = true
-                value.backgroundColor = week.today?.getAllMeals()[key] == nil ? colorNotAdded : colorAdded
+                value.backgroundColor = currentWeek.today?.getAllMeals()[key] == nil ? colorNotAdded : colorAdded
             }
         }
     }
@@ -123,7 +123,7 @@ class HomeViewModel {
     }
 
     static func reloadTodayView(_ circles: [String:UIView?]) {
-        let today = week.today?.getAllMeals()
+        let today = currentWeek.today?.getAllMeals()
         if let today = today {
             for (key, value) in today {
                 if value != nil {

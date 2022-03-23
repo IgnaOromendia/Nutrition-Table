@@ -45,9 +45,9 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     
     @IBAction func confirmMeal(_ sender: Any) {
         do {
-            try week.addMeal(meal, in: selectedFoodMoment, to: selectedDay.getDate())
+            try currentWeek.addMeal(meal, in: selectedFoodMoment, to: selectedDay.getDate())
             generator2.notificationOccurred(.success)
-            stManager.saveWeekData(week: week)
+            stManager.saveWeekData(week: currentWeek)
         } catch AddMealWarning.foodArrayEmpty {
             Alert.simplePopOver(title: noFoodAddedTitle, message: noFoodAddedMessage, in: self)
         } catch {

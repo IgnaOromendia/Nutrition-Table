@@ -17,13 +17,13 @@ class SportsViewModel {
     }
     
     static func addToDaySports(_ sport:String, to date:Date) {
-        week.addSport(sport, to: date)
-        stManager.saveWeekData(week: week)
+        currentWeek.addSport(sport, to: date)
+        stManager.saveWeekData(week: currentWeek)
     }
     
     static func removeSportFromDay(_ sport: String, to date:Date) {
-        week.deleteSport(sport, to: date)
-        stManager.saveWeekData(week: week)
+        currentWeek.deleteSport(sport, to: date)
+        stManager.saveWeekData(week: currentWeek)
     }
     
 }

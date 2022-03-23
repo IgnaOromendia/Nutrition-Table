@@ -7,15 +7,13 @@
 
 import Foundation
 
-var week = Week()
+var currentWeek = Week()
 var selectedFoodMoment: DayFoodType = .breakfast
 var selectedDay = Day()
 
 // letra de lbl euphemia 22
 
 // TO DO
-// Ver lo de guardar info en le json
 // Cheuqear que cuando escribas la duracion haya un numero
 // Conectar con base de datos
-// Diseño
-// Hacer que la primer fila sea mas chica
+// Diseño de interfaz

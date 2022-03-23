@@ -10,7 +10,7 @@ import UIKit
 import PDFKit
 
 class PDFCreator: NSObject {
-    private let tableData = Table(week: week)
+    private let tableData = Table(week: currentWeek)
     private let pdfDrawer = PDFDrawer()
     
     // Page Size (A4 Horizontal)

@@ -113,18 +113,18 @@ class HomeController: UIViewController {
     }
     
     @IBAction func add(_ sender: Any) {
-        selectedDay = week.today ?? Day()
+        selectedDay = currentWeek.today ?? Day()
         transition(to: chooseid)
     }
     
     @IBAction func addRecommended(_ sender: Any) {
-        selectedDay = week.today ?? Day()
+        selectedDay = currentWeek.today ?? Day()
         HomeViewModel.setDayFoodType()
         transition(to: addFoodid)
     }
     
     @IBAction func today(_ sender: Any) {
-        selectedDay = week.today ?? Day()
+        selectedDay = currentWeek.today ?? Day()
         transition(to: dayId)
     }
     
@@ -141,13 +141,13 @@ class HomeController: UIViewController {
     }
     
     @IBAction func sports(_ sender: Any) {
-        selectedDay = week.today ?? Day()
+        selectedDay = currentWeek.today ?? Day()
         transition(to: sportsid)
     }
     
     private func readAndUpdateWeekData() {
-        let id = "\(Date().getWeekMondayDate().storageDate)-Monday"
-        week.updateValues(with: stManager.readWeekData(id: id))
+        let id = "\(Date().getWeekMondayDate().storageDate)-NT" // Example: 21-2-2022-NT
+        currentWeek.updateValues(with: stManager.readWeekData(id: id))
     }
     
 }
