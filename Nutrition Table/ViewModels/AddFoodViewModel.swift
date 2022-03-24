@@ -11,7 +11,7 @@ import UIKit
 class AddFoodViewModel {
     
     static func setDoneButton(_ btn:UIButton) {
-        btn.cornerRadius(de: 17)
+        btn.cornerRadius(of: 17)
         btn.titleLabel?.text = "Done"
         btn.titleLabel?.textColor = .white
     }
@@ -49,7 +49,7 @@ class AddFoodViewModel {
     }
     
     static func setViewSwitch(_ view:UIView, _ sw:UISwitch) {
-        view.cornerRadius(de: 16)
+        view.cornerRadius(of: 16)
         sw.onTintColor = .darkPurpleC
     }
     
@@ -69,6 +69,21 @@ class AddFoodViewModel {
         let day = Week.getDay(from: date)
         if let existingMeal = day?.getMeal(tipo: moment) {
             meal = existingMeal
+        }
+    }
+    
+    static func setRecomWordBtns(_ btns:[UIButton], at moment: DayFoodType) {
+        let words = nutritionData.topMostEaten(at: moment)
+        print(words)
+        for i in 0...2 {
+            btns[i].alpha = 0
+            if words.count > i {
+                btns[i].titleLabel?.text = words[i].getName()
+                btns[i].alpha = 1
+            }
+            btns[i].cornerRadius(of: 10)
+            btns[i].titleLabel?.textColor = .black
+            btns[i].backgroundColor = .white
         }
     }
     

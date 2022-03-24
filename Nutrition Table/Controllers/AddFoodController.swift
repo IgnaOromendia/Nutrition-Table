@@ -16,6 +16,9 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
     @IBOutlet weak var lbl_switchFoodType: UILabel!
     @IBOutlet weak var foodType_switch: UISwitch!
     @IBOutlet weak var view_switch: UIView!
+    @IBOutlet weak var btn_recomWord_1: UIButton!
+    @IBOutlet weak var btn_recomWord_2: UIButton!
+    @IBOutlet weak var btn_recomWord_3: UIButton!
     
     private var meal = Meal()
     private var foodType: FoodType? = nil
@@ -30,6 +33,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         AddFoodViewModel.setTextView(food_textView)
         AddFoodViewModel.setSegmentedControl(typeFood_segmentedControl, &foodType)
         AddFoodViewModel.editExistingMeal(&meal, moment: selectedFoodMoment, in: selectedDay.getDate())
+        AddFoodViewModel.setRecomWordBtns([btn_recomWord_2,btn_recomWord_1,btn_recomWord_3], at: selectedFoodMoment)
         foodType = nil
     }
     
@@ -42,6 +46,17 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         generator1.selectionChanged()
         AddFoodViewModel.setSegmentedControl(sender, &foodType)
     }
+    
+    
+    @IBAction func add_recomWord1(_ sender: Any) {
+    }
+    
+    @IBAction func add_recomWord2(_ sender: Any) {
+    }
+    
+    @IBAction func add_recomWord3(_ sender: Any) {
+    }
+    
     
     @IBAction func confirmMeal(_ sender: Any) {
         do {
@@ -58,6 +73,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         
         navigationController?.popViewController(animated: true)
     }
+    
     // MARK: - TEXTS
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {

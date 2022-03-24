@@ -816,7 +816,7 @@
                                         <rect key="frame" x="20" y="92.666667938232422" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9bK-0x-mW9" id="0Ur-pK-xYE">
-                                            <rect key="frame" x="0.0" y="0.0" width="289.33333333333331" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="292.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Moi-FF-TUu">
@@ -1402,31 +1402,77 @@
                                     <outlet property="delegate" destination="UFI-IZ-6cg" id="cqX-8k-8FI"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAT-ja-EWa">
+                                <rect key="frame" x="16" y="341" width="119" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="qM5-fu-FhP"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="add_recomWord1:" destination="UFI-IZ-6cg" eventType="touchUpInside" id="J3e-V8-Ogt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zc9-FA-cfU">
+                                <rect key="frame" x="256" y="341" width="119" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="pgG-J4-BRD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="add_recomWord3:" destination="UFI-IZ-6cg" eventType="touchUpInside" id="UUT-bU-qqK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsD-eY-4ZN">
+                                <rect key="frame" x="136" y="341" width="119" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="6FA-l7-NxZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="add_recomWord2:" destination="UFI-IZ-6cg" eventType="touchUpInside" id="VJT-3p-Sud"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fTS-eI-YuJ"/>
                         <color key="backgroundColor" red="0.60594260713754466" green="0.73504517501898659" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="yLP-cR-Jfd" secondAttribute="trailing" constant="16" id="0Lf-ch-sUZ"/>
-                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="top" secondItem="23U-ET-XZf" secondAttribute="bottom" constant="46" id="31T-0U-V2Z"/>
+                            <constraint firstItem="zc9-FA-cfU" firstAttribute="top" secondItem="23U-ET-XZf" secondAttribute="bottom" constant="7" id="0hg-4g-KkN"/>
                             <constraint firstItem="fTS-eI-YuJ" firstAttribute="bottom" secondItem="pZc-ly-XT3" secondAttribute="bottom" constant="21" id="3G5-nD-bbV"/>
                             <constraint firstItem="LCy-sp-LQ9" firstAttribute="trailing" secondItem="fTS-eI-YuJ" secondAttribute="trailing" id="Amt-Ot-eC9"/>
                             <constraint firstItem="pZc-ly-XT3" firstAttribute="top" secondItem="LCy-sp-LQ9" secondAttribute="bottom" constant="39" id="BSf-va-CQV"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="zc9-FA-cfU" secondAttribute="trailing" constant="15" id="BbU-Yb-qZt"/>
+                            <constraint firstItem="zc9-FA-cfU" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="256" id="C52-Kg-Vi4"/>
+                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="top" secondItem="YAT-ja-EWa" secondAttribute="bottom" constant="8" id="CEs-qP-hoE"/>
                             <constraint firstItem="23U-ET-XZf" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="Ehw-O4-rjd"/>
                             <constraint firstItem="23U-ET-XZf" firstAttribute="top" secondItem="yLP-cR-Jfd" secondAttribute="bottom" constant="20" id="N5N-AT-YT8"/>
                             <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="23U-ET-XZf" secondAttribute="trailing" constant="16" id="Oau-VV-alZ"/>
+                            <constraint firstItem="YAT-ja-EWa" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="SO9-gK-IwE"/>
+                            <constraint firstItem="zsD-eY-4ZN" firstAttribute="top" secondItem="23U-ET-XZf" secondAttribute="bottom" constant="7" id="SPg-pi-5ii"/>
+                            <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="YAT-ja-EWa" secondAttribute="trailing" constant="255" id="TAP-kY-0QR"/>
+                            <constraint firstItem="YAT-ja-EWa" firstAttribute="top" secondItem="23U-ET-XZf" secondAttribute="bottom" constant="7" id="TnQ-vt-UrW"/>
                             <constraint firstItem="yLP-cR-Jfd" firstAttribute="top" secondItem="ctz-Zq-zaX" secondAttribute="bottom" constant="20" id="U2K-Q1-iYZ"/>
                             <constraint firstItem="LCy-sp-LQ9" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" id="W8l-mI-Wx4"/>
                             <constraint firstItem="ctz-Zq-zaX" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="X5b-ca-vKY"/>
                             <constraint firstItem="yLP-cR-Jfd" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="16" id="Z2U-b7-IcW"/>
                             <constraint firstItem="pZc-ly-XT3" firstAttribute="leading" secondItem="fTS-eI-YuJ" secondAttribute="leading" constant="90" id="fQ7-yx-qod"/>
+                            <constraint firstItem="zsD-eY-4ZN" firstAttribute="leading" secondItem="YAT-ja-EWa" secondAttribute="trailing" constant="1" id="h9H-Dy-j9w"/>
+                            <constraint firstItem="zc9-FA-cfU" firstAttribute="leading" secondItem="zsD-eY-4ZN" secondAttribute="trailing" constant="1" id="hwC-ra-8Qe"/>
                             <constraint firstItem="ctz-Zq-zaX" firstAttribute="top" secondItem="fTS-eI-YuJ" secondAttribute="top" constant="22" id="k86-Wf-gVQ"/>
                             <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="ctz-Zq-zaX" secondAttribute="trailing" constant="16" id="mTV-wf-k9d"/>
+                            <constraint firstItem="LCy-sp-LQ9" firstAttribute="top" secondItem="zc9-FA-cfU" secondAttribute="bottom" constant="8" id="moA-7X-weV"/>
                             <constraint firstItem="fTS-eI-YuJ" firstAttribute="trailing" secondItem="pZc-ly-XT3" secondAttribute="trailing" constant="90" id="teI-Vm-cD8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rZF-Ed-hli"/>
                     <connections>
                         <outlet property="btn_addFood" destination="pZc-ly-XT3" id="N3O-fO-rgp"/>
+                        <outlet property="btn_recomWord_1" destination="YAT-ja-EWa" id="N90-wF-L0T"/>
+                        <outlet property="btn_recomWord_2" destination="zsD-eY-4ZN" id="M89-ef-Vmb"/>
+                        <outlet property="btn_recomWord_3" destination="zc9-FA-cfU" id="Su5-2G-5iU"/>
                         <outlet property="foodType_switch" destination="FLj-7r-1pi" id="yua-a4-oZH"/>
                         <outlet property="food_tableView" destination="LCy-sp-LQ9" id="8XI-Mh-2fR"/>
                         <outlet property="food_textView" destination="23U-ET-XZf" id="xwg-gK-XlE"/>

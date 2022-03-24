@@ -29,7 +29,7 @@ class DayCell: UITableViewCell {
     /// Cell genereated in the week view
     func setCell(with weekDay:WeekDay, _ color: UIColor?) {
         self.selectionStyle = .none
-        view_day.cornerRadius(de: 25)
+        view_day.cornerRadius(of: 25)
         view_day.backgroundColor = color
         circleView_FoodType.circle = true
         setFoodLabels(weekDay)

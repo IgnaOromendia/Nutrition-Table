@@ -19,7 +19,7 @@ class ChooseFoodViewModel {
     
     static func setViews(_ views:[UIView]) {
         for view in views {
-            view.cornerRadius(de: 15)
+            view.cornerRadius(of: 15)
             view.shadow = true
         }
     }

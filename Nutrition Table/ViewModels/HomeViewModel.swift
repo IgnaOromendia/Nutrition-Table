@@ -41,7 +41,7 @@ class HomeViewModel {
   
     static func setView(_ views: [UIView]) {
         for (index,view) in views.enumerated() {
-            view.cornerRadius(de: 20)
+            view.cornerRadius(of: 20)
             view.shadow = true
             view.backgroundColor = colors[index]
         }
@@ -115,7 +115,7 @@ class HomeViewModel {
     
     static func setTodayViews(_ views: [UIView], _ circleViews: [String:UIView?], _ labels: [UILabel]) {
         for (index,view) in views.enumerated() {
-            view.cornerRadius(de: 11)
+            view.cornerRadius(of: 11)
             view.backgroundColor = colorViewMeal
             labels[index].textColor = .white
         }
