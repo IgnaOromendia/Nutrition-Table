@@ -35,6 +35,7 @@ class DataManager: Codable {
     /// Get all the food data
     func getFoodData() -> [DayFoodType:[String:Int]] {
         return foodData
+        
     }
     
     /// Top 3 most eaten foods at certain moment
