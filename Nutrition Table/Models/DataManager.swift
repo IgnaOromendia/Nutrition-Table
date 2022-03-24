@@ -62,6 +62,7 @@ class DataManager: Codable {
         return []
     }
     
+    
     private func cleanArr(_ arr: [(name:String,amount: Int)]) -> [Food] {
         var result: [Food] = []
         for item in arr {
