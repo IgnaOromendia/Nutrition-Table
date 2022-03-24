@@ -47,6 +47,7 @@ class AddFoodController: UIViewController, UITextViewDelegate, UITableViewMethdo
         do {
             try currentWeek.addMeal(meal, in: selectedFoodMoment, to: selectedDay.getDate())
             generator2.notificationOccurred(.success)
+            nutritionData.updateFoodData(with: meal.getFoodArray(), at: selectedFoodMoment)
             nutritionData.updateWeek(week: currentWeek)
             stManager.saveData(data: nutritionData)
         } catch AddMealWarning.foodArrayEmpty {

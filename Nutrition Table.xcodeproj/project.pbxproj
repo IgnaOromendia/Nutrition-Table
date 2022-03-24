@@ -57,6 +57,30 @@
 		708FD21727EB94C8004A0344 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21627EB94C8004A0344 /* CalendarController.swift */; };
 		708FD21927EB94E3004A0344 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21827EB94E3004A0344 /* CalendarViewModel.swift */; };
 		708FD21D27EB992B004A0344 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21C27EB992B004A0344 /* DataManager.swift */; };
+		708FD21E27ECCD48004A0344 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21C27EB992B004A0344 /* DataManager.swift */; };
+		708FD21F27ECCE5B004A0344 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704971F4268E563B00F92AC7 /* Meal.swift */; };
+		708FD22027ECCE69004A0344 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BC2682D1FB005C6CF8 /* HomeViewModel.swift */; };
+		708FD22127ECCE6E004A0344 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54168FE267ED5B700493634 /* DayViewModel.swift */; };
+		708FD22227ECCE72004A0344 /* SportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C1F92690B64500A034A7 /* SportsViewModel.swift */; };
+		708FD22327ECCE74004A0344 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21827EB94E3004A0344 /* CalendarViewModel.swift */; };
+		708FD22427ECCE78004A0344 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027B3BE2682D214005C6CF8 /* HomeController.swift */; };
+		708FD22527ECCE7C004A0344 /* ChooseFoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70044F2A26798ADE00226544 /* ChooseFoodController.swift */; };
+		708FD22627ECCE7E004A0344 /* WeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A138267B73C20004B23F /* WeekController.swift */; };
+		708FD22727ECCE84004A0344 /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE9DA6267CC24A0002E2BC /* DayController.swift */; };
+		708FD22827ECCE88004A0344 /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C1626856C0F00947AEE /* ExportController.swift */; };
+		708FD22927ECCE8B004A0344 /* SportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C1F726909D7E00A034A7 /* SportsController.swift */; };
+		708FD22A27ECCE8E004A0344 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21627EB94C8004A0344 /* CalendarController.swift */; };
+		708FD22B27ECCE94004A0344 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
+		708FD22C27ECCE98004A0344 /* PDFManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7001B8E126A6F7BB007A0C11 /* PDFManger.swift */; };
+		708FD22D27ECCE9B004A0344 /* PDFDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7001B8E326A6FAFC007A0C11 /* PDFDrawer.swift */; };
+		708FD22E27ECCEA1004A0344 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C182685713300947AEE /* Alerts.swift */; };
+		708FD22F27ECCEA4004A0344 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5403E268EA7FA001C0279 /* StorageManager.swift */; };
+		708FD23027ECCEAC004A0344 /* sports.json in Resources */ = {isa = PBXBuildFile; fileRef = 7079C1FC2690B97000A034A7 /* sports.json */; };
+		708FD23127ECCF19004A0344 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704971F4268E563B00F92AC7 /* Meal.swift */; };
+		708FD23327ECCF36004A0344 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70345409267A545500322503 /* Animation.swift */; };
+		708FD23427ECCF3C004A0344 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5403E268EA7FA001C0279 /* StorageManager.swift */; };
+		708FD23527ECCF4A004A0344 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70744C182685713300947AEE /* Alerts.swift */; };
+		708FD23627ECCF5E004A0344 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708FD21C27EB992B004A0344 /* DataManager.swift */; };
 		70B5403F268EA7FA001C0279 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5403E268EA7FA001C0279 /* StorageManager.swift */; };
 		70BE9DA7267CC24A0002E2BC /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE9DA6267CC24A0002E2BC /* DayController.swift */; };
 		70C5A139267B73C20004B23F /* WeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5A138267B73C20004B23F /* WeekController.swift */; };
@@ -426,6 +450,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708FD23027ECCEAC004A0344 /* sports.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,17 +508,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				70044F202678D49600226544 /* Contsants.swift in Sources */,
+				708FD22D27ECCE9B004A0344 /* PDFDrawer.swift in Sources */,
+				708FD22827ECCE88004A0344 /* ExportController.swift in Sources */,
+				708FD22A27ECCE8E004A0344 /* CalendarController.swift in Sources */,
 				70044F1C2678D48A00226544 /* Global.swift in Sources */,
+				708FD22227ECCE72004A0344 /* SportsViewModel.swift in Sources */,
+				708FD21F27ECCE5B004A0344 /* Meal.swift in Sources */,
 				701B0682267AFDBE003CACF3 /* AddFoodController.swift in Sources */,
 				70044F3526798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
+				708FD22327ECCE74004A0344 /* CalendarViewModel.swift in Sources */,
+				708FD22927ECCE8B004A0344 /* SportsController.swift in Sources */,
 				70C5A140267BB7CC0004B23F /* DayCell.swift in Sources */,
+				708FD22E27ECCEA1004A0344 /* Alerts.swift in Sources */,
 				70044F3026798B5C00226544 /* Extensions.swift in Sources */,
+				708FD22B27ECCE94004A0344 /* Animation.swift in Sources */,
+				708FD22127ECCE6E004A0344 /* DayViewModel.swift in Sources */,
+				708FD22C27ECCE98004A0344 /* PDFManger.swift in Sources */,
+				708FD22527ECCE7C004A0344 /* ChooseFoodController.swift in Sources */,
 				701B0680267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */,
+				708FD22727ECCE84004A0344 /* DayController.swift in Sources */,
 				70044F102678D3BF00226544 /* Food.swift in Sources */,
 				70C5A146267C196A0004B23F /* Week.swift in Sources */,
 				70044EF22678D0E000226544 /* Nutrition_TableTests.swift in Sources */,
 				701B067E267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
+				708FD21E27ECCD48004A0344 /* DataManager.swift in Sources */,
+				708FD22027ECCE69004A0344 /* HomeViewModel.swift in Sources */,
+				708FD22427ECCE78004A0344 /* HomeController.swift in Sources */,
+				708FD22F27ECCEA4004A0344 /* StorageManager.swift in Sources */,
 				70044F142678D3FC00226544 /* Day.swift in Sources */,
+				708FD22627ECCE7E004A0344 /* WeekController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,15 +546,20 @@
 			files = (
 				70044F212678D49600226544 /* Contsants.swift in Sources */,
 				70044F1D2678D48A00226544 /* Global.swift in Sources */,
+				708FD23527ECCF4A004A0344 /* Alerts.swift in Sources */,
+				708FD23127ECCF19004A0344 /* Meal.swift in Sources */,
 				701B0683267AFDBF003CACF3 /* AddFoodController.swift in Sources */,
 				70044F3626798DEC00226544 /* ChooseFoodViewModel.swift in Sources */,
 				70C5A141267BB7CD0004B23F /* DayCell.swift in Sources */,
 				70044F3126798B5C00226544 /* Extensions.swift in Sources */,
 				701B0681267AFDB9003CACF3 /* AddFoodViewModel.swift in Sources */,
+				708FD23627ECCF5E004A0344 /* DataManager.swift in Sources */,
 				70044F112678D3BF00226544 /* Food.swift in Sources */,
 				70C5A147267C196A0004B23F /* Week.swift in Sources */,
 				70044EFD2678D0E000226544 /* Nutrition_TableUITests.swift in Sources */,
 				701B067F267ACE32003CACF3 /* AddFoodCell.swift in Sources */,
+				708FD23427ECCF3C004A0344 /* StorageManager.swift in Sources */,
+				708FD23327ECCF36004A0344 /* Animation.swift in Sources */,
 				70044F152678D3FC00226544 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

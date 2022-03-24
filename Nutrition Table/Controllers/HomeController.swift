@@ -101,7 +101,6 @@ class HomeController: UIViewController {
         HomeViewModel.setAdjustableFontSize([lbl_titleWeek, lbl_titleAddRecommended])
         nutritionData = stManager.readData()
         currentWeek = nutritionData.currentWeek
-        print(nutritionData.currentWeek)
     }
     
     override func viewDidAppear(_ animated: Bool) {

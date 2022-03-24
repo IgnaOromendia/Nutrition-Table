@@ -287,6 +287,19 @@ extension Array where Element == UIView {
         }
         return nil
     }
-    
 }
+
+//extension Array where Element == Food {
+//
+//    /// Get the complement of the intersection between two arrays
+//    func differences(with arr:[Food]) -> [Food] {
+//        var result = [Food]()
+//        for item in self {
+//            if !arr.contains(item) {
+//                result.append(item)
+//            }
+//        }
+//        return result
+//    }
+//}
 

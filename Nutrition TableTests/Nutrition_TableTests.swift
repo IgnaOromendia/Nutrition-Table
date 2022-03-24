@@ -40,74 +40,63 @@ class Nutrition_TableTests: XCTestCase {
         XCTAssertEqual(errorExcpected, error)
     }
     
-    // MARK: - MODEL DAY TESTS
+    // MARK: - DATA MANAGER TESTS
     
-    func test_getMeal_validCase() {
-        let foodExcpected = Food(name: "Carne", type: .protein)
-        let mealExcpected = Meal(foods: [foodExcpected], drink: nil)
-        let day = Day(dayMeals: ["Lunch":mealExcpected], date: Date())
-        let meal = day.getMeal(tipo: .lunch)
+    func test_updateFoodData() throws {
+        let excpected: [DayFoodType:[String:Int]] = [.breakfast:["Cafe":3],.lunch:["Carne":1]]
+        let foodData: [DayFoodType:[String:Int]] = [.breakfast:["Cafe":2]]
+        let foodBreakfast = [Food(name: "Cafe")]
+        let foodLunch = [Food(name: "Carne")]
         
-        XCTAssertEqual(mealExcpected, meal)
+        let dataManager = DataManager()
+        
+        dataManager.setFoodData(data: foodData)
+        
+        dataManager.updateFoodData(with: foodBreakfast, at: .breakfast)
+        dataManager.updateFoodData(with: foodLunch, at: .lunch)
+        
+        XCTAssertEqual(dataManager.getFoodData(), excpected)
     }
     
-    func test_getNilFood() {
-        let day = Day()
-        let meal = day.getMeal(tipo: .lunch)
-        let meals = day.getAllMealsWithoutNil()
-        
-        XCTAssertNil(meal)
-        XCTAssertNotNil(meals)
+    func test_topMostEatenSimpleCase() throws {
+        let excpected: [Food] = [Food(name: "A")]
+        let foodData: [DayFoodType:[String:Int]] = [.lunch:["A":10]]
+        let dataManager = DataManager()
+        dataManager.setFoodData(data: foodData)
+        XCTAssertEqual(dataManager.topMostEaten(at: .lunch), excpected)
     }
     
-    func test_addMeal_valid_case() {
-        let food = Food(name: "Carne", type: .protein)
-        let meal = Meal(foods: [food], drink: nil)
-        let day = Day()
-        let excpectedDay = Day(dayMeals: ["Lunch": meal], date: Date())
-        
-        XCTAssertNoThrow(try day.addMeal(meal, to: .lunch))
-        XCTAssertEqual(excpectedDay.getMeal(tipo: .lunch), day.getMeal(tipo: .lunch))
+    func test_topMostEatenJustTwoCase() throws {
+        let excpected: [Food] = [Food(name: "A"),Food(name: "B")]
+        let foodData: [DayFoodType:[String:Int]] = [.lunch:["A":10,"B":4]]
+        let dataManager = DataManager()
+        dataManager.setFoodData(data: foodData)
+        XCTAssertEqual(dataManager.topMostEaten(at: .lunch), excpected)
     }
     
-    func test_addFood_already_contained() {
-        var error: AddMealWarning?
-        let excpectedError = AddMealWarning.alreadyContainsMeal
-        let food = Food(name: "Carne", type: .protein)
-        let meal = Meal(foods: [food], drink: nil)
-        let day = Day(dayMeals: ["Lunch": meal], date: Date())
-        
-        XCTAssertThrowsError(try day.addMeal(meal, to: .lunch)) { thrownError in
-            error = thrownError as? AddMealWarning
-        }
-        
-        XCTAssertEqual(error, excpectedError)
+    func test_topMostEatenExactCase() throws {
+        let excpected: [Food] = [Food(name: "A"),Food(name: "B"),Food(name: "C")]
+        let foodData: [DayFoodType:[String:Int]] = [.lunch:["A":10,"C":1,"B":4]]
+        let dataManager = DataManager()
+        dataManager.setFoodData(data: foodData)
+        XCTAssertEqual(dataManager.topMostEaten(at: .lunch), excpected)
     }
     
-    func test_add_food_empty_meal() {
-        var error: AddMealWarning?
-        let excpectedError = AddMealWarning.foodArrayEmpty
-        let weekT = Week()
-        
-        XCTAssertThrowsError(try weekT.addMealToday(Meal(), in: .lunch)) { thrownError in
-            error = thrownError as? AddMealWarning
-        }
-        
-        XCTAssertEqual(error, excpectedError)
+    func test_topMostEatenCompleteCase() throws {
+        let excpected: [Food] = [Food(name: "A"),Food(name: "B"),Food(name: "C")]
+        let foodData: [DayFoodType:[String:Int]] = [.lunch:["A":10,"C":3,"B":7,"D":1]]
+        let dataManager = DataManager()
+        dataManager.setFoodData(data: foodData)
+        XCTAssertEqual(dataManager.topMostEaten(at: .lunch), excpected)
     }
     
-    // MARK: - DAY VIEW MODEL
-    
-    func test_delete_food_valid_case() {
-        let food = Food(name: "Carne", type: .protein)
-        let meal = Meal(foods: [food], drink: nil)
-        let day = Day(dayMeals: ["Lunch": meal], date: Date())
-        let excpectedDay = Day()
-        
-        day.getMeal(tipo: .lunch)?.deleteFood(food)
-        
-        XCTAssertEqual(day, excpectedDay)
-        
+    func test_topMostEatenDrawCase() throws {
+        let excpected: [Food] = [Food(name: "A"),Food(name: "B")]
+        let foodData: [DayFoodType:[String:Int]] = [.lunch:["A":10,"B":10]]
+        let dataManager = DataManager()
+        dataManager.setFoodData(data: foodData)
+        XCTAssertTrue(dataManager.topMostEaten(at: .lunch).contains(excpected[0]) &&
+                      dataManager.topMostEaten(at: .lunch).contains(excpected[1]))
     }
     
 }

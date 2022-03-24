@@ -18,7 +18,7 @@ class Food: CustomStringConvertible, Equatable, Comparable, Codable {
         return "\(self.name)"
     }
     
-    init(name: String, type: FoodType?) {
+    init(name: String, type: FoodType? = nil) {
         self.name = name
         self.type = type
     }

@@ -137,4 +137,6 @@ class Week: Codable {
         guard let lastDay = self.days.last else {return}
         self.id = lastDay.getDate().storageDate + "-NT"
     }
+    
+    
 }

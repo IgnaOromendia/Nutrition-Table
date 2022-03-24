@@ -14,7 +14,7 @@ enum FoodType: Int, Codable {
     case vegetables = 3
 }
 
-enum DayFoodType: String {
+enum DayFoodType: String, Codable {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
     case snack1 = "Snack1"
