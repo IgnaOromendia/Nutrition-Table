@@ -1,2 +1,2 @@
 # Nutrition-Table
-This is an iOS app that I made before learning the most popular data structures and algorithms. So you may find some things strange :)
+I made this is an iOS app before learning the most popular data structures and algorithms. So you may find some things strange :)
